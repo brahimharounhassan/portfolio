@@ -1,75 +1,119 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio | BRAHIM Haroun Hassan</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-100 text-gray-800 font-sans">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="icon.jpg" type="image/x-icon">
+    <title>Portfolio | Brahim Haroun Hassan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "sans-serif"]
+            }
+          }
+        }
+      };
+    </script>
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/light/style.css">
+  </head>
 
-  <header class="bg-white shadow-md sticky top-0 z-50">
-    <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
-      <h1 class="text-2xl font-bold text-blue-600">BRAHIM Haroun Hassan</h1>
-      <nav class="space-x-4">
-        <a href="#projects" class="hover:text-blue-500">Projets</a>
-        <a href="#cv" class="hover:text-blue-500">CV</a>
-        <a href="#contact" class="hover:text-blue-500">Contact</a>
-      </nav>
-    </div>
-  </header>
+  <body class="bg-white text-gray-800 font-sans">
 
-  <section class="py-20 text-center bg-gradient-to-b from-blue-100 to-white">
-    <div class="max-w-3xl mx-auto px-4">
-      <h2 class="text-4xl font-bold mb-4">Étudiant en IA & Machine Learning</h2>
-      <p class="text-lg text-gray-600">
-        Master à Aix-Marseille Université | Passionné par le Deep Learning, le NLP et l'impact de l’IA sur le monde réel.
+
+    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-gray-200 shadow-sm">
+      <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+        <h1 class="text-2xl font-bold text-blue-600 tracking-tight">Mon portfolio</h1>
+        <nav class="space-x-6 text-sm">
+          <a href="#about" class="hover:text-blue-600">À propos</a>
+          <a href="#projects" class="hover:text-blue-600">Projets</a>
+          <a href="#cv" class="hover:text-blue-600">CV</a>
+          <a href="#contact" class="hover:text-blue-600">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <section class="py-24 bg-gradient-to-b from-blue-50 to-white text-center">
+      <img src="icon.jpg" alt="Photo de Brahim Haroun Hassan" class="w-32 h-32 mx-auto rounded-full shadow-md mb-6" />
+      <div class="max-w-3xl mx-auto px-4">
+        
+        <h2 class="text-5xl font-extrabold mb-6 leading-tight">Salut, je suis Haroun Hassan </h2>
+        <p class="text-lg text-gray-600">Étudiant en Master Intelligence Artificielle & Machine Learning (Aix-Marseille Université)</p>
+        <p class="mt-2 text-gray-500">Passionné par le Deep Learning, NLP, et l’impact réel de l’IA dans la société.</p>
+      </div>
+    </section>
+
+    <section id="about" class="max-w-5xl mx-auto px-4 py-16">
+      <h3 class="text-3xl font-bold mb-6 text-center">À propos</h3>
+      <img src="photo.jpg" alt="Photo de Haroun Hassan BRAHIM" class="w-36 h-36 rounded-full shadow-md mb-6 object-cover">
+      <p class="text-center text-gray-700 leading-relaxed max-w-3xl mx-auto">
+        Je m'appelle <strong>BRAHIM Haroun Hassan</strong>, ingénieur en intelligence artificielle.<br><br>
+        Mon parcours est orienté vers l'application concrète de l'IA dans le domaine de la santé, en particulier la neuroimagerie. J’ai obtenu un double diplôme en Intelligence Artificielle et Apprentissage Automatique à <strong>Aix-Marseille Université</strong>, en France
+        et en ingénierie des technologies numériques pour la santé mentale et physique à l’<strong>Université de Sfax</strong>strong>, en Tunisie.<br><br>
+        J’ai eu l’opportunité de travailler dans des environnements de recherche stimulants, notamment au sein du <strong>laboratoire MIRACL</strong> à Sfax et du <strong>Centre de Recherche en Psychologie et Neurosciences</strong> à Marseille. 
+        Mes travaux se sont focalisés sur le traitement de la parole chez le nourisson et l’analyse  de signaux cérébraux (EEG, fNIRS) : le cas de la détection du déclin cognitif léger (MCI), et le développement de modèles deep learning (Transformers) pour la classification des signaux.<br><br>
+        J’ai récemment publié un article à la conférence <strong>EUSIPCO 2023</strong>, intitulé <em>"New MCI Detection Method Based on Transformer and EEG Data"</em>, disponible sur <a href="https://ieeexplore.ieee.org/document/10290024" target="_blank" class="text-blue-600 hover:underline">IEEE Xplore</a>.<br><br>
+        Mes centres d’intérêt incluent : l’IA médicale, le traitement du signal, le machine learning, le deep learning, et la reproductibilité scientifique.
       </p>
-    </div>
-  </section>
+    </section>
 
-  <section id="projects" class="max-w-5xl mx-auto px-4 py-16">
-    <h3 class="text-3xl font-bold text-center mb-10">Projets</h3>
-    
-    <div class="grid md:grid-cols-2 gap-8">
-      <div class="bg-white shadow-lg rounded-xl p-6 hover:shadow-xl transition">
-        <h4 class="text-xl font-semibold mb-2">Prédiction de la déficience cognitive legère</h4>
-        <p class="text-gray-600 mb-3">Classification des patients présentant des troubles cognitifs légers parmi des sujets sains sur la base de données multivariées.
-      L’objectif est de concevoir une architecture Deep Learning efficace, capable de faire une prédiction précise. 
-      Trois classes sont considérées : MCI sain, non amnésique et MCI amnésique, utilisant des données d'électroencéphalographie (EEG) et de spectroscopie fonctionnelle proche infrarouge (fNIRS).
-      Modèle : Transformers personnalisé.</p>
-        <a href="https://github.com/brahimharounhassan/mci" target="_blank" class="text-blue-600 hover:underline">Voir sur GitHub</a>
+
+    <section id="projects" class="max-w-6xl mx-auto px-4 py-16">
+      <h3 class="text-3xl font-bold text-center mb-10">Projets</h3>
+      <div class="grid md:grid-cols-2 gap-10">
+        <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-md hover:shadow-lg transition">
+          <h4 class="text-xl font-semibold mb-2">Prédiction de la déficience cognitive legère</h4>
+          <p class="text-gray-600 mb-3">Classification des patients présentant des troubles cognitifs légers parmi des sujets sains sur la base de données multivariées.
+            L’objectif est de concevoir une architecture Deep Learning efficace, capable de faire une prédiction précise. 
+            Trois classes sont considérées : MCI sain, non amnésique et MCI amnésique, utilisant des données d'électroencéphalographie (EEG) et de spectroscopie fonctionnelle proche infrarouge (fNIRS).
+            Modèle : Transformers personnalisé.</p>
+          <a href="https://github.com/brahimharounhassan/mci" target="_blank" class="text-blue-600 hover:underline text-sm">Voir sur GitHub →</a>
+        </div>
+        <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-md hover:shadow-lg transition">
+          <h4 class="text-xl font-semibold mb-2">Traitement de la parole</h4>
+          <p class="text-gray-600 mb-3">Ce projet s’inscrit dans une démarche interdisciplinaire alliant informatique, neurosciences et sciences cognitives.Il vise à explorer comment les nourrissons perçoivent les sons élémentaires de la parole (/ba/ et /da/) et à identifier 
+            les mécanismes neuronaux précoces impliqués dans la perception catégorielle : autrement dit, la capacité à distinguer des sons appartenant à des catégories distinctes. 
+            Modèle : Régression Logistique.</p>
+          <a href="https://github.com/brahimharounhassan/ter_project" target="_blank" class="text-blue-600 hover:underline text-sm">Voir sur GitHub →</a>
+        </div>
       </div>
+    </section>
 
-      <div class="bg-white shadow-lg rounded-xl p-6 hover:shadow-xl transition">
-        <h4 class="text-xl font-semibold mb-2">Traitement de la parole</h4>
-        <p class="text-gray-600 mb-3">Ce projet s’inscrit dans une démarche interdisciplinaire alliant informatique, neurosciences et sciences cognitives.
-      Il vise à explorer comment les nourrissons perçoivent les sons élémentaires de la parole (/ba/ et /da/) et à identifier 
-      les mécanismes neuronaux précoces impliqués dans la perception catégorielle : autrement dit, la capacité à distinguer des sons appartenant à des catégories distinctes. 
-      Modèle : Régression Logistique.</p>
-        <a href="https://github.com/brahimharounhassan/ter_project" target="_blank" class="text-blue-600 hover:underline">Voir sur GitHub</a>
-      </div>
-    </div>
-  </section>
+    <section id="cv" class="bg-gray-50 py-16 text-center">
+      <h3 class="text-3xl font-bold mb-6">Mon CV</h3>
+      <a href="cv.pdf" target="_blank"
+        class="inline-block bg-blue-600 text-white px-6 py-3 rounded-full shadow hover:bg-blue-700 transition">
+        Consulter le CV (PDF)
+      </a>
+    </section>
 
-  <section id="cv" class="bg-white py-16 text-center">
-    <h3 class="text-3xl font-bold mb-6">Mon CV</h3>
-    <a href="cv.pdf" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-full shadow hover:bg-blue-700 transition" target="_blank">
-      Consulter le CV (PDF)
-    </a>
-  </section>
+    <section id="publications" class="py-16 text-center bg-gray-50">
+      <h3 class="text-3xl font-bold mb-6">Publications</h3>
+      <p class="text-gray-700 mb-2">
+        IEEE Xplore : <a href="https://ieeexplore.ieee.org/document/10290024" class="text-blue-600 hover:underline" target="_blank">Lire l’article</a>
+      </p>
+      <p class="text-gray-700">ResearchGate : 
+        <a href="https://www.researchgate.net/publication/TON-ID" class="text-blue-600 hover:underline" target="_blank">Voir sur ResearchGate</a>
+      </p>
+    </section>
 
-  <section id="contact" class="py-16 bg-gray-100 text-center">
-    <h3 class="text-3xl font-bold mb-4">Contact</h3>
-    <p class="text-gray-700 mb-2">Email : <a href="mailto:brahimharoun57@yahoo.fr" class="text-blue-600 hover:underline">brahimharoun57@yahoo.fr</a></p>
-    <p class="text-gray-700 mb-2">LinkedIn : <a href="https://linkedin.com/in/brahimharounhassan" target="_blank" class="text-blue-600 hover:underline">brahimharounhassan</a></p>
-    <p class="text-gray-700">GitHub : <a href="https://github.com/brahimharounhassan" target="_blank" class="text-blue-600 hover:underline">@brahimharounhassan</a></p>
-  </section>
 
-  <footer class="bg-white text-center py-6 mt-10 border-t">
-    <p class="text-gray-500 text-sm">© 2025 BRAHIM Haroun Hassan - Tous droits réservés</p>
-  </footer>
+    <section id="contact" class="py-16 text-center bg-white">
+      <h3 class="text-3xl font-bold mb-6">Contact</h3>
+      <p class="text-gray-700 mb-2">Email : <a href="mailto:brahimharoun57@yahoo.fr" class="text-blue-600 hover:underline">brahimharoun57@yahoo.fr</a></p>
+      <p class="text-gray-700 mb-2">LinkedIn : <a href="https://linkedin.com/in/brahimharounhassan" class="text-blue-600 hover:underline" target="_blank">@brahimharounhassan</a></p>
+      <p class="text-gray-700">GitHub : <a href="https://github.com/brahimharounhassan" class="text-blue-600 hover:underline" target="_blank">@brahimharounhassan</a></p>
+      <p class="text-gray-700 mb-2">Twitter (X) :  
+        <a href="https://twitter.com/elbramosJr" target="_blank" class="text-blue-600 hover:underline">@elbramosJr</a>
+      </p>
 
-</body>
+    </section>
+
+    <footer class="text-center text-sm text-gray-500 py-6 border-t">
+      © 2025 BRAHIM Haroun Hassan - Tous droits réservés
+    </footer>
+
+  </body>
 </html>
-
