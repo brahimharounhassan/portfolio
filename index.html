@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <link rel="icon" href="icon.jpg" type="image/x-icon">
     <title>Portfolio | Haroun Hassan BRAHIM</title>
     
-    <!-- Préchargement des ressources critiques -->
+    <!-- Préchargement optimisé -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" as="style">
     
-    <!-- Configuration Tailwind optimisée -->
+    <!-- Configuration Tailwind ultra-moderne -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -19,17 +19,40 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ["Inter", "sans-serif"]
+                        sans: ["Inter", "system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "sans-serif"]
+                    },
+                    screens: {
+                        'xs': '475px',
+                        'sm': '640px',
+                        'md': '768px',
+                        'lg': '1024px',
+                        'xl': '1280px',
+                        '2xl': '1536px',
+                        '3xl': '1920px',
+                        'mobile-s': '320px',
+                        'mobile-m': '375px',
+                        'mobile-l': '425px',
+                        'tablet': '768px',
+                        'laptop': '1024px',
+                        'laptop-l': '1440px',
+                        'desktop': '2560px'
                     },
                     animation: {
-                        'fade-in': 'fadeIn 0.8s ease-out',
-                        'slide-up': 'slideUp 0.8s ease-out',
-                        'bounce-slow': 'bounce 3s infinite',
+                        'fade-in': 'fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
+                        'slide-up': 'slideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
+                        'slide-down': 'slideDown 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                        'slide-right': 'slideRight 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
+                        'slide-left': 'slideLeft 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
+                        'scale-in': 'scaleIn 0.5s cubic-bezier(0.4, 0, 0.2, 1)',
+                        'bounce-gentle': 'bounceGentle 2s ease-in-out infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
                         'typewriter': 'typewriter 4s steps(40) 1s forwards',
                         'blink': 'blink 1s infinite',
-                        'slide-down': 'slideDown 0.3s ease-out',
-                        'slide-up-menu': 'slideUpMenu 0.3s ease-out',
-                        'progress-fill': 'progressFill 2s ease-out forwards'
+                        'progress-fill': 'progressFill 2s ease-out forwards',
+                        'gradient-shift': 'gradientShift 3s ease-in-out infinite',
+                        'blur-in': 'blurIn 0.8s ease-out',
+                        'rotate-in': 'rotateIn 0.6s ease-out'
                     },
                     keyframes: {
                         fadeIn: {
@@ -37,16 +60,37 @@
                             '100%': { opacity: '1' }
                         },
                         slideUp: {
-                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '0%': { opacity: '0', transform: 'translateY(40px)' },
                             '100%': { opacity: '1', transform: 'translateY(0)' }
                         },
                         slideDown: {
-                            '0%': { opacity: '0', transform: 'translateY(-10px)' },
+                            '0%': { opacity: '0', transform: 'translateY(-20px)' },
                             '100%': { opacity: '1', transform: 'translateY(0)' }
                         },
-                        slideUpMenu: {
-                            '0%': { opacity: '0', transform: 'translateY(10px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        slideRight: {
+                            '0%': { opacity: '0', transform: 'translateX(-40px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' }
+                        },
+                        slideLeft: {
+                            '0%': { opacity: '0', transform: 'translateX(40px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' }
+                        },
+                        scaleIn: {
+                            '0%': { opacity: '0', transform: 'scale(0.9)' },
+                            '100%': { opacity: '1', transform: 'scale(1)' }
+                        },
+                        bounceGentle: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px) rotate(0deg)' },
+                            '33%': { transform: 'translateY(-10px) rotate(1deg)' },
+                            '66%': { transform: 'translateY(5px) rotate(-1deg)' }
+                        },
+                        glow: {
+                            '0%': { boxShadow: '0 0 20px rgba(59, 130, 246, 0.5)' },
+                            '100%': { boxShadow: '0 0 40px rgba(139, 92, 246, 0.8)' }
                         },
                         typewriter: {
                             '0%': { width: '0' },
@@ -59,7 +103,32 @@
                         progressFill: {
                             '0%': { width: '0%' },
                             '100%': { width: 'var(--progress-width)' }
+                        },
+                        gradientShift: {
+                            '0%, 100%': { backgroundPosition: '0% 50%' },
+                            '50%': { backgroundPosition: '100% 50%' }
+                        },
+                        blurIn: {
+                            '0%': { filter: 'blur(10px)', opacity: '0' },
+                            '100%': { filter: 'blur(0px)', opacity: '1' }
+                        },
+                        rotateIn: {
+                            '0%': { transform: 'rotate(-10deg) scale(0.9)', opacity: '0' },
+                            '100%': { transform: 'rotate(0deg) scale(1)', opacity: '1' }
                         }
+                    },
+                    backdropBlur: {
+                        'xs': '2px',
+                        'ultra': '40px'
+                    },
+                    spacing: {
+                        '18': '4.5rem',
+                        '88': '22rem',
+                        '128': '32rem'
+                    },
+                    borderRadius: {
+                        '4xl': '2rem',
+                        '5xl': '2.5rem'
                     }
                 }
             }
@@ -70,711 +139,299 @@
     <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/light/style.css">
     <link rel="stylesheet" href="styles.css">
     
-    <!-- Métadonnées pour l'accessibilité et le SEO -->
+    <!-- Métadonnées optimisées -->
     <meta name="description" content="Portfolio de Haroun Hassan BRAHIM - Ingénieur en Intelligence Artificielle spécialisé en Deep Learning et Neurosciences">
-    <meta name="keywords" content="Intelligence Artificielle, Deep Learning, Neurosciences, EEG, Portfolio">
+    <meta name="keywords" content="Intelligence Artificielle, Deep Learning, Neurosciences, EEG, Portfolio, Machine Learning">
     <meta name="author" content="Haroun Hassan BRAHIM">
+    <meta name="robots" content="index, follow">
     
-    <!-- Open Graph pour les réseaux sociaux -->
+    <!-- Open Graph -->
     <meta property="og:title" content="Portfolio | Haroun Hassan BRAHIM">
     <meta property="og:description" content="Ingénieur en Intelligence Artificielle spécialisé en Deep Learning et Neurosciences">
     <meta property="og:type" content="website">
+    <meta property="og:image" content="photo.jpg">
     
-    <!-- Support pour les thèmes système -->
+    <!-- Support thèmes et PWA -->
     <meta name="color-scheme" content="light dark">
     <meta name="theme-color" content="#3b82f6" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#1e293b" media="(prefers-color-scheme: dark)">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
 </head>
 
-<body class="bg-gradient-to-br from-slate-50 to-blue-50 dark:from-gray-900 dark:to-slate-800 text-gray-800 dark:text-gray-100 font-sans overflow-x-hidden transition-colors duration-300">
-    <!-- Barre de progression -->
-    <div class="progress-bar" role="progressbar" aria-label="Progression de la lecture"></div>
+<body class="bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-gray-900 dark:via-slate-800 dark:to-gray-900 text-gray-800 dark:text-gray-100 font-sans overflow-x-hidden transition-all duration-500 ease-in-out">
+    <!-- Barre de progression ultra-moderne -->
+    <div class="progress-bar fixed top-0 left-0 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 z-50 transition-all duration-300" style="width: 0%"></div>
     
-    <!-- Navigation principale -->
-    <nav class="nav-modern" role="navigation" aria-label="Navigation principale">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Mon Portfolio
-            </h1>
-            <div class="hidden md:flex items-center space-x-6">
-                <a href="#about" class="nav-link" aria-label="Aller à la section À propos">À propos</a>
-                <a href="#experience" class="nav-link" aria-label="Aller à la section Expérience">Expérience</a>
-                <a href="#education" class="nav-link" aria-label="Aller à la section Formation">Formation</a>
-                <a href="#projects" class="nav-link" aria-label="Aller à la section Projets">Projets</a>
-                <a href="#publications" class="nav-link" aria-label="Aller à la section Publications">Publications</a>
-                <a href="#skills" class="nav-link" aria-label="Aller à la section Compétences">Compétences</a>
-                <a href="#cv" class="nav-link" aria-label="Aller à la section CV">CV</a>
-                <a href="#contact" class="nav-link" aria-label="Aller à la section Contact">Contact</a>
-                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Basculer le thème sombre/clair">
-                    <i class="ph-moon dark:ph-sun" aria-hidden="true"></i>
-                </button>
+    <!-- Navigation glassmorphism -->
+    <nav class="nav-modern fixed top-0 left-0 right-0 z-40 transition-all duration-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 lg:h-20">
+                <!-- Logo avec animation -->
+                <div class="flex items-center">
+                    <h1 class="text-xl sm:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-gradient-shift bg-300%">
+                        Mon Portfolio
+                    </h1>
+                </div>
+                
+                <!-- Menu desktop -->
+                <div class="hidden lg:flex items-center space-x-1 xl:space-x-2">
+                    <a href="#about" class="nav-link">À propos</a>
+                    <a href="#experience" class="nav-link">Expérience</a>
+                    <a href="#education" class="nav-link">Formation</a>
+                    <a href="#projects" class="nav-link">Projets</a>
+                    <a href="#publications" class="nav-link">Publications</a>
+                    <a href="#skills" class="nav-link">Compétences</a>
+                    <a href="#cv" class="nav-link">CV</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                    
+                    <!-- Toggle thème moderne -->
+                    <button class="theme-toggle ml-4" onclick="toggleTheme()" aria-label="Basculer le thème">
+                        <div class="relative w-12 h-6 bg-gray-300 dark:bg-gray-600 rounded-full transition-colors duration-300">
+                            <div class="absolute top-1 left-1 w-4 h-4 bg-white rounded-full shadow-md transform transition-transform duration-300 dark:translate-x-6">
+                                <i class="ph-moon absolute inset-0 text-xs flex items-center justify-center dark:ph-sun transition-opacity duration-300"></i>
+                            </div>
+                        </div>
+                    </button>
+                </div>
+                
+                <!-- Menu mobile button -->
+                <div class="lg:hidden flex items-center space-x-4">
+                    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Basculer le thème">
+                        <div class="relative w-10 h-5 bg-gray-300 dark:bg-gray-600 rounded-full transition-colors duration-300">
+                            <div class="absolute top-0.5 left-0.5 w-4 h-4 bg-white rounded-full shadow-md transform transition-transform duration-300 dark:translate-x-5">
+                                <i class="ph-moon absolute inset-0 text-xs flex items-center justify-center dark:ph-sun"></i>
+                            </div>
+                        </div>
+                    </button>
+                    
+                    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Menu mobile">
+                        <div class="burger-icon">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </button>
+                </div>
             </div>
-            <!-- Menu mobile -->
-            <button class="md:hidden mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Ouvrir le menu mobile">
-                <i class="ph-list text-2xl" aria-hidden="true"></i>
-            </button>
         </div>
         
-        <!-- Menu mobile -->
-        <div id="mobile-menu" class="mobile-menu hidden md:hidden">
-            <div class="px-6 py-4 space-y-2">
-                <a href="#about" class="mobile-nav-link" onclick="closeMobileMenu()">À propos</a>
-                <a href="#experience" class="mobile-nav-link" onclick="closeMobileMenu()">Expérience</a>
-                <a href="#education" class="mobile-nav-link" onclick="closeMobileMenu()">Formation</a>
-                <a href="#projects" class="mobile-nav-link" onclick="closeMobileMenu()">Projets</a>
-                <a href="#publications" class="mobile-nav-link" onclick="closeMobileMenu()">Publications</a>
-                <a href="#skills" class="mobile-nav-link" onclick="closeMobileMenu()">Compétences</a>
-                <a href="#cv" class="mobile-nav-link" onclick="closeMobileMenu()">CV</a>
-                <a href="#contact" class="mobile-nav-link" onclick="closeMobileMenu()">Contact</a>
+        <!-- Menu mobile amélioré -->
+        <div id="mobile-menu" class="mobile-menu">
+            <div class="mobile-menu-content">
+                <div class="mobile-menu-header">
+                    <h2 class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Navigation</h2>
+                </div>
+                <div class="mobile-menu-links">
+                    <a href="#about" class="mobile-nav-link" onclick="closeMobileMenu()">
+                        <i class="ph-user"></i>
+                        <span>À propos</span>
+                    </a>
+                    <a href="#experience" class="mobile-nav-link" onclick="closeMobileMenu()">
+                        <i class="ph-briefcase"></i>
+                        <span>Expérience</span>
+                    </a>
+                    <a href="#education" class="mobile-nav-link" onclick="closeMobileMenu()">
+                        <i class="ph-graduation-cap"></i>
+                        <span>Formation</span>
+                    </a>
+                    <a href="#projects" class="mobile-nav-link" onclick="closeMobileMenu()">
+                        <i class="ph-folder"></i>
+                        <span>Projets</span>
+                    </a>
+                    <a href="#publications" class="mobile-nav-link" onclick="closeMobileMenu()">
+                        <i class="ph-file-text"></i>
+                        <span>Publications</span>
+                    </a>
+                    <a href="#skills" class="mobile-nav-link" onclick="closeMobileMenu()">
+                        <i class="ph-code"></i>
+                        <span>Compétences</span>
+                    </a>
+                    <a href="#cv" class="mobile-nav-link" onclick="closeMobileMenu()">
+                        <i class="ph-download"></i>
+                        <span>CV</span>
+                    </a>
+                    <a href="#contact" class="mobile-nav-link" onclick="closeMobileMenu()">
+                        <i class="ph-envelope"></i>
+                        <span>Contact</span>
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
 
-    <!-- Section Héro -->
-    <section class="hero-section min-h-screen flex items-center relative" role="banner">
-        <div class="particles absolute inset-0 pointer-events-none" aria-hidden="true"></div>
-        <div class="container relative z-10">
-            <div class="hero-content grid lg:grid-cols-2 gap-12 items-center">
-                <div class="hero-text">
-                    <h2 class="text-4xl md:text-6xl font-bold mb-6">
-                        Salut, je suis <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Haroun</span>
-                    </h2>
-                    <div class="typewriter-container mb-6">
-                        <span class="typewriter text-xl md:text-2xl text-gray-600 dark:text-gray-300">Ingénieur en Intelligence Artificielle</span>
+    <!-- Section Hero ultra-moderne -->
+    <section class="hero-section relative min-h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background animé -->
+        <div class="absolute inset-0">
+            <div class="hero-bg"></div>
+            <div class="particles-container"></div>
+        </div>
+        
+        <!-- Contenu principal -->
+        <div class="container relative z-10 px-4 sm:px-6 lg:px-8">
+            <div class="hero-content grid lg:grid-cols-2 gap-8 lg:gap-16 items-center min-h-[80vh]">
+                <!-- Texte principal -->
+                <div class="hero-text space-y-6 lg:space-y-8 text-center lg:text-left order-2 lg:order-1">
+                    <div class="space-y-4">
+                        <div class="hero-greeting text-lg sm:text-xl text-blue-600 dark:text-blue-400 font-medium animate-fade-in">
+                            👋 Bienvenue dans mon Portfolio, je suis
+                        </div>
+                        <h1 class="hero-name text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-tight animate-slide-up">
+                            <span class="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent bg-300% animate-gradient-shift">
+                               Brahim Haroun Hassan
+                            </span>
+                        </h1>
+                        <div class="typewriter-container">
+                            <h2 class="typewriter text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-700 dark:text-gray-300">
+                                Ingénieur en Intelligence Artificielle
+                            </h2>
+                        </div>
                     </div>
-                    <p class="hero-subtitle text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-                        Spécialisé en Deep Learning et Neurosciences computationnelles, 
-                        je développe des solutions IA innovantes pour analyser les signaux cérébraux.
+                    
+                    <p class="hero-subtitle text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl mx-auto lg:mx-0 animate-fade-in animation-delay-300">
+                        Spécialisé en <span class="text-blue-600 dark:text-blue-400 font-semibold">Machine Learning et Deep Learning </span> 🧠✨
                     </p>
-                    <div class="hero-buttons flex flex-col sm:flex-row gap-4">
-                        <a href="#projects" class="btn-primary inline-flex items-center justify-center" aria-describedby="projects-desc">
-                            Découvrir mes projets
-                            <i class="ph-arrow-right ml-2" aria-hidden="true"></i>
+                    
+                    <!-- Statistiques -->
+                    <div class="hero-stats grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6 my-8 animate-slide-up animation-delay-500">
+                        <div class="stat-card">
+                            <div class="stat-number">8+</div>
+                            <div class="stat-label">Publications</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">256+</div>
+                            <div class="stat-label">Citations</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">4+</div>
+                            <div class="stat-label">Projets</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Boutons d'action -->
+                    <div class="hero-buttons flex flex-col sm:flex-row gap-4 sm:gap-6 animate-scale-in animation-delay-700">
+                        <a href="#projects" class="btn-primary group">
+                            <span>Découvrir mes projets</span>
+                            <i class="ph-arrow-right group-hover:translate-x-1 transition-transform duration-300"></i>
                         </a>
-                        <a href="#contact" class="btn-secondary inline-flex items-center justify-center" aria-describedby="contact-desc">
-                            Me contacter
+                        <a href="#contact" class="btn-secondary group">
+                            <span>Me contacter</span>
+                            <i class="ph-chat-circle group-hover:scale-110 transition-transform duration-300"></i>
                         </a>
                     </div>
                 </div>
-                <div class="hero-image animate-fade-in relative">
-                    <div class="relative w-80 h-80 mx-auto">
-                        <img src="photo.jpg" alt="Photo de profil de Haroun Hassan BRAHIM" 
-                             class="profile-image w-full h-full object-cover rounded-full shadow-2xl" loading="eager">
-                        <div class="image-glow absolute inset-0 rounded-full bg-gradient-to-r from-blue-400 to-purple-400 opacity-20 blur-xl" aria-hidden="true"></div>
+                
+                <!-- Image de profil -->
+                <div class="hero-image order-1 lg:order-2 flex justify-center lg:justify-end animate-scale-in animation-delay-200">
+                    <div class="profile-container relative">
+                        <div class="profile-frame">
+                            <img src="photo.jpg" alt="Haroun Hassan BRAHIM" class="profile-img" loading="eager">
+                            <div class="profile-overlay"></div>
+                            <div class="profile-ring"></div>
+                        </div>
+                        <!-- Badges flottants -->
+                        <div class="floating-badges">
+                            <div class="floating-badge badge-ai">
+                                <i class="ph-brain"></i>
+                                <span>IA</span>
+                            </div>
+                            <div class="floating-badge badge-ml">
+                                <i class="ph-cpu"></i>
+                                <span>ML</span>
+                            </div>
+                            <div class="floating-badge badge-neuro">
+                                <i class="ph-pulse"></i>
+                                <span>DL</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="scroll-indicator absolute bottom-8 left-1/2 transform -translate-x-1/2" aria-hidden="true">
-            <div class="scroll-arrow animate-bounce-slow">
-                <i class="ph-arrow-down text-2xl text-gray-400"></i>
+        
+        <!-- Indicateur de scroll moderne -->
+        <div class="scroll-indicator">
+            <div class="scroll-wheel">
+                <div class="scroll-dot"></div>
             </div>
+            <div class="scroll-text">Scroll</div>
         </div>
     </section>
 
-    <!-- Section À propos -->
+    <!-- Section À propos modernisée -->
     <section id="about" class="section-modern">
         <div class="container">
-            <h3 class="section-title">À propos de moi</h3>
-            <div class="about-content grid lg:grid-cols-3 gap-8 items-start">
-                <div class="lg:col-span-2 about-text space-y-6">
-                    <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
-                        Je suis <strong class="text-blue-600 dark:text-blue-400">Haroun Hassan BRAHIM</strong>, 
-                        <em>ingénieur en Intelligence Artificielle</em> spécialisé en Apprentissage Automatique et Apprentissage Profond.
-                    </p>
-                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-                        J'ai obtenu un double diplôme en <em>Intelligence Artificielle et Apprentissage Automatique</em> à 
-                        <strong>Aix-Marseille Université</strong>, en France et en <em>ingénierie des technologies numériques pour la santé mentale</em> 
-                        à l'<strong>Université de Sfax</strong>, en Tunisie.
-                    </p>
-                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-                        Mes recherches portent notamment sur l'analyse de signaux EEG dans le cadre du traitement de la parole chez le nourrisson 
-                        ainsi que sur la détection de troubles neurologiques tels que le Trouble Cognitif Léger (MCI) à partir de signaux cérébraux.
-                    </p>
-                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-                        Passionné par l'intersection entre neurosciences et intelligence artificielle, je travaille à développer 
-                        des technologies innovantes qui peuvent améliorer notre compréhension du cerveau humain et contribuer 
-                        au diagnostic précoce de troubles neurologiques.
-                    </p>
-                </div>
-                <div class="skills-preview-grid grid gap-6">
-                    <div class="skill-card text-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
-                        <i class="ph-brain text-4xl text-blue-600 dark:text-blue-400 mb-4" aria-hidden="true"></i>
-                        <h4 class="font-semibold mb-2">Deep Learning</h4>
-                        <p class="text-sm text-gray-600 dark:text-gray-400">Transformers, CNN, RNN</p>
-                    </div>
-                    <div class="skill-card text-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
-                        <i class="ph-pulse text-4xl text-green-600 dark:text-green-400 mb-4" aria-hidden="true"></i>
-                        <h4 class="font-semibold mb-2">Neurosciences</h4>
-                        <p class="text-sm text-gray-600 dark:text-gray-400">EEG, fNIRS, Neuroimagerie</p>
-                    </div>
-                    <div class="skill-card text-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
-                        <i class="ph-code text-4xl text-purple-600 dark:text-purple-400 mb-4" aria-hidden="true"></i>
-                        <h4 class="font-semibold mb-2">Programmation</h4>
-                        <p class="text-sm text-gray-600 dark:text-gray-400">Python, TensorFlow, PyTorch</p>
-                    </div>
-                </div>
+            <div class="section-header">
+                <span class="section-badge">🧠 Intelligence</span>
+                <h3 class="section-title">À propos de moi</h3>
+                <p class="section-subtitle">Passionné par l'innovation et les technologies émergentes en IA</p>
             </div>
-        </div>
-    </section>
-
-    <!-- Section Expérience -->
-    <section id="experience" class="section-modern bg-white dark:bg-gray-800">
-        <div class="container">
-            <h3 class="section-title">Expérience Professionnelle</h3>
-            <div class="timeline relative max-w-4xl mx-auto">
-                <div class="timeline-line absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 to-purple-500"></div>
-                
-                <div class="timeline-item relative pl-20 pb-12 opacity-0 translate-y-8" data-timeline>
-                    <div class="timeline-marker absolute left-6 w-4 h-4 bg-blue-500 rounded-full border-4 border-white dark:border-gray-800 shadow-lg"></div>
-                    <div class="timeline-content bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
-                        <div class="timeline-date text-sm font-semibold text-blue-600 dark:text-blue-400 mb-2">2023 - Présent</div>
-                        <h4 class="timeline-title text-xl font-bold mb-2">Chercheur en Intelligence Artificielle</h4>
-                        <p class="timeline-company text-purple-600 dark:text-purple-400 font-medium mb-4">Laboratoire de Neurosciences Cognitives</p>
-                        <p class="timeline-description text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
-                            Recherche sur l'analyse de signaux EEG pour la détection précoce de troubles cognitifs.
-                            Développement d'algorithmes de deep learning pour l'analyse de données neurophysiologiques.
-                        </p>
-                        <div class="timeline-skills flex flex-wrap gap-2">
-                            <span class="skill-badge px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm">Python</span>
-                            <span class="skill-badge px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full text-sm">TensorFlow</span>
-                            <span class="skill-badge px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full text-sm">EEG</span>
-                            <span class="skill-badge px-3 py-1 bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 rounded-full text-sm">Transformers</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="timeline-item relative pl-20 pb-12 opacity-0 translate-y-8" data-timeline>
-                    <div class="timeline-marker absolute left-6 w-4 h-4 bg-purple-500 rounded-full border-4 border-white dark:border-gray-800 shadow-lg"></div>
-                    <div class="timeline-content bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
-                        <div class="timeline-date text-sm font-semibold text-purple-600 dark:text-purple-400 mb-2">2022 - 2023</div>
-                        <h4 class="timeline-title text-xl font-bold mb-2">Stagiaire de Recherche</h4>
-                        <p class="timeline-company text-blue-600 dark:text-blue-400 font-medium mb-4">Aix-Marseille Université</p>
-                        <p class="timeline-description text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
-                            Stage de fin d'études sur l'analyse de la perception de la parole chez les nourrissons 
-                            utilisant des techniques d'apprentissage automatique et des données EEG.
-                        </p>
-                        <div class="timeline-skills flex flex-wrap gap-2">
-                            <span class="skill-badge px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm">Machine Learning</span>
-                            <span class="skill-badge px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full text-sm">Signal Processing</span>
-                            <span class="skill-badge px-3 py-1 bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 rounded-full text-sm">MATLAB</span>
-                            <span class="skill-badge px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full text-sm">Neurosciences</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Formation -->
-    <section id="education" class="section-modern">
-        <div class="container">
-            <h3 class="section-title">Formation</h3>
-            <div class="education-grid grid lg:grid-cols-3 md:grid-cols-2 gap-8">
-                <div class="education-card bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-                    <div class="education-header text-center mb-6">
-                        <i class="ph-graduation-cap text-5xl text-blue-600 dark:text-blue-400 mb-4" aria-hidden="true"></i>
-                        <h4 class="education-title text-lg font-bold mb-2">Master en Intelligence Artificielle et Apprentissage Automatique</h4>
-                        <p class="education-institution text-blue-600 dark:text-blue-400 font-medium">Aix-Marseille Université, France</p>
-                        <p class="education-year text-sm text-gray-500 dark:text-gray-400">2021 - 2023</p>
-                    </div>
-                    <p class="education-description text-gray-600 dark:text-gray-300 mb-4 text-sm leading-relaxed">
-                        Formation spécialisée en apprentissage automatique, deep learning, et traitement du signal.
-                        Projet de fin d'études sur l'analyse EEG pour la perception de la parole chez les nourrissons.
-                    </p>
-                    <div class="education-achievements">
-                        <p class="text-xs text-gray-500 dark:text-gray-400">
-                            <strong>Mention:</strong> Très Bien | <strong>Spécialisation:</strong> Neurosciences Computationnelles
-                        </p>
-                    </div>
-                </div>
-
-                <div class="education-card bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-                    <div class="education-header text-center mb-6">
-                        <i class="ph-graduation-cap text-5xl text-green-600 dark:text-green-400 mb-4" aria-hidden="true"></i>
-                        <h4 class="education-title text-lg font-bold mb-2">Master en Ingénierie des Technologies Numériques pour la Santé Mentale</h4>
-                        <p class="education-institution text-green-600 dark:text-green-400 font-medium">Université de Sfax, Tunisie</p>
-                        <p class="education-year text-sm text-gray-500 dark:text-gray-400">2020 - 2023</p>
-                    </div>
-                    <p class="education-description text-gray-600 dark:text-gray-300 mb-4 text-sm leading-relaxed">
-                        Double diplôme axé sur l'application des technologies numériques dans le domaine de la santé mentale.
-                        Spécialisation en analyse de signaux biomédicaux et développement d'outils diagnostiques.
-                    </p>
-                    <div class="education-achievements">
-                        <p class="text-xs text-gray-500 dark:text-gray-400">
-                            <strong>Mention:</strong> Très Bien | <strong>Spécialisation:</strong> Santé Numérique
-                        </p>
-                    </div>
-                </div>
-
-                <div class="education-card bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-                    <div class="education-header text-center mb-6">
-                        <i class="ph-graduation-cap text-5xl text-purple-600 dark:text-purple-400 mb-4" aria-hidden="true"></i>
-                        <h4 class="education-title text-lg font-bold mb-2">Licence en Informatique</h4>
-                        <p class="education-institution text-purple-600 dark:text-purple-400 font-medium">Université de Sfax, Tunisie</p>
-                        <p class="education-year text-sm text-gray-500 dark:text-gray-400">2017 - 2020</p>
-                    </div>
-                    <p class="education-description text-gray-600 dark:text-gray-300 mb-4 text-sm leading-relaxed">
-                        Formation fondamentale en informatique avec spécialisation en programmation, 
-                        algorithmes et structures de données.
-                    </p>
-                    <div class="education-achievements">
-                        <p class="text-xs text-gray-500 dark:text-gray-400">
-                            <strong>Mention:</strong> Bien | <strong>Spécialisation:</strong> Génie Logiciel
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Projets -->
-    <section id="projects" class="section-modern bg-white dark:bg-gray-800">
-        <div class="container">
-            <h3 class="section-title">Mes Projets</h3>
-            <div class="projects-grid grid lg:grid-cols-2 gap-8">
-                <!-- Projet 1 -->
-                <article class="project-card bg-gray-50 dark:bg-gray-700 p-6 rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
-                    <div class="project-header flex items-center mb-4">
-                        <div class="project-icon w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-lg flex items-center justify-center mr-4">
-                            <i class="ph-waveform text-2xl text-blue-600 dark:text-blue-400" aria-hidden="true"></i>
-                        </div>
-                        <h4 class="project-title text-xl font-bold">Traitement de la parole chez les nourrissons</h4>
-                    </div>
-                    <p class="project-description text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
-                        Exploration de la perception des sons élémentaires de la parole (/ba/ et /da/) chez les nourrissons 
-                        et identification des mécanismes neuronaux précoces impliqués dans la perception catégorielle.
-                        Utilisation de techniques d'apprentissage automatique pour analyser les réponses EEG.
-                    </p>
-                    <div class="project-tech flex flex-wrap gap-2 mb-4">
-                        <span class="tech-tag px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm">Régression Logistique</span>
-                        <span class="tech-tag px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full text-sm">Neurosciences</span>
-                        <span class="tech-tag px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full text-sm">EEG</span>
-                        <span class="tech-tag px-3 py-1 bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 rounded-full text-sm">MATLAB</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/brahimharounhassan/phonems-classification" class="project-link inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-200" 
-                           aria-label="Voir le projet Traitement de la parole sur GitHub" target="_blank" rel="noopener">
-                            <i class="ph-github-logo mr-2" aria-hidden="true"></i>
-                            Code Source
-                        </a>
-                    </div>
-                </article>
-
-                <!-- Projet 2 -->
-                <article class="project-card bg-gray-50 dark:bg-gray-700 p-6 rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
-                    <div class="project-header flex items-center mb-4">
-                        <div class="project-icon w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-lg flex items-center justify-center mr-4">
-                            <i class="ph-brain text-2xl text-purple-600 dark:text-purple-400" aria-hidden="true"></i>
-                        </div>
-                        <h4 class="project-title text-xl font-bold">Détection MCI avec Transformers</h4>
-                    </div>
-                    <p class="project-description text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
-                        Classification de patients présentant des troubles cognitifs légers (MCI) utilisant des données 
-                        d'électroencéphalographie (EEG) et de spectroscopie fonctionnelle proche infrarouge (fNIRS).
-                        Implémentation d'un modèle Transformer adapté aux signaux temporels.
-                    </p>
-                    <div class="project-tech flex flex-wrap gap-2 mb-4">
-                        <span class="tech-tag px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full text-sm">Transformers</span>
-                        <span class="tech-tag px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm">Deep Learning</span>
-                        <span class="tech-tag px-3 py-1 bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 rounded-full text-sm">MCI</span>
-                        <span class="tech-tag px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full text-sm">PyTorch</span>
-                    </div>
-                    <div class="project-links flex gap-4">
-                        <a href="https://github.com/brahimharounhassan/mci-classification" class="project-link inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-200"
-                           aria-label="Voir le projet Prédiction MCI sur GitHub" target="_blank" rel="noopener">
-                            <i class="ph-github-logo mr-2" aria-hidden="true"></i>
-                            Code Source
-                        </a>
-                        <a href="https://ieeexplore.ieee.org/document/10290024" class="project-link inline-flex items-center text-green-600 dark:text-green-400 hover:text-green-700 dark:hover:text-green-300 transition-colors duration-200"
-                           aria-label="Lire la publication associée" target="_blank" rel="noopener">
-                            <i class="ph-file-text mr-2" aria-hidden="true"></i>
-                            Publication
-                        </a>
-                    </div>
-                </article>
-
-                <!-- Projet 3 -->
-                <article class="project-card bg-gray-50 dark:bg-gray-700 p-6 rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
-                    <div class="project-header flex items-center mb-4">
-                        <div class="project-icon w-12 h-12 bg-green-100 dark:bg-green-900 rounded-lg flex items-center justify-center mr-4">
-                            <i class="ph-network text-2xl text-green-600 dark:text-green-400" aria-hidden="true"></i>
-                        </div>
-                        <h4 class="project-title text-xl font-bold">Tunneling réseau IPv6</h4>
-                    </div>
-                    <p class="project-description text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
-                        Communication entre deux réseaux IPv6 via un réseau IPv4 intermédiaire en créant un tunnel IPv6 
-                        sur IPv4 avec des interfaces réseaux virtuelles TUN. Implémentation complète du protocole de tunneling.
-                    </p>
-                    <div class="project-tech flex flex-wrap gap-2 mb-4">
-                        <span class="tech-tag px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm">IPv6</span>
-                        <span class="tech-tag px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full text-sm">Tunneling</span>
-                        <span class="tech-tag px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full text-sm">Réseaux</span>
-                        <span class="tech-tag px-3 py-1 bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 rounded-full text-sm">C</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/brahimharounhassan/ipv6over4_tun" class="project-link inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-200"
-                           aria-label="Voir le projet Tunneling réseau IPv6 sur GitHub" target="_blank" rel="noopener">
-                            <i class="ph-github-logo mr-2" aria-hidden="true"></i>
-                            Code Source
-                        </a>
-                    </div>
-                </article>
-
-                <!-- Projet 4 -->
-                <article class="project-card bg-gray-50 dark:bg-gray-700 p-6 rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-2">
-                    <div class="project-header flex items-center mb-4">
-                        <div class="project-icon w-12 h-12 bg-orange-100 dark:bg-orange-900 rounded-lg flex items-center justify-center mr-4">
-                            <i class="ph-scan text-2xl text-orange-600 dark:text-orange-400" aria-hidden="true"></i>
-                        </div>
-                        <h4 class="project-title text-xl font-bold">OCR pour Scratch</h4>
-                    </div>
-                    <p class="project-description text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
-                        Application OCR pour scanner des algorithmes Scratch et produire un script Python à partir 
-                        d'une image contenant un code Scratch bien défini. Utilisation de techniques de vision par ordinateur.
-                    </p>
-                    <div class="project-tech flex flex-wrap gap-2 mb-4">
-                        <span class="tech-tag px-3 py-1 bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 rounded-full text-sm">OCR</span>
-                        <span class="tech-tag px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm">Computer Vision</span>
-                        <span class="tech-tag px-3 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full text-sm">Tesseract</span>
-                        <span class="tech-tag px-3 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full text-sm">Python</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="https://github.com/brahimharounhassan/scratch-ocr-engine" class="project-link inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-200"
-                           aria-label="Voir le projet OCR pour Scratch sur GitHub" target="_blank" rel="noopener">
-                            <i class="ph-github-logo mr-2" aria-hidden="true"></i>
-                            Code Source
-                        </a>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Publications -->
-    <section id="publications" class="section-modern">
-        <div class="container">
-            <h3 class="section-title">Publications</h3>
-            <div class="publications-grid max-w-4xl mx-auto">
-                <article class="publication-card bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-                    <div class="publication-header text-center mb-6">
-                        <i class="ph-file-text text-5xl text-blue-600 dark:text-blue-400 mb-4" aria-hidden="true"></i>
-                        <h4 class="publication-title text-2xl font-bold mb-2">New MCI Detection Method Based on Transformer and EEG Data</h4>
-                        <p class="publication-venue text-blue-600 dark:text-blue-400 font-medium text-lg">EUSIPCO 2023 Conference</p>
-                        <p class="publication-authors text-gray-500 dark:text-gray-400">H. H. Brahim, et al.</p>
-                    </div>
-                    <p class="publication-description text-gray-600 dark:text-gray-300 mb-6 leading-relaxed text-center">
-                        Article publié dans la prestigieuse conférence EUSIPCO 2023, présentant une nouvelle méthode 
-                        de détection du trouble cognitif léger basée sur les Transformers et les données EEG.
-                        Cette recherche contribue significativement au diagnostic précoce des troubles cognitifs.
-                    </p>
-                    <div class="publication-metrics flex justify-center gap-6 mb-6">
-                        <span class="metric-badge flex items-center px-4 py-2 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full">
-                            <i class="ph-quotes text-sm mr-2" aria-hidden="true"></i>
-                            Citations: 15+
-                        </span>
-                        <span class="metric-badge flex items-center px-4 py-2 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-full">
-                            <i class="ph-eye text-sm mr-2" aria-hidden="true"></i>
-                            Vues: 500+
-                        </span>
-                    </div>
-                    <div class="publication-links flex flex-col sm:flex-row gap-4 justify-center">
-                        <a href="https://ieeexplore.ieee.org/document/10290024" class="btn-primary inline-flex items-center justify-center"
-                           aria-label="Lire l'article sur IEEE Xplore (nouvelle fenêtre)" target="_blank" rel="noopener">
-                            <i class="ph-article mr-2" aria-hidden="true"></i>
-                            Lire l'article
-                        </a>
-                        <a href="https://github.com/brahimharounhassan/mci-classification" class="btn-secondary inline-flex items-center justify-center"
-                           aria-label="Voir le code source (nouvelle fenêtre)" target="_blank" rel="noopener">
-                            <i class="ph-code mr-2" aria-hidden="true"></i>
-                            Code Source
-                        </a>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Compétences -->
-    <section id="skills" class="section-modern bg-white dark:bg-gray-800">
-        <div class="container">
-            <h3 class="section-title">Compétences Techniques</h3>
-            <div class="skills-categories grid lg:grid-cols-2 gap-8">
-                <!-- Intelligence Artificielle -->
-                <div class="skill-category bg-gray-50 dark:bg-gray-700 p-6 rounded-xl shadow-lg">
-                    <h4 class="skill-category-title flex items-center text-xl font-bold mb-6">
-                        <i class="ph-brain mr-3 text-2xl text-blue-600 dark:text-blue-400" aria-hidden="true"></i>
-                        Intelligence Artificielle
-                    </h4>
-                    <div class="skills-list space-y-4">
-                        <div class="skill-item" data-skill-progress="95">
-                            <div class="flex justify-between mb-2">
-                                <span class="skill-name font-medium">Deep Learning</span>
-                                <span class="text-sm text-gray-500">95%</span>
+            <div class="about-content">
+                <div class="about-grid">
+                    <!-- Texte principal -->
+                    <div class="about-text">
+                        <div class="prose prose-lg dark:prose-invert">
+                            <p class="lead-text">
+                                Je suis <strong class="highlight">Haroun Hassan BRAHIM</strong>, 
+                                ingénieur en Intelligence Artificielle.
+                            </p>
+                            
+                            <div class="text-blocks">
+                                <div class="text-block">
+                                    <h4>🎓 Formation d'excellence</h4>
+                                    <p>Double diplôme en IA à <strong>Aix-Marseille Université</strong> et en technologies de santé mentale à l'<strong>Université de Sfax</strong>.</p>
+                                </div>
+                                
+                                <div class="text-block">
+                                    <h4>🔬 Recherche de pointe</h4>
+                                    <p>Mes travaux portent sur l'analyse EEG pour la détection précoce de troubles cognitifs et la perception de la parole chez les nourrissons.</p>
+                                </div>
+                                
+                                <div class="text-block">
+                                    <h4>🚀 Innovation technologique</h4>
+                                    <p>J'aime relever des défis complexes et concevoir des solutions intelligentes adaptées à différents secteurs. Curieux et polyvalent, je m'intéresse à l'ensemble des applications de l'intelligence artificielle, de la science des données à l'automatisation, en passant par l'optimisation de processus et la création d'outils numériques utiles au quotidien.</p>
+                                </div>
                             </div>
-                            <div class="skill-bar bg-gray-200 dark:bg-gray-600 rounded-full h-2 overflow-hidden">
-                                <div class="skill-progress bg-gradient-to-r from-blue-500 to-blue-600 h-full rounded-full transition-all duration-1000 ease-out" style="width: 0%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-skill-progress="90">
-                            <div class="flex justify-between mb-2">
-                                <span class="skill-name font-medium">Machine Learning</span>
-                                <span class="text-sm text-gray-500">90%</span>
-                            </div>
-                            <div class="skill-bar bg-gray-200 dark:bg-gray-600 rounded-full h-2 overflow-hidden">
-                                <div class="skill-progress bg-gradient-to-r from-green-500 to-green-600 h-full rounded-full transition-all duration-1000 ease-out" style="width: 0%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-skill-progress="85">
-                            <div class="flex justify-between mb-2">
-                                <span class="skill-name font-medium">Transformers</span>
-                                <span class="text-sm text-gray-500">85%</span>
-                            </div>
-                            <div class="skill-bar bg-gray-200 dark:bg-gray-600 rounded-full h-2 overflow-hidden">
-                                <div class="skill-progress bg-gradient-to-r from-purple-500 to-purple-600 h-full rounded-full transition-all duration-1000 ease-out" style="width: 0%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-skill-progress="80">
-                            <div class="flex justify-between mb-2">
-                                <span class="skill-name font-medium">Computer Vision</span>
-                                <span class="text-sm text-gray-500">80%</span>
-                            </div>
-                            <div class="skill-bar bg-gray-200 dark:bg-gray-600 rounded-full h-2 overflow-hidden">
-                                <div class="skill-progress bg-gradient-to-r from-orange-500 to-orange-600 h-full rounded-full transition-all duration-1000 ease-out" style="width: 0%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Neurosciences -->
-                <div class="skill-category bg-gray-50 dark:bg-gray-700 p-6 rounded-xl shadow-lg">
-                    <h4 class="skill-category-title flex items-center text-xl font-bold mb-6">
-                        <i class="ph-pulse mr-3 text-2xl text-green-600 dark:text-green-400" aria-hidden="true"></i>
-                        Neurosciences
-                    </h4>
-                    <div class="skills-list space-y-4">
-                        <div class="skill-item" data-skill-progress="90">
-                            <div class="flex justify-between mb-2">
-                                <span class="skill-name font-medium">Analyse EEG</span>
-                                <span class="text-sm text-gray-500">90%</span>
-                            </div>
-                            <div class="skill-bar bg-gray-200 dark:bg-gray-600 rounded-full h-2 overflow-hidden">
-                                <div class="skill-progress bg-gradient-to-r from-green-500 to-green-600 h-full rounded-full transition-all duration-1000 ease-out" style="width: 0%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-skill-progress="75">
-                            <div class="flex justify-between mb-2">
-                                <span class="skill-name font-medium">fNIRS</span>
-                                <span class="text-sm text-gray-500">75%</span>
-                            </div>
-                            <div class="skill-bar bg-gray-200 dark:bg-gray-600 rounded-full h-2 overflow-hidden">
-                                <div class="skill-progress bg-gradient-to-r from-blue-500 to-blue-600 h-full rounded-full transition-all duration-1000 ease-out" style="width: 0%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-skill-progress="85">
-                            <div class="flex justify-between mb-2">
-                                <span class="skill-name font-medium">Signal Processing</span>
-                                <span class="text-sm text-gray-500">85%</span>
-                            </div>
-                            <div class="skill-bar bg-gray-200 dark:bg-gray-600 rounded-full h-2 overflow-hidden">
-                                <div class="skill-progress bg-gradient-to-r from-purple-500 to-purple-600 h-full rounded-full transition-all duration-1000 ease-out" style="width: 0%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-skill-progress="70">
-                            <div class="flex justify-between mb-2">
-                                <span class="skill-name font-medium">Neuroimagerie</span>
-                                <span class="text-sm text-gray-500">70%</span>
-                            </div>
-                            <div class="skill-bar bg-gray-200 dark:bg-gray-600 rounded-full h-2 overflow-hidden">
-                                <div class="skill-progress bg-gradient-to-r from-orange-500 to-orange-600 h-full rounded-full transition-all duration-1000 ease-out" style="width: 0%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Programmation -->
-                <div class="skill-category bg-gray-50 dark:bg-gray-700 p-6 rounded-xl shadow-lg">
-                    <h4 class="skill-category-title flex items-center text-xl font-bold mb-6">
-                        <i class="ph-code mr-3 text-2xl text-purple-600 dark:text-purple-400" aria-hidden="true"></i>
-                        Programmation
-                    </h4>
-                    <div class="skills-list space-y-4">
-                        <div class="skill-item" data-skill-progress="95">
-                            <div class="flex justify-between mb-2">
-                                <span class="skill-name font-medium">Python</span>
-                                <span class="text-sm text-gray-500">95%</span>
-                            </div>
-                            <div class="skill-bar bg-gray-200 dark:bg-gray-600 rounded-full h-2 overflow-hidden">
-                                <div class="skill-progress bg-gradient-to-r from-blue-500 to-blue-600 h-full rounded-full transition-all duration-1000 ease-out" style="width: 0%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-skill-progress="90">
-                            <div class="flex justify-between mb-2">
-                                <span class="skill-name font-medium">TensorFlow/Keras</span>
-                                <span class="text-sm text-gray-500">90%</span>
-                            </div>
-                            <div class="skill-bar bg-gray-200 dark:bg-gray-600 rounded-full h-2 overflow-hidden">
-                                <div class="skill-progress bg-gradient-to-r from-green-500 to-green-600 h-full rounded-full transition-all duration-1000 ease-out" style="width: 0%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-skill-progress="85">
-                            <div class="flex justify-between mb-2">
-                                <span class="skill-name font-medium">PyTorch</span>
-                                <span class="text-sm text-gray-500">85%</span>
-                            </div>
-                            <div class="skill-bar bg-gray-200 dark:bg-gray-600 rounded-full h-2 overflow-hidden">
-                                <div class="skill-progress bg-gradient-to-r from-purple-500 to-purple-600 h-full rounded-full transition-all duration-1000 ease-out" style="width: 0%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-skill-progress="80">
-                            <div class="flex justify-between mb-2">
-                                <span class="skill-name font-medium">MATLAB</span>
-                                <span class="text-sm text-gray-500">80%</span>
-                            </div>
-                            <div class="skill-bar bg-gray-200 dark:bg-gray-600 rounded-full h-2 overflow-hidden">
-                                <div class="skill-progress bg-gradient-to-r from-orange-500 to-orange-600 h-full rounded-full transition-all duration-1000 ease-out" style="width: 0%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Outils & Technologies -->
-                <div class="skill-category bg-gray-50 dark:bg-gray-700 p-6 rounded-xl shadow-lg">
-                    <h4 class="skill-category-title flex items-center text-xl font-bold mb-6">
-                        <i class="ph-tools mr-3 text-2xl text-orange-600 dark:text-orange-400" aria-hidden="true"></i>
-                        Outils & Technologies
-                    </h4>
-                    <div class="skills-list space-y-4">
-                        <div class="skill-item" data-skill-progress="90">
-                            <div class="flex justify-between mb-2">
-                                <span class="skill-name font-medium">Git/GitHub</span>
-                                <span class="text-sm text-gray-500">90%</span>
-                            </div>
-                            <div class="skill-bar bg-gray-200 dark:bg-gray-600 rounded-full h-2 overflow-hidden">
-                                <div class="skill-progress bg-gradient-to-r from-green-500 to-green-600 h-full rounded-full transition-all duration-1000 ease-out" style="width: 0%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-skill-progress="75">
-                            <div class="flex justify-between mb-2">
-                                <span class="skill-name font-medium">Docker</span>
-                                <span class="text-sm text-gray-500">75%</span>
-                            </div>
-                            <div class="skill-bar bg-gray-200 dark:bg-gray-600 rounded-full h-2 overflow-hidden">
-                                <div class="skill-progress bg-gradient-to-r from-blue-500 to-blue-600 h-full rounded-full transition-all duration-1000 ease-out" style="width: 0%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-skill-progress="85">
-                            <div class="flex justify-between mb-2">
-                                <span class="skill-name font-medium">Linux/Ubuntu</span>
-                                <span class="text-sm text-gray-500">85%</span>
-                            </div>
-                            <div class="skill-bar bg-gray-200 dark:bg-gray-600 rounded-full h-2 overflow-hidden">
-                                <div class="skill-progress bg-gradient-to-r from-purple-500 to-purple-600 h-full rounded-full transition-all duration-1000 ease-out" style="width: 0%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item" data-skill-progress="95">
-                            <div class="flex justify-between mb-2">
-                                <span class="skill-name font-medium">Jupyter/Colab</span>
-                                <span class="text-sm text-gray-500">95%</span>
-                            </div>
-                            <div class="skill-bar bg-gray-200 dark:bg-gray-600 rounded-full h-2 overflow-hidden">
-                                <div class="skill-progress bg-gradient-to-r from-orange-500 to-orange-600 h-full rounded-full transition-all duration-1000 ease-out" style="width: 0%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section CV -->
-    <section id="cv" class="section-modern">
-        <div class="container text-center">
-            <h3 class="section-title">Mon CV</h3>
-            <p class="text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto text-lg leading-relaxed">
-                Découvrez mon parcours complet, mes compétences et mes expériences 
-                dans le domaine de l'Intelligence Artificielle et des neurosciences.
-                Téléchargez la version complète de mon curriculum vitae.
-            </p>
-            <div class="cv-options flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="cv.pdf" target="_blank" rel="noopener" class="btn-primary inline-flex items-center justify-center"
-                   aria-label="Télécharger le CV en français (nouvelle fenêtre)">
-                    <i class="ph-download mr-2" aria-hidden="true"></i>
-                    CV Français (PDF)
-                </a>
-                <a href="cv-en.pdf" target="_blank" rel="noopener" class="btn-secondary inline-flex items-center justify-center"
-                   aria-label="Télécharger le CV en anglais (nouvelle fenêtre)">
-                    <i class="ph-download mr-2" aria-hidden="true"></i>
-                    CV English (PDF)
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Contact -->
-    <section id="contact" class="section-modern bg-white dark:bg-gray-800">
-        <div class="container">
-            <h3 class="section-title">Contactez-moi</h3>
-            <div class="contact-content">
-                <div class="contact-intro text-center mb-12">
-                    <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
-                        Intéressé par une collaboration, un projet de recherche ou simplement envie de discuter 
-                        d'intelligence artificielle et de neurosciences ? N'hésitez pas à me contacter !
-                    </p>
-                </div>
-                
-                <div class="contact-grid grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="contact-item">
-                        <i class="ph-envelope text-2xl text-blue-600 dark:text-blue-400" aria-hidden="true"></i>
-                        <div>
-                            <h4 class="font-semibold mb-1">Email</h4>
-                            <a href="mailto:brahimharoun57@yahoo.fr" class="contact-link"
-                               aria-label="Envoyer un email à brahimharoun57@yahoo.fr">
-                                brahimharoun57@yahoo.fr
-                            </a>
                         </div>
                     </div>
                     
-                    <div class="contact-item">
-                        <i class="ph-linkedin-logo text-2xl text-blue-600 dark:text-blue-400" aria-hidden="true"></i>
-                        <div>
-                            <h4 class="font-semibold mb-1">LinkedIn</h4>
-                            <a href="https://linkedin.com/in/brahimharounhassan" class="contact-link"
-                               target="_blank" rel="noopener" aria-label="Visiter mon profil LinkedIn (nouvelle fenêtre)">
-                                @brahimharounhassan
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <i class="ph-github-logo text-2xl text-blue-600 dark:text-blue-400" aria-hidden="true"></i>
-                        <div>
-                            <h4 class="font-semibold mb-1">GitHub</h4>
-                            <a href="https://github.com/brahimharounhassan" class="contact-link"
-                               target="_blank" rel="noopener" aria-label="Visiter mon profil GitHub (nouvelle fenêtre)">
-                                @brahimharounhassan
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <i class="ph-twitter-logo text-2xl text-blue-600 dark:text-blue-400" aria-hidden="true"></i>
-                        <div>
-                            <h4 class="font-semibold mb-1">Twitter</h4>
-                            <a href="https://twitter.com/elbramosJr" class="contact-link"
-                               target="_blank" rel="noopener" aria-label="Visiter mon profil Twitter (nouvelle fenêtre)">
-                                @elbramosJr
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <i class="ph-map-pin text-2xl text-blue-600 dark:text-blue-400" aria-hidden="true"></i>
-                        <div>
-                            <h4 class="font-semibold">Localisation</h4>
-                            <span class="text-gray-600 dark:text-gray-400">
-                                France
-                            </span>
+                    <!-- Cartes de compétences -->
+                    <div class="skills-preview">
+                        <div class="skills-grid">
+                            <div class="skill-preview-card" data-aos="fade-up" data-aos-delay="100">
+                                <div class="skill-icon">
+                                    <i class="ph-brain"></i>
+                                </div>
+                                <h4>Deep Learning</h4>
+                                <p>Transformers, CNN, pour l'analyse de signaux complexes</p>
+                                <div class="skill-level">
+                                    <div class="level-bar" style="--level: 95%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-preview-card" data-aos="fade-up" data-aos-delay="200">
+                                <div class="skill-icon">
+                                    <i class="ph-pulse"></i>
+                                </div>
+                                <h4>Neurosciences</h4>
+                                <p>EEG, fNIRS, neuroimagerie</p>
+                                <div class="skill-level">
+                                    <div class="level-bar" style="--level: 90%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-preview-card" data-aos="fade-up" data-aos-delay="300">
+                                <div class="skill-icon">
+                                    <i class="ph-code"></i>
+                                </div>
+                                <h4>Programmation</h4>
+                                <p>Python, TensorFlow, PyTorch</p>
+                                <div class="skill-level">
+                                    <div class="level-bar" style="--level: 95%"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -782,115 +439,1143 @@
         </div>
     </section>
 
-    <!-- Bouton Scroll to Top -->
-    <button class="scroll-to-top" onclick="scrollToTop()" aria-label="Retourner en haut de la page">
-        <i class="ph-arrow-up" aria-hidden="true"></i>
-    </button>
-
-    <!-- Footer -->
-    <footer class="footer-modern" role="contentinfo">
+    <section id="experience" class="section-modern section-alt">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4 class="footer-title">Haroun Hassan BRAHIM</h4>
-                    <p class="footer-description">
-                        Ingénieur en Intelligence Artificielle
-                    </p>
-                </div>
-                
-                <div class="footer-section">
-                    <h4 class="footer-title">Liens Rapides</h4>
-                    <ul class="footer-links">
-                        <li><a href="#about">À propos</a></li>
-                        <li><a href="#projects">Projets</a></li>
-                        <li><a href="#publications">Publications</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4 class="footer-title">Me Suivre</h4>
-                    <div class="social-links">
-                        <a href="https://github.com/brahimharounhassan" target="_blank" rel="noopener" 
-                           aria-label="GitHub" class="social-link">
-                            <i class="ph-github-logo"></i>
-                        </a>
-                        <a href="https://linkedin.com/in/brahimharounhassan" target="_blank" rel="noopener" 
-                           aria-label="LinkedIn" class="social-link">
-                            <i class="ph-linkedin-logo"></i>
-                        </a>
-                        <a href="https://twitter.com/elbramosJr" target="_blank" rel="noopener" 
-                           aria-label="Twitter" class="social-link">
-                            <i class="ph-twitter-logo"></i>
-                        </a>
-                        <a href="mailto:brahimharoun57@yahoo.fr" 
-                           aria-label="Email" class="social-link">
-                            <i class="ph-envelope"></i>
-                        </a>
-                    </div>
-                </div>
+            <div class="section-header">
+                <span class="section-badge">💼 Carrière</span>
+                <h3 class="section-title">Expérience Professionnelle</h3>
+                <p class="section-subtitle">Mon parcours dans la recherche en IA</p>
             </div>
             
-            <div class="footer-bottom">
-                <p class="text-gray-600 dark:text-gray-400 text-center">
-                    © 2025 Haroun Hassan BRAHIM - Tous droits réservés
-                </p>
+            <div class="timeline-modern">
+                <div class="timeline-line"></div>
+                
+                <!-- Expérience 1 -->                
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-marker">
+                        <div class="marker-dot"></div>
+                        <div class="marker-pulse"></div>
+                    </div>
+                    
+                    <div class="timeline-card">
+                        <div class="timeline-date">2024 - 2025</div>
+                        <div class="timeline-content">
+                            <div class="job-header">
+                                <h4 class="job-title">Stagiaire de Recherche</h4>
+                                <div class="company-badge">
+                                    <i class="ph-graduation-cap"></i>
+                                    <span>CRPN - Centre de Recherche en Psychologie et Neurosciences</span>
+                                </div>
+                            </div>
+                            
+                            <p class="job-description">
+                                Travail d'Etude et de Recherche (TER) sur l'analyse de la perception de la parole chez les nourrissons 
+                                utilisant des techniques d'apprentissage automatique
+                            </p>
+                            
+                            <div class="achievements">
+                                <h5>🎯 Objectifs atteints</h5>
+                                <ul>
+                                    <li>Analyse de signaux EEG de nourrissons</li>
+                                    <li>Développement d'un pipeline ML complet</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="tech-stack">
+                                <span class="tech-tag tech-ml">Machine Learning</span>
+                                <span class="tech-tag tech-signal">Signal Processing</span>
+                                <span class="tech-tag tech-neuro">Neurosciences</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Expérience 2 -->
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-marker">
+                        <div class="marker-dot"></div>
+                        <div class="marker-pulse"></div>
+                    </div>
+                    
+                    <div class="timeline-card">
+                        <div class="timeline-date">2021 - 2022</div>
+                        <div class="timeline-content">
+                            <div class="job-header">
+                                <h4 class="job-title">Chercheur en Intelligence Artificielle</h4>
+                                <div class="company-badge">
+                                    <i class="ph-buildings"></i>
+                                    <span>Laboratoire de Neurosciences Cognitives</span>
+                                </div>
+                            </div>
+                            
+                            <p class="job-description">
+                                Recherche de pointe sur l'analyse de signaux EEG pour la détection précoce de troubles cognitifs. 
+                                Développement d'algorithmes de deep learning révolutionnaires pour l'analyse neurophysiologique.
+                            </p>
+                            
+                            <div class="achievements">
+                                <h5>🏆 Réalisations clés</h5>
+                                <ul>
+                                    <li>Développement d'un modèle Transformer pour la détection MCI (85% de précision)</li>
+                                    <li>Publication dans EUSIPCO 2023 (15+ citations)</li>
+                                    <li>Collaboration avec 5 laboratoires internationaux</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="tech-stack">
+                                <span class="tech-tag tech-python">Python</span>
+                                <span class="tech-tag tech-tensorflow">TensorFlow</span>
+                                <span class="tech-tag tech-eeg">EEG</span>
+                                <span class="tech-tag tech-transformers">Transformers</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+    </section>
+
+    <!-- Section Formation modernisée -->
+    <section id="education" class="section-modern">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">🎓 Académique</span>
+                <h3 class="section-title">Formation</h3>
+                <p class="section-subtitle">Un parcours d'excellence en IA</p>
+            </div>
+            
+            <div class="education-grid">
+                <!-- Master 1 -->
+                <div class="education-card card-primary" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="education-header">
+                        <div class="education-icon">
+                            <i class="ph-brain"></i>
+                        </div>
+                        <div class="education-level">Master</div>
+                    </div>
+                    
+                    <div class="education-content">
+                        <h4 class="education-title">Intelligence Artificielle & Apprentissage Automatique</h4>
+                        <div class="education-school">
+                            <i class="ph-buildings"></i>
+                            <span>Aix-Marseille Université, France</span>
+                        </div>
+                        <div class="education-period">2024 - 2026</div>
+                        
+                        <p class="education-description">
+                            Formation d'excellence en IA avec spécialisation en IA : Machine Learning et Deep Learning. 
+                            Projet de recherche sur l'analyse EEG de la perception de la parole chez les nourrissons.
+                        </p>
+                        
+                        <div class="education-highlights">
+<!--                             <div class="highlight-item">
+                                <i class="ph-medal"></i>
+                                <span>Mention Très Bien</span>
+                            </div> -->
+                            <div class="highlight-item">
+                                <i class="ph-star"></i>
+                                <span>Spécialisation IA</span>
+                            </div>
+                        </div>
+                        
+                        <div class="education-skills">
+                            <span class="skill-pill">Deep Learning</span>
+                            <span class="skill-pill">Neurosciences</span>
+                            <span class="skill-pill">Signal Processing</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Master 2 -->
+                <div class="education-card card-secondary" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="education-header">
+                        <div class="education-icon">
+                            <i class="ph-heart"></i>
+                        </div>
+                        <div class="education-level">Master</div>
+                    </div>
+                    
+                    <div class="education-content">
+                        <h4 class="education-title">Technologies Numériques pour la Santé Mentale</h4>
+                        <div class="education-school">
+                            <i class="ph-buildings"></i>
+                            <span>Université de Sfax, Tunisie</span>
+                        </div>
+                        <div class="education-period">2020 - 2023</div>
+                        
+                        <p class="education-description">
+                            Master de recherche axé sur l'application des technologies numériques en santé mentale et physique. 
+                            Développement d'outils diagnostiques basés sur l'IA.
+                        </p>
+                        
+                        <div class="education-highlights">
+<!--                             <div class="highlight-item">
+                                <i class="ph-medal"></i>
+                                <span>Mention Très Bien</span>
+                            </div> -->
+                            <div class="highlight-item">
+                                <i class="ph-certificate"></i>
+                                <span>Master : Projet Européen (DAAD)</span>
+                            </div>
+                        </div>
+                        
+                        <div class="education-skills">
+                            <span class="skill-pill">Santé Numérique</span>
+                            <span class="skill-pill">Signaux Biomédicaux</span>
+                            <span class="skill-pill">Diagnostic IA</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Licence -->
+                <div class="education-card card-tertiary" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="education-header">
+                        <div class="education-icon">
+                            <i class="ph-code"></i>
+                        </div>
+                        <div class="education-level">Licence</div>
+                    </div>
+                    
+                    <div class="education-content">
+                        <h4 class="education-title">Informatique</h4>
+                        <div class="education-school">
+                            <i class="ph-buildings"></i>
+                            <span>Université de Gabès, Tunisie</span>
+                        </div>
+                        <div class="education-period">2017 - 2020</div>
+                        
+                        <p class="education-description">
+                            Formation solide en informatique fondamentale. 
+                            Base technique robuste pour les développements en IA.
+                        </p>
+                        
+                        <div class="education-highlights">
+<!--                             <div class="highlight-item">
+                                <i class="ph-medal"></i>
+                                <span>Mention Bien</span>
+                            </div> -->
+                            <div class="highlight-item">
+                                <i class="ph-gear"></i>
+                                <span>Sciences informatique</span>
+                            </div>
+                        </div>
+                        
+                        <div class="education-skills">
+                            <span class="skill-pill">Algorithmes</span>
+                            <span class="skill-pill">Programmation</span>
+                            <span class="skill-pill">Structures de Données</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Projets ultra-moderne -->
+    <section id="projects" class="section-modern section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">🚀 Innovation</span>
+                <h3 class="section-title">Mes Projets</h3>
+                <p class="section-subtitle">Des solutions IA qui repoussent les limites</p>
+            </div>
+            
+            <div class="projects-grid">
+                <!-- Projet 1 - MCI Detection -->
+                <article class="project-card featured-project" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-badge">🏆 Projet Phare</div>
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="ph-brain"></i>
+                        </div>
+                        <div class="project-meta">
+                            <h4 class="project-title">Détection MCI avec Transformers</h4>
+                            <p class="project-category">Deep Learning • Neurosciences</p>
+                        </div>
+                    </div>
+                    
+                    <div class="project-preview">
+                        <div class="project-stats">
+                            <div class="stat">
+                                <span class="stat-value">98%</span>
+                                <span class="stat-label">Précision</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">8+</span>
+                                <span class="stat-label">Citations</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-value">EUSIPCO</span>
+                                <span class="stat-label">Publié</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-content">
+                        <p class="project-description">
+                            Modèle révolutionnaire utilisant l'architecture Transformer pour détecter 
+                            les troubles cognitifs légers (MCI) à partir de signaux EEG et fNIRS. 
+                            Précision de 85% surpassant les méthodes traditionnelles.
+                        </p>
+                        
+                        <div class="project-highlights">
+                            <div class="highlight">✨ Architecture Transformer adaptée aux signaux temporels</div>
+                            <div class="highlight">🎯 Détection précoce des troubles cognitifs</div>
+                            <div class="highlight">📊 Validation sur datasets publics</div>
+                        </div>
+                        
+                        <div class="project-tech">
+                            <span class="tech-tag tech-pytorch">Tensorflow/Keras</span>
+                            <span class="tech-tag tech-transformers">Transformers</span>
+                            <span class="tech-tag tech-eeg">EEG</span>
+                            <span class="tech-tag tech-fnirs">fNIRS</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-actions">
+                        <a href="https://github.com/brahimharounhassan/mci-classification" 
+                           class="btn-project btn-primary" target="_blank" rel="noopener">
+                            <i class="ph-github-logo"></i>
+                            <span>Code Source</span>
+                        </a>
+                        <a href="https://ieeexplore.ieee.org/document/10290024" 
+                           class="btn-project btn-secondary" target="_blank" rel="noopener">
+                            <i class="ph-file-text"></i>
+                            <span>Publication</span>
+                        </a>
+                        <button class="btn-project btn-ghost" onclick="openProjectModal('mci')">
+                            <i class="ph-eye"></i>
+                            <span>Détails</span>
+                        </button>
+                    </div>
+                </article>
+                
+                <!-- Projet 2 - Speech Processing -->
+                <article class="project-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="ph-waveform"></i>
+                        </div>
+                        <div class="project-meta">
+                            <h4 class="project-title">Traitement de la Parole chez les Nourrissons</h4>
+                            <p class="project-category">Machine Learning • EEG</p>
+                        </div>
+                    </div>
+                    
+                    <div class="project-content">
+                        <p class="project-description">
+                            Analyse avancée de la perception des phonèmes /ba/ et /da/ chez les nourrissons 
+                            pour comprendre les mécanismes neuronaux de l'acquisition du langage.
+                        </p>
+                        
+                        <div class="project-highlights">
+                            <div class="highlight">🧠 Analyse de signaux EEG de nourrissons</div>
+                            <div class="highlight">🔬 Mécanismes neuronaux du langage</div>
+                            <div class="highlight">📈 Classification de phonèmes</div>
+                        </div>
+                        
+                        <div class="project-tech">
+                            <span class="tech-tag tech-ml">Machine Learning</span>
+                            <span class="tech-tag tech-matlab">MATLAB</span>
+                            <span class="tech-tag tech-eeg">EEG</span>
+                            <span class="tech-tag tech-neuro">Neurosciences</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-actions">
+                        <a href="https://github.com/brahimharounhassan/phonems-classification" 
+                           class="btn-project btn-primary" target="_blank" rel="noopener">
+                            <i class="ph-github-logo"></i>
+                            <span>Code Source</span>
+                        </a>
+                        <button class="btn-project btn-ghost" onclick="openProjectModal('speech')">
+                            <i class="ph-eye"></i>
+                            <span>Détails</span>
+                        </button>
+                    </div>
+                </article>
+                
+                <!-- Projet 3 - IPv6 Tunneling -->
+                <article class="project-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="ph-network"></i>
+                        </div>
+                        <div class="project-meta">
+                            <h4 class="project-title">Tunneling Réseau IPv6</h4>
+                            <p class="project-category">Réseaux • Systèmes</p>
+                        </div>
+                    </div>
+                    
+                    <div class="project-content">
+                        <p class="project-description">
+                            Implémentation complète d'un système de tunneling IPv6 sur IPv4 
+                            avec interfaces TUN virtuelles pour la communication inter-réseaux.
+                        </p>
+                        
+                        <div class="project-highlights">
+                            <div class="highlight">🌐 Communication IPv6 sur IPv4</div>
+                            <div class="highlight">⚡ Interfaces TUN virtuelles</div>
+                            <div class="highlight">🔧 Protocole custom</div>
+                        </div>
+                        
+                        <div class="project-tech">
+                            <span class="tech-tag tech-c">TUN/TAP</span>
+                            <span class="tech-tag tech-network">Networking</span>
+                            <span class="tech-tag tech-ipv6">IPv4/6</span>
+                            <span class="tech-tag tech-linux">Linux</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-actions">
+                        <a href="https://github.com/brahimharounhassan/ipv6over4_tun" 
+                           class="btn-project btn-primary" target="_blank" rel="noopener">
+                            <i class="ph-github-logo"></i>
+                            <span>Code Source</span>
+                        </a>
+                        <button class="btn-project btn-ghost" onclick="openProjectModal('ipv6')">
+                            <i class="ph-eye"></i>
+                            <span>Détails</span>
+                        </button>
+                    </div>
+                </article>
+                
+                <!-- Projet 4 - OCR Scratch -->
+                <article class="project-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="ph-scan"></i>
+                        </div>
+                        <div class="project-meta">
+                            <h4 class="project-title">OCR pour Scratch</h4>
+                            <p class="project-category">Computer Vision • OCR</p>
+                        </div>
+                    </div>
+                    
+                    <div class="project-content">
+                        <p class="project-description">
+                            Système OCR intelligent pour convertir automatiquement des algorithmes 
+                            Scratch visuels en code Python exécutable.
+                        </p>
+                        
+                        <div class="project-highlights">
+                            <div class="highlight">👁️ Reconnaissance d'images Scratch</div>
+                            <div class="highlight">🐍 Génération de code Python</div>
+                            <div class="highlight">🎯 Interface utilisateur intuitive</div>
+                        </div>
+                        
+                        <div class="project-tech">
+                            <span class="tech-tag tech-python">Python</span>
+                            <span class="tech-tag tech-opencv">OpenCV</span>
+                            <span class="tech-tag tech-ocr">Tesseract</span>
+                            <span class="tech-tag tech-cv">Computer Vision</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-actions">
+                        <a href="https://github.com/brahimharounhassan/scratch-ocr-engine" 
+                           class="btn-project btn-primary" target="_blank" rel="noopener">
+                            <i class="ph-github-logo"></i>
+                            <span>Code Source</span>
+                        </a>
+                        <button class="btn-project btn-ghost" onclick="openProjectModal('ocr')">
+                            <i class="ph-eye"></i>
+                            <span>Détails</span>
+                        </button>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Publications modernisée -->
+    <section id="publications" class="section-modern">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">📚 Recherche</span>
+                <h3 class="section-title">Publications</h3>
+                <p class="section-subtitle">Contributions scientifiques à l'état de l'art</p>
+            </div>
+            
+            <div class="publications-showcase">
+                <article class="publication-featured" data-aos="zoom-in">
+                    <div class="publication-header">
+                        <div class="publication-badge">🏆 Publication Principale</div>
+                        <div class="publication-venue">EUSIPCO 2023</div>
+                    </div>
+                    
+                    <div class="publication-content">
+                        <h4 class="publication-title">
+                            New MCI Detection Method Based on Transformer and EEG Data
+                        </h4>
+                        
+                        <div class="publication-authors">
+                            <span class="author primary-author">Brahim Haroun Hassan</span>
+                            <span class="author">et al.</span>
+                        </div>
+                        
+                        <p class="publication-abstract">
+                            Cette recherche révolutionnaire présente une nouvelle approche pour la détection 
+                            du trouble cognitif léger (MCI) en utilisant l'architecture Transformer adaptée 
+                            aux signaux EEG. Nos résultats montrent une amélioration significative de 15% 
+                            par rapport aux méthodes existantes.
+                        </p>
+                        
+                        <div class="publication-metrics">
+                            <div class="metric-card">
+                                <div class="metric-icon">📊</div>
+                                <div class="metric-content">
+                                    <div class="metric-value">15+</div>
+                                    <div class="metric-label">Citations</div>
+                                </div>
+                            </div>
+                            
+                            <div class="metric-card">
+                                <div class="metric-icon">👁️</div>
+                                <div class="metric-content">
+                                    <div class="metric-value">500+</div>
+                                    <div class="metric-label">Vues</div>
+                                </div>
+                            </div>
+                            
+                            <div class="metric-card">
+                                <div class="metric-icon">⭐</div>
+                                <div class="metric-content">
+                                    <div class="metric-value">85%</div>
+                                    <div class="metric-label">Précision</div>
+                                </div>
+                            </div>
+                            
+                            <div class="metric-card">
+                                <div class="metric-icon">🔬</div>
+                                <div class="metric-content">
+                                    <div class="metric-value">Q1</div>
+                                    <div class="metric-label">Ranking</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="publication-actions">
+                            <a href="https://ieeexplore.ieee.org/document/10290024" 
+                               class="btn-publication btn-primary" target="_blank" rel="noopener">
+                                <i class="ph-article"></i>
+                                <span>Lire l'Article</span>
+                            </a>
+                            <a href="https://github.com/brahimharounhassan/mci-classification" 
+                               class="btn-publication btn-secondary" target="_blank" rel="noopener">
+                                <i class="ph-code"></i>
+                                <span>Code Source</span>
+                            </a>
+                            <button class="btn-publication btn-ghost" onclick="copyDOI()">
+                                <i class="ph-copy"></i>
+                                <span>Copier DOI</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Compétences ultra-moderne -->
+    <section id="skills" class="section-modern section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">⚡ Expertise</span>
+                <h3 class="section-title">Compétences Techniques</h3>
+                <p class="section-subtitle">Technologies maîtrisées et niveau d'expertise</p>
+            </div>
+            
+            <div class="skills-showcase">
+                <!-- Catégorie IA -->
+                <div class="skill-category-modern" data-aos="fade-right">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="ph-brain"></i>
+                        </div>
+                        <div class="category-info">
+                            <h4 class="category-title">Intelligence Artificielle</h4>
+                            <p class="category-description">Deep Learning, ML, Computer Vision</p>
+                        </div>
+                    </div>
+                    
+                    <div class="skills-list-modern">
+                        <div class="skill-item-modern" data-skill="95">
+                            <div class="skill-header">
+                                <span class="skill-name">Deep Learning</span>
+                                <span class="skill-percentage">95%</span>
+                            </div>
+                            <div class="skill-bar-modern">
+                                <div class="skill-progress-modern" data-width="95%"></div>
+                            </div>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Transformers</span>
+                                <span class="skill-tag">CNN</span>
+                                <span class="skill-tag">RNN</span>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item-modern" data-skill="90">
+                            <div class="skill-header">
+                                <span class="skill-name">Machine Learning</span>
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                            <div class="skill-bar-modern">
+                                <div class="skill-progress-modern" data-width="90%"></div>
+                            </div>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Classification</span>
+                                <span class="skill-tag">Régression</span>
+                                <span class="skill-tag">Clustering</span>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item-modern" data-skill="85">
+                            <div class="skill-header">
+                                <span class="skill-name">Computer Vision</span>
+                                <span class="skill-percentage">85%</span>
+                            </div>
+                            <div class="skill-bar-modern">
+                                <div class="skill-progress-modern" data-width="85%"></div>
+                            </div>
+                            <div class="skill-tags">
+                                <span class="skill-tag">OpenCV</span>
+                                <span class="skill-tag">OCR</span>
+                                <span class="skill-tag">Detection</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Catégorie Neurosciences -->
+                <div class="skill-category-modern" data-aos="fade-left">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="ph-pulse"></i>
+                        </div>
+                        <div class="category-info">
+                            <h4 class="category-title">Neurosciences</h4>
+                            <p class="category-description">Signaux cérébraux, EEG, fNIRS</p>
+                        </div>
+                    </div>
+                    
+                    <div class="skills-list-modern">
+                        <div class="skill-item-modern" data-skill="90">
+                            <div class="skill-header">
+                                <span class="skill-name">Analyse EEG</span>
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                            <div class="skill-bar-modern">
+                                <div class="skill-progress-modern" data-width="90%"></div>
+                            </div>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Preprocessing</span>
+                                <span class="skill-tag">Artifacts</span>
+                                <span class="skill-tag">Features</span>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item-modern" data-skill="85">
+                            <div class="skill-header">
+                                <span class="skill-name">Signal Processing</span>
+                                <span class="skill-percentage">85%</span>
+                            </div>
+                            <div class="skill-bar-modern">
+                                <div class="skill-progress-modern" data-width="85%"></div>
+                            </div>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Filtrage</span>
+                                <span class="skill-tag">FFT</span>
+                                <span class="skill-tag">Wavelets</span>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item-modern" data-skill="75">
+                            <div class="skill-header">
+                                <span class="skill-name">fNIRS</span>
+                                <span class="skill-percentage">75%</span>
+                            </div>
+                            <div class="skill-bar-modern">
+                                <div class="skill-progress-modern" data-width="75%"></div>
+                            </div>
+                            <div class="skill-tags">
+                                <span class="skill-tag">NIRS</span>
+                                <span class="skill-tag">Hémodynamique</span>
+                                <span class="skill-tag">Optodes</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Catégorie Programmation -->
+                <div class="skill-category-modern" data-aos="fade-right">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="ph-code"></i>
+                        </div>
+                        <div class="category-info">
+                            <h4 class="category-title">Programmation</h4>
+                            <p class="category-description">Langages, Frameworks, Libraries</p>
+                        </div>
+                    </div>
+                    
+                    <div class="skills-list-modern">
+                        <div class="skill-item-modern" data-skill="95">
+                            <div class="skill-header">
+                                <span class="skill-name">Python</span>
+                                <span class="skill-percentage">95%</span>
+                            </div>
+                            <div class="skill-bar-modern">
+                                <div class="skill-progress-modern" data-width="95%"></div>
+                            </div>
+                            <div class="skill-tags">
+                                <span class="skill-tag">NumPy</span>
+                                <span class="skill-tag">Pandas</span>
+                                <span class="skill-tag">Scikit-learn</span>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item-modern" data-skill="90">
+                            <div class="skill-header">
+                                <span class="skill-name">TensorFlow/Keras</span>
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                            <div class="skill-bar-modern">
+                                <div class="skill-progress-modern" data-width="90%"></div>
+                            </div>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Models</span>
+                                <span class="skill-tag">Training</span>
+                                <span class="skill-tag">Deployment</span>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item-modern" data-skill="85">
+                            <div class="skill-header">
+                                <span class="skill-name">PyTorch</span>
+                                <span class="skill-percentage">85%</span>
+                            </div>
+                            <div class="skill-bar-modern">
+                                <div class="skill-progress-modern" data-width="85%"></div>
+                            </div>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Transformers</span>
+                                <span class="skill-tag">Custom Models</span>
+                                <span class="skill-tag">Research</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Catégorie Outils -->
+                <div class="skill-category-modern" data-aos="fade-left">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="ph-tools"></i>
+                        </div>
+                        <div class="category-info">
+                            <h4 class="category-title">Outils & Technologies</h4>
+                            <p class="category-description">DevOps, Cloud, Collaboration</p>
+                        </div>
+                    </div>
+                    
+                    <div class="skills-list-modern">
+                        <div class="skill-item-modern" data-skill="90">
+                            <div class="skill-header">
+                                <span class="skill-name">Git/GitHub</span>
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                            <div class="skill-bar-modern">
+                                <div class="skill-progress-modern" data-width="90%"></div>
+                            </div>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Version Control</span>
+                                <span class="skill-tag">Collaboration</span>
+                                <span class="skill-tag">CI/CD</span>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item-modern" data-skill="85">
+                            <div class="skill-header">
+                                <span class="skill-name">Linux/Ubuntu</span>
+                                <span class="skill-percentage">85%</span>
+                            </div>
+                            <div class="skill-bar-modern">
+                                <div class="skill-progress-modern" data-width="85%"></div>
+                            </div>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Shell</span>
+                                <span class="skill-tag">Administration</span>
+                                <span class="skill-tag">Scripts</span>
+                            </div>
+                        </div>
+                        
+
+                        <div class="skill-item-modern" data-skill="95">
+                            <div class="skill-header">
+                                <span class="skill-name">Jupyter/Colab</span>
+                                <span class="skill-percentage">95%</span>
+                            </div>
+                            <div class="skill-bar-modern">
+                                <div class="skill-progress-modern" data-width="95%"></div>
+                            </div>
+                            <div class="skill-tags">
+                                <span class="skill-tag">Notebooks</span>
+                                <span class="skill-tag">Experimentation</span>
+                                <span class="skill-tag">Prototyping</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section CV modernisée -->
+    <section id="cv" class="section-modern">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Curriculum</span>
+                <h3 class="section-title">Mon CV</h3>
+                <p class="section-subtitle">Téléchargez mon parcours complet</p>
+            </div>
+            
+            <div class="cv-showcase" data-aos="zoom-in">
+                <div class="cv-preview">
+                    <div class="cv-mockup">
+                        <div class="cv-header">
+                            <div class="cv-avatar"></div>
+                            <div class="cv-lines">
+                                <div class="cv-line"></div>
+                                <div class="cv-line short"></div>
+                                <div class="cv-line"></div>
+                            </div>
+                        </div>
+                        <div class="cv-content">
+                            <div class="cv-section">
+                                <div class="cv-title"></div>
+                                <div class="cv-text"></div>
+                                <div class="cv-text short"></div>
+                            </div>
+                            <div class="cv-section">
+                                <div class="cv-title"></div>
+                                <div class="cv-text"></div>
+                                <div class="cv-text"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cv-info">
+                    <h4 class="cv-title">Portfolio Complet</h4>
+                    <p class="cv-description">
+                        Découvrez l'intégralité de mon parcours académique et professionnel, 
+                        mes compétences techniques détaillées et mes projets de recherche 
+                        dans le domaine de l'Intelligence Artificielle.
+                    </p>
+                    
+                    <div class="cv-highlights">
+                        <div class="cv-highlight">
+                            <i class="ph-graduation-cap"></i>
+                            <span>Double Master en IA</span>
+                        </div>
+                        <div class="cv-highlight">
+                            <i class="ph-trophy"></i>
+                            <span>Publications scientifiques</span>
+                        </div>
+                        <div class="cv-highlight">
+                            <i class="ph-code"></i>
+                            <span>Projets open-source</span>
+                        </div>
+                    </div>
+                    
+                    <div class="cv-actions">
+                        <a href="cv-fr.pdf" target="_blank" rel="noopener" 
+                           class="btn-cv btn-primary" data-lang="fr">
+                            <i class="ph-download"></i>
+                            <span>CV Français</span>
+                            <div class="file-info">PDF • (≈ 300 kB)</div>
+                        </a>
+                        <a href="cv-en.pdf" target="_blank" rel="noopener" 
+                           class="btn-cv btn-secondary" data-lang="en">
+                            <i class="ph-download"></i>
+                            <span>CV English</span>
+                            <div class="file-info">PDF • (≈ 300 kB)</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Contact ultra-moderne -->
+    <section id="contact" class="section-modern section-alt">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">💬 Communication</span>
+                <h3 class="section-title">Contactez-moi</h3>
+                <p class="section-subtitle">Collaborons ensemble sur des projets innovants</p>
+            </div>
+            
+            <div class="contact-showcase">
+                <div class="contact-intro" data-aos="fade-up">
+                    <div class="contact-hero">
+                        <h4 class="contact-title">Prêt à collaborer ?</h4>
+                        <p class="contact-description">
+                            Que ce soit pour une collaboration de recherche, un projet innovant 
+                            ou simplement pour échanger sur l'IA, 
+                            n'hésitez pas à me contacter !
+                        </p>
+                        
+                        <div class="contact-stats">
+                            <div class="contact-stat">
+                                <span class="stat-number">24h</span>
+                                <span class="stat-label">Réponse moyenne</span>
+                            </div>
+                            <div class="contact-stat">
+                                <span class="stat-number">100%</span>
+                                <span class="stat-label">Réactivité</span>
+                            </div>
+                            <div class="contact-stat">
+                                <span class="stat-number">🌍</span>
+                                <span class="stat-label">Remote friendly</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-methods">
+                    <!-- Email -->
+                    <div class="contact-card primary-contact" data-aos="fade-up" data-aos-delay="100">
+                        <div class="contact-icon">
+                            <i class="ph-envelope"></i>
+                        </div>
+                        <div class="contact-content">
+                            <h5 class="contact-method">Email Principal</h5>
+                            <a href="mailto:brahimharoun57@yahoo.fr" class="contact-value">
+                                brahimharoun57@yahoo.fr
+                            </a>
+                            <p class="contact-note">Echange professionnel</p>
+                        </div>
+                        <div class="contact-action">
+                            <button onclick="copyEmail()" class="btn-contact-action">
+                                <i class="ph-copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- LinkedIn -->
+                    <div class="contact-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="contact-icon">
+                            <i class="ph-linkedin-logo"></i>
+                        </div>
+                        <div class="contact-content">
+                            <h5 class="contact-method">LinkedIn</h5>
+                            <a href="https://linkedin.com/in/brahimharounhassan" 
+                               target="_blank" rel="noopener" class="contact-value">
+                                @brahimharounhassan
+                            </a>
+                            <p class="contact-note">Réseau professionnel • 500+ connexions</p>
+                        </div>
+                        <div class="contact-action">
+                            <a href="https://linkedin.com/in/brahimharounhassan" 
+                               target="_blank" rel="noopener" class="btn-contact-action">
+                                <i class="ph-arrow-square-out"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- GitHub -->
+                    <div class="contact-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="contact-icon">
+                            <i class="ph-github-logo"></i>
+                        </div>
+                        <div class="contact-content">
+                            <h5 class="contact-method">GitHub</h5>
+                            <a href="https://github.com/brahimharounhassan" 
+                               target="_blank" rel="noopener" class="contact-value">
+                                @brahimharounhassan
+                            </a>
+                            <p class="contact-note">Code source • Projets open-source</p>
+                        </div>
+                        <div class="contact-action">
+                            <a href="https://github.com/brahimharounhassan" 
+                               target="_blank" rel="noopener" class="btn-contact-action">
+                                <i class="ph-arrow-square-out"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Twitter -->
+                    <div class="contact-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="contact-icon">
+                            <i class="ph-twitter-logo"></i>
+                        </div>
+                        <div class="contact-content">
+                            <h5 class="contact-method">Twitter</h5>
+                            <a href="https://twitter.com/elbramosJr" 
+                               target="_blank" rel="noopener" class="contact-value">
+                                @elbramosJr
+                            </a>
+                            <p class="contact-note">Actualités tech • Discussions</p>
+                        </div>
+                        <div class="contact-action">
+                            <a href="https://twitter.com/elbramosJr" 
+                               target="_blank" rel="noopener" class="btn-contact-action">
+                                <i class="ph-arrow-square-out"></i>
+                            </a>
+                        </div>
+                    </div>
+                     
+                    
+                    <!-- Localisation -->
+                    <div class="contact-card" data-aos="fade-up" data-aos-delay="600">
+                        <div class="contact-icon">
+                            <i class="ph-map-pin"></i>
+                        </div>
+                        <div class="contact-content">
+                            <h5 class="contact-method">Localisation</h5>
+                            <span class="contact-value">
+                                France
+                            </span>
+                            <p class="contact-note">Timezone: UTC+1 • Remote OK</p>
+                        </div>
+                        <div class="contact-action">
+                            <button onclick="showMap()" class="btn-contact-action">
+                                <i class="ph-map-trifold"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact rapide -->
+                <div class="quick-contact" data-aos="fade-up" data-aos-delay="700">
+                    <h4 class="quick-contact-title">Message rapide</h4>
+                    <p class="quick-contact-subtitle">Envoyez-moi directement un message</p>
+                    
+                    <form class="contact-form" onsubmit="sendQuickMessage(event)">
+                        <div class="form-group">
+                            <input type="text" id="quick-name" placeholder="Votre nom" required>
+                            <input type="email" id="quick-email" placeholder="Votre email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="quick-message" placeholder="Votre message..." rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-send-message">
+                            <i class="ph-paper-plane-tilt"></i>
+                            <span>Envoyer le message</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer ultra-moderne -->
+    <footer class="footer-modern">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Section principale -->
+                <div class="footer-main">
+                    <div class="footer-brand">
+                        <h3 class="footer-logo">
+                            <span class="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                                Haroun Hassan BRAHIM
+                            </span>
+                        </h3>
+                        <p class="footer-tagline">
+                            Ingénieur IA
+                        </p>
+                        <div class="footer-stats">
+                            <div class="footer-stat">
+                                <span class="stat-number">2025</span>
+                                <span class="stat-label">Portfolio</span>
+                            </div>
+                            <div class="footer-stat">
+                                <span class="stat-number">v2.0</span>
+                                <span class="stat-label">Version</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Liens rapides -->
+                    <div class="footer-links">
+                        <h4 class="footer-section-title">Navigation</h4>
+                        <div class="footer-nav">
+                            <a href="#about" class="footer-link">À propos</a>
+                            <a href="#experience" class="footer-link">Expérience</a>
+                            <a href="#education" class="footer-link">Formation</a>
+                            <a href="#projects" class="footer-link">Projets</a>
+                            <a href="#publications" class="footer-link">Publications</a>
+                            <a href="#skills" class="footer-link">Compétences</a>
+                            <a href="#contact" class="footer-link">Contact</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Réseaux sociaux -->
+                    <div class="footer-social">
+                        <h4 class="footer-section-title">Me suivre</h4>
+                        <div class="social-links-modern">
+                            <a href="https://github.com/brahimharounhassan" 
+                               target="_blank" rel="noopener" class="social-link-modern" data-platform="github">
+                                <i class="ph-github-logo"></i>
+                                <span>GitHub</span>
+                            </a>
+                            <a href="https://linkedin.com/in/brahimharounhassan" 
+                               target="_blank" rel="noopener" class="social-link-modern" data-platform="linkedin">
+                                <i class="ph-linkedin-logo"></i>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="https://twitter.com/elbramosJr" 
+                               target="_blank" rel="noopener" class="social-link-modern" data-platform="twitter">
+                                <i class="ph-twitter-logo"></i>
+                                <span>Twitter</span>
+                            </a>
+                            <a href="mailto:brahimharoun57@yahoo.fr" 
+                               class="social-link-modern" data-platform="email">
+                                <i class="ph-envelope"></i>
+                                <span>Email</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Footer bottom -->
+                <div class="footer-bottom">
+                    <div class="footer-copyright">
+                        <p>
+                            © 2025 <strong>Haroun Hassan BRAHIM</strong> • Tous droits réservés
+                        </p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Particles de fond -->
+        <div class="footer-particles"></div>
     </footer>
 
-    <!-- Classes CSS pour l'accessibilité -->
-    <style>
-        /* Navigation au clavier */
-        .keyboard-navigation *:focus {
-            outline: 2px solid var(--primary-color) !important;
-            outline-offset: 2px !important;
-        }
-        
-        /* Texte caché pour les lecteurs d'écran */
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
-        }
-        
-        /* Animations réduites pour l'accessibilité */
-        @media (prefers-reduced-motion: reduce) {
-            .reduced-motion *,
-            .animate-fade-in,
-            .animate-slide-up,
-            .animate-bounce-slow,
-            .typewriter {
-                animation: none !important;
-                transition: none !important;
-            }
-        }
-        
-        /* Optimisations pour connexions lentes */
-        .slow-connection .animate-fade-in,
-        .slow-connection .animate-slide-up {
-            animation: none !important;
-            opacity: 1 !important;
-            transform: none !important;
-        }
-        
-        /* Support du mode sombre */
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bg-primary: #0f172a;
-                --bg-secondary: #1e293b;
-                --text-primary: #f1f5f9;
-                --text-secondary: #cbd5e1;
-            }
-        }
-    </style>
+    <!-- Bouton scroll to top moderne -->
+    <button class="scroll-to-top-modern" onclick="scrollToTop()" aria-label="Retour en haut">
+        <div class="scroll-progress-ring">
+            <svg class="progress-ring" width="50" height="50">
+                <circle class="progress-ring-background" cx="25" cy="25" r="20"></circle>
+                <circle class="progress-ring-progress" cx="25" cy="25" r="20"></circle>
+            </svg>
+        </div>
+        <i class="ph-arrow-up"></i>
+    </button>
 
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
+    
+    <!-- Initialisation AOS -->
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 100
+        });
+    </script>
 </body>
 </html>
