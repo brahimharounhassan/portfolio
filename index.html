@@ -15,6 +15,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     fontFamily: {
@@ -25,7 +26,9 @@
                         'slide-up': 'slideUp 0.8s ease-out',
                         'bounce-slow': 'bounce 3s infinite',
                         'typewriter': 'typewriter 4s steps(40) 1s forwards',
-                        'blink': 'blink 1s infinite'
+                        'blink': 'blink 1s infinite',
+                        'slide-down': 'slideDown 0.3s ease-out',
+                        'slide-up-menu': 'slideUpMenu 0.3s ease-out'
                     },
                     keyframes: {
                         fadeIn: {
@@ -34,6 +37,14 @@
                         },
                         slideUp: {
                             '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        slideDown: {
+                            '0%': { opacity: '0', transform: 'translateY(-10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        slideUpMenu: {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
                             '100%': { opacity: '1', transform: 'translateY(0)' }
                         },
                         typewriter: {
@@ -70,347 +81,387 @@
     <meta name="theme-color" content="#1e293b" media="(prefers-color-scheme: dark)">
 </head>
 
-<body class="bg-gradient-to-br from-slate-50 to-blue-50 text-gray-800 font-sans overflow-x-hidden">
+<body class="overflow-x-hidden bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
     <!-- Barre de progression -->
-    <div class="progress-bar" role="progressbar" aria-label="Progression de la lecture"></div>
-    
-    <!-- Navigation principale -->
-    <nav class="nav-modern" role="navigation" aria-label="Navigation principale">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                Mon Portfolio
-            </h1>
-            <div class="flex items-center space-x-6">
-                <a href="#about" class="nav-link" aria-label="Aller à la section À propos">À propos</a>
-                <a href="#projects" class="nav-link" aria-label="Aller à la section Projets">Projets</a>
-                <a href="#publications" class="nav-link" aria-label="Aller à la section Publications">Publications</a>
-                <a href="#cv" class="nav-link" aria-label="Aller à la section CV">CV</a>
-                <a href="#contact" class="nav-link" aria-label="Aller à la section Contact">Contact</a>
-                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Basculer le thème sombre/clair">
-                    <i class="ph-moon" aria-hidden="true"></i>
-                </button>
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Navigation responsive -->
+    <nav class="nav-modern">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo/Brand -->
+                <div class="flex-shrink-0">
+                    <a href="#accueil" class="text-xl font-bold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                        HH.B
+                    </a>
+                </div>
+
+                <!-- Menu desktop -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#accueil" class="nav-link">Accueil</a>
+                        <a href="#apropos" class="nav-link">À propos</a>
+                        <a href="#competences" class="nav-link">Compétences</a>
+                        <a href="#projets" class="nav-link">Projets</a>
+                        <a href="#contact" class="nav-link">Contact</a>
+                    </div>
+                </div>
+
+                <!-- Bouton dark/light mode et hamburger -->
+                <div class="flex items-center space-x-2">
+                    <!-- Bouton dark/light mode -->
+                    <button 
+                        id="theme-toggle"
+                        class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 transition-colors"
+                        aria-label="Basculer le thème"
+                    >
+                        <!-- Icône soleil (mode clair) -->
+                        <svg id="sun-icon" class="block h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                        <!-- Icône lune (mode sombre) -->
+                        <svg id="moon-icon" class="hidden h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                        </svg>
+                    </button>
+
+                    <!-- Bouton hamburger mobile -->
+                    <div class="md:hidden">
+                        <button 
+                            id="mobile-menu-button" 
+                            class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 transition-colors"
+                            aria-expanded="false"
+                            aria-label="Menu principal"
+                        >
+                            <span class="sr-only">Ouvrir le menu principal</span>
+                            <!-- Icône hamburger -->
+                            <svg id="hamburger-icon" class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                            <!-- Icône fermeture -->
+                            <svg id="close-icon" class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menu mobile -->
+        <div class="md:hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 shadow-lg">
+                <a href="#accueil" class="mobile-nav-link">
+                    <i class="ph ph-house mr-3"></i>
+                    Accueil
+                </a>
+                <a href="#apropos" class="mobile-nav-link">
+                    <i class="ph ph-user mr-3"></i>
+                    À propos
+                </a>
+                <a href="#competences" class="mobile-nav-link">
+                    <i class="ph ph-gear mr-3"></i>
+                    Compétences
+                </a>
+                <a href="#projets" class="mobile-nav-link">
+                    <i class="ph ph-folder mr-3"></i>
+                    Projets
+                </a>
+                <a href="#contact" class="mobile-nav-link">
+                    <i class="ph ph-envelope mr-3"></i>
+                    Contact
+                </a>
             </div>
         </div>
     </nav>
 
-    <!-- Section Héro -->
-    <section class="hero-section" role="banner">
-        <div class="particles" aria-hidden="true"></div>
-        <div class="hero-content">
-            <div class="hero-text">
-                <h2 class="hero-title">
-                    <span class="typewriter">Bienvenue dans mon portfolio</span>
-                    <span class="cursor" aria-hidden="true"></span>
-                </h2>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn-primary" aria-describedby="projects-desc">
-                        Découvrir mes projets
-                        <i class="ph-arrow-right ml-2" aria-hidden="true"></i>
-                    </a>
-                    <a href="#contact" class="btn-secondary" aria-describedby="contact-desc">
-                        Me contacter
-                    </a>
-                </div>
-                <!-- Descriptions cachées pour l'accessibilité -->
-                <div id="projects-desc" class="sr-only">Voir tous mes projets en Intelligence Artificielle</div>
-                <div id="contact-desc" class="sr-only">Accéder à mes informations de contact</div>
+    <!-- Contenu principal -->
+    <main>
+        <!-- Section Accueil -->
+        <section id="accueil" class="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-cyan-50 dark:from-gray-900 dark:via-blue-900 dark:to-indigo-900 flex items-center justify-center relative overflow-hidden">
+            <!-- Éléments décoratifs de fond -->
+            <div class="absolute inset-0 overflow-hidden">
+                <div class="floating-shape w-64 h-64 bg-blue-200 dark:bg-blue-800 rounded-full opacity-20 absolute -top-32 -left-32 animate-bounce-slow"></div>
+                <div class="floating-shape w-96 h-96 bg-purple-200 dark:bg-purple-800 rounded-full opacity-15 absolute -bottom-48 -right-48 animate-bounce-slow" style="animation-delay: 1s;"></div>
+                <div class="floating-shape w-32 h-32 bg-cyan-200 dark:bg-cyan-800 rounded-full opacity-25 absolute top-1/2 left-1/4 animate-bounce-slow" style="animation-delay: 2s;"></div>
             </div>
-            <div class="hero-image animate-fade-in">
-                <img src="photo.jpg" alt="Photo de profil de Haroun Hassan BRAHIM" class="profile-image" loading="eager">
-                <div class="image-glow" aria-hidden="true"></div>
-            </div>
-        </div>
-        <div class="scroll-indicator" aria-hidden="true">
-            <div class="scroll-arrow animate-bounce-slow">
-                <i class="ph-arrow-down"></i>
-            </div>
-        </div>
-    </section>
 
-    <!-- Section À propos -->
-    <section id="about" class="section-modern">
-        <div class="container">
-            <h3 class="section-title">À propos de moi</h3>
-            <div class="about-content">
-                <div class="about-text">
-                    <p class="text-lg text-gray-700 leading-relaxed mb-6">
-                        Je suis <strong class="text-blue-600">Haroun Hassan BRAHIM</strong>, 
-                        <em>ingénieur en Intelligence Artificielle</em> spécialisé en Apprentissage Automatique et Apprentissage Profond.
-                    </p>
-                    <p class="text-gray-600 leading-relaxed mb-6">
-                        J'ai obtenu un double diplôme en <em>Intelligence Artificielle et Apprentissage Automatique</em> à 
-                        <strong>Aix-Marseille Université</strong>, en France et en <em>ingénierie des technologies numériques pour la santé mentale</em> 
-                        à l'<strong>Université de Sfax</strong>, en Tunisie.
-                    </p>
-                    <p class="text-gray-600 leading-relaxed">
-                        Mes recherches portent notamment sur l'analyse de signaux EEG dans le cadre du traitement de la parole chez le nourrisson 
-                        ainsi que sur la détection de troubles neurologiques tels que le Trouble Cognitif Léger (MCI) à partir de signaux cérébraux.
-                    </p>
-                </div>
-                <div class="skills-grid">
-                    <div class="skill-card">
-                        <i class="ph-brain text-3xl text-blue-600 mb-3" aria-hidden="true"></i>
-                        <h4 class="font-semibold mb-2">Deep Learning</h4>
-                        <p class="text-sm text-gray-600">Transformers, CNN, RNN</p>
-                    </div>
-                    <div class="skill-card">
-                        <i class="ph-pulse text-3xl text-green-600 mb-3" aria-hidden="true"></i>
-                        <h4 class="font-semibold mb-2">Neurosciences</h4>
-                        <p class="text-sm text-gray-600">EEG, fNIRS, Neuroimagerie</p>
-                    </div>
-                    <div class="skill-card">
-                        <i class="ph-code text-3xl text-purple-600 mb-3" aria-hidden="true"></i>
-                        <h4 class="font-semibold mb-2">Programmation</h4>
-                        <p class="text-sm text-gray-600">Python, TensorFlow, PyTorch</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Projets -->
-    <section id="projects" class="section-modern bg-white">
-        <div class="container">
-            <h3 class="section-title">Mes Projets</h3>
-            <div class="projects-grid">
-                <!-- Projet 1 -->
-                <article class="project-card">
-                    <div class="project-header">
-                        <div class="project-icon">
-                            <i class="ph-waveform text-2xl" aria-hidden="true"></i>
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center animate-fade-in">
+                    <!-- Photo de profil responsive -->
+                    <div class="mb-6 sm:mb-8">
+                        <div class="relative inline-block">
+                            <img 
+                                src="photo.jpg" 
+                                alt="Photo de profil de Haroun Hassan BRAHIM" 
+                                class="w-24 h-24 sm:w-32 sm:h-32 lg:w-40 lg:h-40 rounded-full mx-auto shadow-heavy object-cover border-4 border-white dark:border-gray-700 transition-transform hover:scale-105"
+                                loading="eager"
+                            >
+                            <div class="absolute -bottom-2 -right-2 w-6 h-6 sm:w-8 sm:h-8 bg-green-400 rounded-full border-2 border-white dark:border-gray-700"></div>
                         </div>
-                        <h4 class="project-title">Traitement de la parole</h4>
                     </div>
-                    <p class="project-description">
-                        Exploration de la perception des sons élémentaires de la parole (/ba/ et /da/) chez les nourrissons 
-                        et identification des mécanismes neuronaux précoces impliqués dans la perception catégorielle.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Régression Logistique</span>
-                        <span class="tech-tag">Neurosciences</span>
-                        <span class="tech-tag">EEG</span>
-                    </div>
-                    <a href="https://github.com/brahimharounhassan/phonems-classification" class="project-link" 
-                       aria-label="Voir le projet Traitement de la parole sur GitHub">
-                        Voir sur GitHub
-                        <i class="ph-arrow-up-right ml-1" aria-hidden="true"></i>
-                    </a>
-                </article>
 
-                <!-- Projet 2 -->
-                <article class="project-card">
-                    <div class="project-header">
-                        <div class="project-icon">
-                            <i class="ph-network text-2xl" aria-hidden="true"></i>
+                    <!-- Titre principal responsive -->
+                    <h1 class="text-3xl sm:text-4xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4 animate-slide-up">
+                        Haroun Hassan 
+                        <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">BRAHIM</span>
+                    </h1>
+
+                    <!-- Sous-titre avec effet typewriter responsive -->
+                    <div class="mb-6 sm:mb-8">
+                        <div class="typewriter-container text-lg sm:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 font-medium">
+                            <span id="typewriter-text" class="typewriter-text border-r-2 border-blue-500 animate-blink">
+                                Ingénieur en Intelligence Artificielle
+                            </span>
                         </div>
-                        <h4 class="project-title">Tunneling réseau IPv6</h4>
                     </div>
-                    <p class="project-description">
-                        Communication entre deux réseaux IPv6 via un réseau IPv4 intermédiaire en créant un tunnel IPv6 
-                        sur IPv4 avec des interfaces réseaux virtuelles TUN.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">IPv6</span>
-                        <span class="tech-tag">Tunneling</span>
-                        <span class="tech-tag">Réseaux</span>
-                    </div>
-                    <a href="https://github.com/brahimharounhassan/ipv6over4_tun" class="project-link"
-                       aria-label="Voir le projet Tunneling réseau IPv6 sur GitHub">
-                        Voir sur GitHub
-                        <i class="ph-arrow-up-right ml-1" aria-hidden="true"></i>
-                    </a>
-                </article>
 
-                <!-- Projet 3 -->
-                <article class="project-card">
-                    <div class="project-header">
-                        <div class="project-icon">
-                            <i class="ph-brain text-2xl" aria-hidden="true"></i>
-                        </div>
-                        <h4 class="project-title">Prédiction MCI</h4>
-                    </div>
-                    <p class="project-description">
-                        Classification de patients présentant des troubles cognitifs légers (MCI) utilisant des données 
-                        d'électroencéphalographie (EEG) et de spectroscopie fonctionnelle proche infrarouge (fNIRS).
+                    <!-- Description responsive -->
+                    <p class="text-sm sm:text-base lg:text-lg text-gray-700 dark:text-gray-300 mb-6 sm:mb-8 max-w-xs sm:max-w-lg lg:max-w-2xl mx-auto leading-relaxed animate-slide-up">
+                        Spécialisé en <strong>Deep Learning</strong> et <strong>Neurosciences</strong>, 
+                        je développe des solutions innovantes à l'intersection de l'IA et du cerveau humain.
                     </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Transformers</span>
-                        <span class="tech-tag">Deep Learning</span>
-                        <span class="tech-tag">MCI</span>
-                    </div>
-                    <a href="https://github.com/brahimharounhassan/mci-classification" class="project-link"
-                       aria-label="Voir le projet Prédiction MCI sur GitHub">
-                        Voir sur GitHub
-                        <i class="ph-arrow-up-right ml-1" aria-hidden="true"></i>
-                    </a>
-                </article>
 
-                <!-- Projet 4 -->
-                <article class="project-card">
-                    <div class="project-header">
-                        <div class="project-icon">
-                            <i class="ph-scan text-2xl" aria-hidden="true"></i>
-                        </div>
-                        <h4 class="project-title">OCR pour Scratch</h4>
+                    <!-- Boutons d'action responsive -->
+                    <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center animate-slide-up">
+                        <a 
+                            href="#projets" 
+                            class="group w-full sm:w-auto bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold shadow-medium hover:shadow-heavy transition-all duration-300 hover:scale-105 flex items-center justify-center"
+                        >
+                            <i class="ph ph-folder mr-2 text-lg"></i>
+                            Voir mes projets
+                            <i class="ph ph-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                        <a 
+                            href="#contact" 
+                            class="w-full sm:w-auto border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold hover:border-blue-500 hover:text-blue-600 dark:hover:border-blue-400 dark:hover:text-blue-400 transition-all duration-300 hover:scale-105 flex items-center justify-center"
+                        >
+                            <i class="ph ph-envelope mr-2"></i>
+                            Me contacter
+                        </a>
                     </div>
-                    <p class="project-description">
-                        Application OCR pour scanner des algorithmes Scratch et produire un script Python à partir 
-                        d'une image contenant un code Scratch bien défini.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-tag">OCR</span>
-                        <span class="tech-tag">Computer Vision</span>
-                        <span class="tech-tag">Tesseract</span>
-                    </div>
-                    <a href="https://github.com/brahimharounhassan/scratch-ocr-engine" class="project-link"
-                       aria-label="Voir le projet OCR pour Scratch sur GitHub">
-                        Voir sur GitHub
-                        <i class="ph-arrow-up-right ml-1" aria-hidden="true"></i>
-                    </a>
-                </article>
-            </div>
-        </div>
-    </section>
 
-    <!-- Section Publications -->
-    <section id="publications" class="section-modern">
-        <div class="container">
-            <h3 class="section-title">Publications</h3>
-            <article class="publication-card">
-                <div class="publication-header">
-                    <i class="ph-file-text text-3xl text-blue-600 mb-4" aria-hidden="true"></i>
-                    <h4 class="text-xl font-semibold mb-2">New MCI Detection Method Based on Transformer and EEG Data</h4>
-                    <p class="text-gray-600 mb-4">EUSIPCO 2023 Conference</p>
+                    <!-- Réseaux sociaux responsive -->
+                    <div class="mt-8 sm:mt-12 flex justify-center space-x-4 sm:space-x-6 animate-slide-up">
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <i class="ph ph-linkedin-logo text-xl sm:text-2xl"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="GitHub">
+                            <i class="ph ph-github-logo text-xl sm:text-2xl"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Email">
+                            <i class="ph ph-envelope text-xl sm:text-2xl"></i>
+                        </a>
+                    </div>
                 </div>
-                <p class="text-gray-700 mb-6 leading-relaxed">
-                    Article publié dans la prestigieuse conférence EUSIPCO 2023, présentant une nouvelle méthode 
-                    de détection du trouble cognitif léger basée sur les Transformers et les données EEG.
-                </p>
-                <a href="https://ieeexplore.ieee.org/document/10290024" class="btn-primary"
-                   aria-label="Lire l'article sur IEEE Xplore (nouvelle fenêtre)" target="_blank" rel="noopener">
-                    Lire l'article sur IEEE Xplore
-                    <i class="ph-arrow-up-right ml-2" aria-hidden="true"></i>
+            </div>
+
+            <!-- Indicateur de scroll responsive -->
+            <div class="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+                <a href="#apropos" class="text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                    <i class="ph ph-caret-down text-2xl sm:text-3xl"></i>
                 </a>
-            </article>
-        </div>
-    </section>
+            </div>
+        </section>
 
-    <!-- Section CV -->
-    <section id="cv" class="section-modern bg-white">
-        <div class="container text-center">
-            <h3 class="section-title">Mon CV</h3>
-            <p class="text-gray-600 mb-8 max-w-2xl mx-auto">
-                Découvrez mon parcours complet, mes compétences et mes expériences 
-                dans le domaine de l'Intelligence Artificielle et des neurosciences.
-            </p>
-            <a href="cv.pdf" target="_blank" rel="noopener" class="btn-primary inline-flex items-center"
-               aria-label="Télécharger le CV en PDF (nouvelle fenêtre)">
-                <i class="ph-download mr-2" aria-hidden="true"></i>
-                Télécharger le CV (PDF)
-            </a>
-        </div>
-    </section>
-
-    <!-- Section Contact -->
-    <section id="contact" class="section-modern">
-        <div class="container">
-            <h3 class="section-title">Contact</h3>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="ph-envelope text-2xl text-blue-600" aria-hidden="true"></i>
-                        <div>
-                            <h4 class="font-semibold">Email</h4>
-                            <a href="mailto:brahimharoun57@yahoo.fr" class="contact-link"
-                               aria-label="Envoyer un email à brahimharoun57@yahoo.fr">
-                                brahimharoun57@yahoo.fr
-                            </a>
+        <!-- Section Contact avec padding amélioré -->
+        <section id="contact" class="section-modern bg-white dark:bg-gray-800">
+            <div class="container">
+                <h3 class="section-title">Contact</h3>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-item mb-6">
+                            <i class="ph-envelope text-2xl text-blue-600 dark:text-blue-400" aria-hidden="true"></i>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 dark:text-white">Email</h4>
+                                <a href="mailto:brahimharoun57@yahoo.fr" class="contact-link"
+                                   aria-label="Envoyer un email à brahimharoun57@yahoo.fr">
+                                    brahimharoun57@yahoo.fr
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="ph-linkedin-logo text-2xl text-blue-600" aria-hidden="true"></i>
-                        <div>
-                            <h4 class="font-semibold">LinkedIn</h4>
-                            <a href="https://linkedin.com/in/brahimharounhassan" class="contact-link"
-                               target="_blank" rel="noopener" aria-label="Visiter mon profil LinkedIn (nouvelle fenêtre)">
-                                @brahimharounhassan
-                            </a>
+                        <div class="contact-item mb-6">
+                            <i class="ph-linkedin-logo text-2xl text-blue-600 dark:text-blue-400" aria-hidden="true"></i>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 dark:text-white">LinkedIn</h4>
+                                <a href="https://linkedin.com/in/brahimharounhassan" class="contact-link"
+                                   target="_blank" rel="noopener" aria-label="Visiter mon profil LinkedIn (nouvelle fenêtre)">
+                                    @brahimharounhassan
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="ph-github-logo text-2xl text-blue-600" aria-hidden="true"></i>
-                        <div>
-                            <h4 class="font-semibold">GitHub</h4>
-                            <a href="https://github.com/brahimharounhassan" class="contact-link"
-                               target="_blank" rel="noopener" aria-label="Visiter mon profil GitHub (nouvelle fenêtre)">
-                                @brahimharounhassan
-                            </a>
+                        <div class="contact-item mb-6">
+                            <i class="ph-github-logo text-2xl text-blue-600 dark:text-blue-400" aria-hidden="true"></i>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 dark:text-white">GitHub</h4>
+                                <a href="https://github.com/brahimharounhassan" class="contact-link"
+                                   target="_blank" rel="noopener" aria-label="Visiter mon profil GitHub (nouvelle fenêtre)">
+                                    @brahimharounhassan
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="ph-twitter-logo text-2xl text-blue-600" aria-hidden="true"></i>
-                        <div>
-                            <h4 class="font-semibold">Twitter</h4>
-                            <a href="https://twitter.com/elbramosJr" class="contact-link"
-                               target="_blank" rel="noopener" aria-label="Visiter mon profil Twitter (nouvelle fenêtre)">
-                                @elbramosJr
-                            </a>
+                        <div class="contact-item">
+                            <i class="ph-twitter-logo text-2xl text-blue-600 dark:text-blue-400" aria-hidden="true"></i>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 dark:text-white">Twitter</h4>
+                                <a href="https://twitter.com/elbramosJr" class="contact-link"
+                                   target="_blank" rel="noopener" aria-label="Visiter mon profil Twitter (nouvelle fenêtre)">
+                                    @elbramosJr
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+        
+    </main>
 
-    <!-- Bouton Scroll to Top -->
-    <button class="scroll-to-top" onclick="scrollToTop()" aria-label="Retourner en haut de la page">
-        <i class="ph-arrow-up" aria-hidden="true"></i>
-    </button>
+    <!-- Script pour le menu mobile et le mode sombre -->
+    <script>
+        // Gestion du thème dark/light
+        const themeToggle = document.getElementById('theme-toggle');
+        const sunIcon = document.getElementById('sun-icon');
+        const moonIcon = document.getElementById('moon-icon');
+        const html = document.documentElement;
 
-    <!-- Footer -->
-    <footer class="footer-modern" role="contentinfo">
-        <div class="container text-center">
-            <p class="text-gray-600">
-                © 2025 Haroun Hassan BRAHIM - Tous droits réservés
-            </p>
-        </div>
-    </footer>
+        // Vérifier le thème initial
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            const currentTheme = savedTheme || systemTheme;
+            
+            if (currentTheme === 'dark') {
+                html.classList.add('dark');
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+            } else {
+                html.classList.remove('dark');
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+            }
+        }
 
-    <!-- Classe pour la navigation au clavier -->
-    <style>
-        .keyboard-navigation *:focus {
-            outline: 2px solid var(--primary-color) !important;
-            outline-offset: 2px !important;
+        // Basculer le thème
+        themeToggle.addEventListener('click', () => {
+            const isDark = html.classList.contains('dark');
+            
+            if (isDark) {
+                html.classList.remove('dark');
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+                localStorage.setItem('theme', 'light');
+            } else {
+                html.classList.add('dark');
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        // Initialiser le thème au chargement
+        initTheme();
+
+        // Menu mobile toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const hamburgerIcon = document.getElementById('hamburger-icon');
+        const closeIcon = document.getElementById('close-icon');
+        
+        let isMenuOpen = false;
+
+        mobileMenuButton.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            
+            if (isMenuOpen) {
+                mobileMenu.classList.remove('hidden');
+                mobileMenu.classList.add('animate-slide-down');
+                hamburgerIcon.classList.add('hidden');
+                closeIcon.classList.remove('hidden');
+                mobileMenuButton.setAttribute('aria-expanded', 'true');
+                document.body.style.overflow = 'hidden';
+            } else {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('animate-slide-down');
+                hamburgerIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+                mobileMenuButton.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Fermer le menu mobile lors du clic sur un lien
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                isMenuOpen = false;
+                mobileMenu.classList.add('hidden');
+                hamburgerIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+                mobileMenuButton.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Fermer le menu mobile lors du redimensionnement vers desktop
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 768 && isMenuOpen) {
+                isMenuOpen = false;
+                mobileMenu.classList.add('hidden');
+                hamburgerIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+                mobileMenuButton.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Barre de progression
+        window.addEventListener('scroll', () => {
+            const scrollTop = document.documentElement.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollPercent = (scrollTop / scrollHeight) * 100;
+            document.getElementById('progressBar').style.width = scrollPercent + '%';
+        });
+
+        // Effet typewriter
+        const typewriterTexts = [
+            "Ingénieur en Intelligence Artificielle",
+            "Spécialiste en Deep Learning",
+            "Passionné de Neurosciences",
+            "Développeur Python & TensorFlow"
+        ];
+        
+        let currentTextIndex = 0;
+        let currentCharIndex = 0;
+        let isDeleting = false;
+        
+        function typeWriter() {
+            const currentText = typewriterTexts[currentTextIndex];
+            const typewriterElement = document.getElementById('typewriter-text');
+            
+            if (isDeleting) {
+                typewriterElement.textContent = currentText.substring(0, currentCharIndex - 1);
+                currentCharIndex--;
+            } else {
+                typewriterElement.textContent = currentText.substring(0, currentCharIndex + 1);
+                currentCharIndex++;
+            }
+            
+            let typeSpeed = isDeleting ? 50 : 100;
+            
+            if (!isDeleting && currentCharIndex === currentText.length) {
+                typeSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && currentCharIndex === 0) {
+                isDeleting = false;
+                currentTextIndex = (currentTextIndex + 1) % typewriterTexts.length;
+            }
+            
+            setTimeout(typeWriter, typeSpeed);
         }
         
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
-        }
-        
-        /* Animations réduites pour l'accessibilité */
-        .reduced-motion * {
-            animation-duration: 0.01ms !important;
-            animation-iteration-count: 1 !important;
-            transition-duration: 0.01ms !important;
-        }
-        
-        /* Optimisations pour connexions lentes */
-        .slow-connection .animate-fade-in,
-        .slow-connection .animate-slide-up {
-            animation: none !important;
-            opacity: 1 !important;
-            transform: none !important;
-        }
-    </style>
-
-    <script src="script.js"></script>
+        // Démarrer l'effet typewriter après un délai
+        setTimeout(typeWriter, 1000);
+    </script>
 </body>
 </html>
