@@ -1,146 +1,347 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="icon.jpg" type="image/x-icon">
     <title>Portfolio | Haroun Hassan BRAHIM</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ["Inter", "sans-serif"]
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ["Inter", "sans-serif"]
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'bounce-slow': 'bounce 3s infinite',
+                        'typewriter': 'typewriter 4s steps(40) 1s forwards',
+                        'blink': 'blink 1s infinite'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        typewriter: {
+                            '0%': { width: '0' },
+                            '100%': { width: '100%' }
+                        },
+                        blink: {
+                            '0%, 50%': { borderColor: 'transparent' },
+                            '51%, 100%': { borderColor: '#3b82f6' }
+                        }
+                    }
+                }
             }
-          }
-        }
-      };
+        };
     </script>
     <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/light/style.css">
-  </head>
+    <link rel="stylesheet" href="styles.css">
+</head>
 
-  <body class="bg-white text-gray-800 font-sans">
-
-
-    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-gray-200 shadow-sm">
-      <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-        <h1 class="text-2xl font-bold text-blue-600 tracking-tight">Mon portfolio</h1>
-        <nav class="space-x-6 text-sm">
-          <a href="#about" class="hover:text-blue-600">À propos</a>
-          <a href="#projects" class="hover:text-blue-600">Projets</a>
-          <a href="#publications" class="hover:text-blue-600">Publications</a>
-          <a href="#cv" class="hover:text-blue-600">CV</a>
-          <a href="#contact" class="hover:text-blue-600">Contact</a>
-        </nav>
-      </div>
-    </header>
-
-    <section class="py-24 bg-gradient-to-b from-blue-50 to-white text-center">
-      <div class="max-w-3xl mx-auto px-4">
-        <h2 class="text-5xl font-extrabold mb-6 leading-tight">Salut, Bienvenue dans mon portfolio</h2>
-        <p class="text-lg text-gray-600">Découvrez mon parcours et mes réalisations.</p>
-      </div>
-    </section>
-
-    <section id="about" class="max-w-5xl mx-auto px-4 py-16">
-      <h3 class="text-3xl font-bold mb-6 text-center">À propos</h3>
-      <img src="photo.jpg" alt="Photo de Haroun Hassan BRAHIM" class="w-36 h-36  mx-auto rounded-full shadow-md mb-6 object-cover">
-      <p class="text-center text-gray-700 leading-relaxed max-w-3xl mx-auto">
-        Je suis <strong>Haroun Hassan BRAHIM</strong>, <em>ingénieur en Intelligence Artificielle</em> spécialisé en Apprentissage Automatique et Apprentissage Profond.<br><br>
-        Mon parcours est orienté vers l'application concrète de l'IA dans des domaines variés, dont celui de la santé, en particulier la neuroimagerie. 
-        J’ai obtenu un double diplôme en <em>Intelligence Artificielle et Apprentissage Automatique</em> à <strong>Aix-Marseille Université</strong>, en France
-        et en <em>ingénierie des technologies numériques pour la santé et mentale</em> à l’<strong>Université de Sfax</strong>, en Tunisie.<br><br>
-        
-        J’ai eu l’opportunité de travailler dans des environnements de recherche stimulants, notamment au sein du <strong>laboratoire MIRACL</strong> à Sfax
-        et du <strong>Centre de Recherche en Psychologie et Neurosciences</strong> à Marseille.
-
-        Mes recherches portent notamment sur l’analyse de signaux EEG dans le cadre du traitement de la parole chez le nourrisson ainsi que sur la détection de troubles neurologiques 
-        tels que le Trouble Cognitif Léger (MCI) à partir de signaux cérébraux (EEG, fNIRS), en utilisant des techniques avancées d'apprentissage profond comme les Transformers.<br><br>
-        
-        J’ai récemment publié un article à la conférence <strong>EUSIPCO 2023</strong>, intitulé <em>"New MCI Detection Method Based on Transformer and EEG Data"</em>, disponible sur 
-        <a href="https://ieeexplore.ieee.org/document/10290024" target="_blank" class="text-blue-600 hover:underline">IEEE Xplore</a>.<br><br>
-
-        Passionné par l’interdisciplinarité entre l’IA et d'autres domaines tels que les neurosciences et la santé, je cherche constamment à améliorer mes compétences techniques et scientifiques pour contribuer à des solutions innovantes dans ces domaines.
-      </p>
-    </section>
-
-    <section id="projects" class="max-w-6xl mx-auto px-4 py-16">
-      <h3 class="text-3xl font-bold text-center mb-10">Projets</h3>
-      <div class="grid md:grid-cols-2 gap-10">
-        <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-md hover:shadow-lg transition">
-          <h4 class="text-xl font-semibold mb-2">Traitement de la parole</h4>
-          <p class="text-gray-600 mb-3">
-            Ce projet s’inscrit dans une démarche interdisciplinaire alliant informatique, neurosciences et sciences cognitives.Il vise à explorer comment les nourrissons perçoivent les sons élémentaires de la parole (/ba/ et /da/) et à identifier 
-            les mécanismes neuronaux précoces impliqués dans la perception catégorielle : autrement dit, la capacité à distinguer des sons appartenant à des catégories distinctes. 
-            Modèle utilisé : Régression Logistique.
-          </p>
-          <a href="https://github.com/brahimharounhassan/phonems-classification" target="_blank" class="text-blue-600 hover:underline text-sm">Voir sur GitHub →</a>
-        </div>
-        <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-md hover:shadow-lg transition">
-          <h4 class="text-xl font-semibold mb-2">Tunneling réseau</h4>
-          <p class="text-gray-600 mb-3">
-            L'objectif de ce projet est de permettre la communication entre deux réseaux IPv6 dont la liaison directe est interrompue. 
-            La seule communication possible est le routage du trafic via un réseau IPv4 intermédiaire. Pour ce faire, nous connecterons nos deux îlots IPv6 via le réseau IPv4 en créant un tunnel IPv6 sur IPv4 entre les machines appartenant
-            aux réseau IPv6. Ainsi, afin de pouvoir injecter le trafic dans un tunnel, nous devons récupérer le trafic depuis l’espace noyau pour le mettre en espace utilisateur, en créant des interfaces réseaux virtuelles TUN.
-          </p>
-          <a href="https://github.com/brahimharounhassan/ipv6over4_tun" target="_blank" class="text-blue-600 hover:underline text-sm">Voir sur GitHub →</a>
-        </div>
-        <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-md hover:shadow-lg transition">
-          <h4 class="text-xl font-semibold mb-2">Prédiction de la déficience cognitive legère</h4>
-          <p class="text-gray-600 mb-3">
-            Le but de ce travail est la classification des patients présentant des troubles cognitifs légers parmi des sujets sains sur la base de données multivariées.
-            L’objectif est de concevoir une architecture Deep Learning efficace, capable de faire une prédiction précise. 
-            Trois classes sont considérées : MCI sain, non amnésique et MCI amnésique, utilisant des données d'électroencéphalographie (EEG) et de spectroscopie fonctionnelle proche infrarouge (fNIRS).
-            Modèle utilisé : Transformers personnalisé.
-          </p>
-          <a href="https://github.com/brahimharounhassan/mci-classification" target="_blank" class="text-blue-600 hover:underline text-sm">Voir sur GitHub →</a>
-        </div>
-        <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-md hover:shadow-lg transition">
-          <h4 class="text-xl font-semibold mb-2">Application OCR pour scanner des algorithmes Scratch</h4>
-          <p class="text-gray-600 mb-3">
-            Ce projet est une implémentation d'un programme premier du genre, portant sur le scannage des algorithmes Scratch (langage de programmation destiné aux enfants pour leur initiation à l'environnement informatique). 
-            Ce scannage sous forme d'analyse, faisant partie intégrante du domaine de la vision par ordinateur, sert par le biais d'un ensemble des techniques 
-            mises en oeuvre à produire un script de type Python à partir d'une image fournie contenant un code Scratch bien défini.
-            Technique utilisé : Segmentation suivant les contours des blocs et via le Mask R-CNN, Détection de texte avec EAST (An Efficient and Accurate Scene Text Detector) et Extraction de texte avec Tesseract-ocr.
-          </p>
-          <a href="https://github.com/brahimharounhassan/scratch-ocr-engine" target="_blank" class="text-blue-600 hover:underline text-sm">Voir sur GitHub →</a>
-        </div>
-      </div>
-    </section>
-
-
-    <section id="publications" class="py-16 text-center bg-gray-50">
-      <h3 class="text-3xl font-bold mb-6">Publications</h3>
-      <p class="text-gray-700 mb-2">
-        IEEE Xplore : <a href="https://ieeexplore.ieee.org/document/10290024" class="text-blue-600 hover:underline" target="_blank">Lire l’article</a>
-      </p>
-    </section>
+<body class="bg-gradient-to-br from-slate-50 to-blue-50 text-gray-800 font-sans overflow-x-hidden">
+    <!-- Progress Bar -->
+    <div class="progress-bar"></div>
     
-    
-    <section id="cv" class="bg-gray-50 py-16 text-center">
-      <h3 class="text-3xl font-bold mb-6">Mon CV</h3>
-      <a href="cv.pdf" target="_blank"
-        class="inline-block bg-blue-600 text-white px-6 py-3 rounded-full shadow hover:bg-blue-700 transition">
-        Consulter le CV (PDF)
-      </a>
+    <!-- Navigation -->
+    <nav class="nav-modern">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                Mon Portfolio
+            </h1>
+            <div class="flex items-center space-x-6">
+                <a href="#about" class="nav-link">À propos</a>
+                <a href="#projects" class="nav-link">Projets</a>
+                <a href="#publications" class="nav-link">Publications</a>
+                <a href="#cv" class="nav-link">CV</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <button class="theme-toggle" onclick="toggleTheme()">
+                    <i class="ph-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="particles"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h2 class="hero-title">
+                    <span class="typewriter">Bienvenue dans mon portfolio</span>
+                    <span class="cursor"></span>
+<!--                 </h2>
+                <p class="hero-subtitle animate-slide-up">
+                    Ingénieur en Intelligence Artificielle spécialisé en Deep Learning
+                </p> -->
+                <div class="hero-buttons animate-slide-up">
+                    <a href="#projects" class="btn-primary">
+                        Découvrir mes projets
+                        <i class="ph-arrow-right ml-2"></i>
+                    </a>
+                    <a href="#contact" class="btn-secondary">
+                        Me contacter
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image animate-fade-in">
+                <img src="photo.jpg" alt="Haroun Hassan BRAHIM" class="profile-image">
+                <div class="image-glow"></div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow animate-bounce-slow">
+                <i class="ph-arrow-down"></i>
+            </div>
+        </div>
     </section>
 
-
-    <section id="contact" class="py-16 text-center bg-white">
-      <h3 class="text-3xl font-bold mb-6">Contact</h3>
-      <p class="text-gray-700 mb-2">Email : <a href="mailto:brahimharoun57@yahoo.fr" class="text-blue-600 hover:underline">brahimharoun57@yahoo.fr</a></p>
-      <p class="text-gray-700 mb-2">LinkedIn : <a href="https://linkedin.com/in/brahimharounhassan" class="text-blue-600 hover:underline" target="_blank">@brahimharounhassan</a></p>
-      <p class="text-gray-700">GitHub : <a href="https://github.com/brahimharounhassan" class="text-blue-600 hover:underline" target="_blank">@brahimharounhassan</a></p>
-      <p class="text-gray-700 mb-2">Twitter (X) :  
-        <a href="https://twitter.com/elbramosJr" target="_blank" class="text-blue-600 hover:underline">@elbramosJr</a>
-      </p>
-
+    <!-- About Section -->
+    <section id="about" class="section-modern">
+        <div class="container">
+            <h3 class="section-title">À propos de moi</h3>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="text-lg text-gray-700 leading-relaxed mb-6">
+                        Je suis <strong class="text-blue-600">Haroun Hassan BRAHIM</strong>, 
+                        <em>ingénieur en Intelligence Artificielle</em> spécialisé en Apprentissage Automatique et Apprentissage Profond.
+                    </p>
+                    <p class="text-gray-600 leading-relaxed mb-6">
+                        J'ai obtenu un double diplôme en <em>Intelligence Artificielle et Apprentissage Automatique</em> à 
+                        <strong>Aix-Marseille Université</strong>, en France et en <em>ingénierie des technologies numériques pour la santé mentale</em> 
+                        à l'<strong>Université de Sfax</strong>, en Tunisie.
+                    </p>
+                    <p class="text-gray-600 leading-relaxed">
+                        Mes recherches portent notamment sur l'analyse de signaux EEG dans le cadre du traitement de la parole chez le nourrisson 
+                        ainsi que sur la détection de troubles neurologiques tels que le Trouble Cognitif Léger (MCI) à partir de signaux cérébraux.
+                    </p>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <i class="ph-brain text-3xl text-blue-600 mb-3"></i>
+                        <h4 class="font-semibold mb-2">Deep Learning</h4>
+                        <p class="text-sm text-gray-600">Transformers, CNN, RNN</p>
+                    </div>
+                    <div class="skill-card">
+                        <i class="ph-pulse text-3xl text-green-600 mb-3"></i>
+                        <h4 class="font-semibold mb-2">Neurosciences</h4>
+                        <p class="text-sm text-gray-600">EEG, fNIRS, Neuroimagerie</p>
+                    </div>
+                    <div class="skill-card">
+                        <i class="ph-code text-3xl text-purple-600 mb-3"></i>
+                        <h4 class="font-semibold mb-2">Programmation</h4>
+                        <p class="text-sm text-gray-600">Python, TensorFlow, PyTorch</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <footer class="text-center text-sm text-gray-500 py-6 border-t">
-      © 2025 Haroun Hassan BRAHIM - Tous droits réservés
+    <!-- Projects Section -->
+    <section id="projects" class="section-modern bg-white">
+        <div class="container">
+            <h3 class="section-title">Mes Projets</h3>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="ph-waveform text-2xl"></i>
+                        </div>
+                        <h4 class="project-title">Traitement de la parole</h4>
+                    </div>
+                    <p class="project-description">
+                        Exploration de la perception des sons élémentaires de la parole (/ba/ et /da/) chez les nourrissons 
+                        et identification des mécanismes neuronaux précoces impliqués dans la perception catégorielle.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Régression Logistique</span>
+                        <span class="tech-tag">Neurosciences</span>
+                        <span class="tech-tag">EEG</span>
+                    </div>
+                    <a href="https://github.com/brahimharounhassan/phonems-classification" class="project-link">
+                        Voir sur GitHub
+                        <i class="ph-arrow-up-right ml-1"></i>
+                    </a>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="ph-network text-2xl"></i>
+                        </div>
+                        <h4 class="project-title">Tunneling réseau IPv6</h4>
+                    </div>
+                    <p class="project-description">
+                        Communication entre deux réseaux IPv6 via un réseau IPv4 intermédiaire en créant un tunnel IPv6 
+                        sur IPv4 avec des interfaces réseaux virtuelles TUN.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">IPv6</span>
+                        <span class="tech-tag">Tunneling</span>
+                        <span class="tech-tag">Réseaux</span>
+                    </div>
+                    <a href="https://github.com/brahimharounhassan/ipv6over4_tun" class="project-link">
+                        Voir sur GitHub
+                        <i class="ph-arrow-up-right ml-1"></i>
+                    </a>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="ph-brain text-2xl"></i>
+                        </div>
+                        <h4 class="project-title">Prédiction MCI</h4>
+                    </div>
+                    <p class="project-description">
+                        Classification de patients présentant des troubles cognitifs légers (MCI) utilisant des données 
+                        d'électroencéphalographie (EEG) et de spectroscopie fonctionnelle proche infrarouge (fNIRS).
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Transformers</span>
+                        <span class="tech-tag">Deep Learning</span>
+                        <span class="tech-tag">MCI</span>
+                    </div>
+                    <a href="https://github.com/brahimharounhassan/mci-classification" class="project-link">
+                        Voir sur GitHub
+                        <i class="ph-arrow-up-right ml-1"></i>
+                    </a>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="ph-scan text-2xl"></i>
+                        </div>
+                        <h4 class="project-title">OCR pour Scratch</h4>
+                    </div>
+                    <p class="project-description">
+                        Application OCR pour scanner des algorithmes Scratch et produire un script Python à partir 
+                        d'une image contenant un code Scratch bien défini.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">OCR</span>
+                        <span class="tech-tag">Computer Vision</span>
+                        <span class="tech-tag">Tesseract</span>
+                    </div>
+                    <a href="https://github.com/brahimharounhassan/scratch-ocr-engine" class="project-link">
+                        Voir sur GitHub
+                        <i class="ph-arrow-up-right ml-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publications" class="section-modern">
+        <div class="container">
+            <h3 class="section-title">Publications</h3>
+            <div class="publication-card">
+                <div class="publication-header">
+                    <i class="ph-file-text text-3xl text-blue-600 mb-4"></i>
+                    <h4 class="text-xl font-semibold mb-2">New MCI Detection Method Based on Transformer and EEG Data</h4>
+                    <p class="text-gray-600 mb-4">EUSIPCO 2023 Conference</p>
+                </div>
+                <p class="text-gray-700 mb-6 leading-relaxed">
+                    Article publié dans la prestigieuse conférence EUSIPCO 2023, présentant une nouvelle méthode 
+                    de détection du trouble cognitif léger basée sur les Transformers et les données EEG.
+                </p>
+                <a href="https://ieeexplore.ieee.org/document/10290024" class="btn-primary">
+                    Lire l'article sur IEEE Xplore
+                    <i class="ph-arrow-up-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CV Section -->
+    <section id="cv" class="section-modern bg-white">
+        <div class="container text-center">
+            <h3 class="section-title">Mon CV</h3>
+            <p class="text-gray-600 mb-8 max-w-2xl mx-auto">
+                Découvrez mon parcours complet, mes compétences et mes expériences 
+                dans le domaine de l'Intelligence Artificielle et des neurosciences.
+            </p>
+            <a href="cv.pdf" target="_blank" class="btn-primary inline-flex items-center">
+                <i class="ph-download mr-2"></i>
+                Télécharger le CV (PDF)
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-modern">
+        <div class="container">
+            <h3 class="section-title">Contact</h3>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="ph-envelope text-2xl text-blue-600"></i>
+                        <div>
+                            <h4 class="font-semibold">Email</h4>
+                            <a href="mailto:brahimharoun57@yahoo.fr" class="contact-link">
+                                brahimharoun57@yahoo.fr
+                            </a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="ph-linkedin-logo text-2xl text-blue-600"></i>
+                        <div>
+                            <h4 class="font-semibold">LinkedIn</h4>
+                            <a href="https://linkedin.com/in/brahimharounhassan" class="contact-link">
+                                @brahimharounhassan
+                            </a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="ph-github-logo text-2xl text-blue-600"></i>
+                        <div>
+                            <h4 class="font-semibold">GitHub</h4>
+                            <a href="https://github.com/brahimharounhassan" class="contact-link">
+                                @brahimharounhassan
+                            </a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="ph-twitter-logo text-2xl text-blue-600"></i>
+                        <div>
+                            <h4 class="font-semibold">Twitter</h4>
+                            <a href="https://twitter.com/elbramosJr" class="contact-link">
+                                @elbramosJr
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-to-top" onclick="scrollToTop()">
+        <i class="ph-arrow-up"></i>
+    </button>
+
+    <!-- Footer -->
+    <footer class="footer-modern">
+        <div class="container text-center">
+            <p class="text-gray-600">
+                © 2025 Haroun Hassan BRAHIM - Tous droits réservés
+            </p>
+        </div>
     </footer>
 
-  </body>
+    <script src="script.js"></script>
+</body>
 </html>
