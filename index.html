@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="icon.jpg" type="image/x-icon">
     <title>Portfolio | Haroun Hassan BRAHIM</title>
+    
+    <!-- Préchargement des ressources critiques -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" as="style">
+    
+    <!-- Configuration Tailwind optimisée -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -34,77 +41,93 @@
                             '100%': { width: '100%' }
                         },
                         blink: {
-                            '0%, 50%': { borderColor: 'transparent' },
-                            '51%, 100%': { borderColor: '#3b82f6' }
+                            '0%, 50%': { borderColor: '#3b82f6' },
+                            '51%, 100%': { borderColor: 'transparent' }
                         }
                     }
                 }
             }
         };
     </script>
+    
+    <!-- Icônes et styles -->
     <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/light/style.css">
     <link rel="stylesheet" href="styles.css">
+    
+    <!-- Métadonnées pour l'accessibilité et le SEO -->
+    <meta name="description" content="Portfolio de Haroun Hassan BRAHIM - Ingénieur en Intelligence Artificielle spécialisé en Deep Learning et Neurosciences">
+    <meta name="keywords" content="Intelligence Artificielle, Deep Learning, Neurosciences, EEG, Portfolio">
+    <meta name="author" content="Haroun Hassan BRAHIM">
+    
+    <!-- Open Graph pour les réseaux sociaux -->
+    <meta property="og:title" content="Portfolio | Haroun Hassan BRAHIM">
+    <meta property="og:description" content="Ingénieur en Intelligence Artificielle spécialisé en Deep Learning et Neurosciences">
+    <meta property="og:type" content="website">
+    
+    <!-- Support pour les thèmes système -->
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#3b82f6" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#1e293b" media="(prefers-color-scheme: dark)">
 </head>
 
 <body class="bg-gradient-to-br from-slate-50 to-blue-50 text-gray-800 font-sans overflow-x-hidden">
-    <!-- Progress Bar -->
-    <div class="progress-bar"></div>
+    <!-- Barre de progression -->
+    <div class="progress-bar" role="progressbar" aria-label="Progression de la lecture"></div>
     
-    <!-- Navigation -->
-    <nav class="nav-modern">
+    <!-- Navigation principale -->
+    <nav class="nav-modern" role="navigation" aria-label="Navigation principale">
         <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
             <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                 Mon Portfolio
             </h1>
             <div class="flex items-center space-x-6">
-                <a href="#about" class="nav-link">À propos</a>
-                <a href="#projects" class="nav-link">Projets</a>
-                <a href="#publications" class="nav-link">Publications</a>
-                <a href="#cv" class="nav-link">CV</a>
-                <a href="#contact" class="nav-link">Contact</a>
-                <button class="theme-toggle" onclick="toggleTheme()">
-                    <i class="ph-moon"></i>
+                <a href="#about" class="nav-link" aria-label="Aller à la section À propos">À propos</a>
+                <a href="#projects" class="nav-link" aria-label="Aller à la section Projets">Projets</a>
+                <a href="#publications" class="nav-link" aria-label="Aller à la section Publications">Publications</a>
+                <a href="#cv" class="nav-link" aria-label="Aller à la section CV">CV</a>
+                <a href="#contact" class="nav-link" aria-label="Aller à la section Contact">Contact</a>
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Basculer le thème sombre/clair">
+                    <i class="ph-moon" aria-hidden="true"></i>
                 </button>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="particles"></div>
+    <!-- Section Héro -->
+    <section class="hero-section" role="banner">
+        <div class="particles" aria-hidden="true"></div>
         <div class="hero-content">
             <div class="hero-text">
                 <h2 class="hero-title">
                     <span class="typewriter">Bienvenue dans mon portfolio</span>
-                    <span class="cursor"></span>
+                    <span class="cursor" aria-hidden="true"></span>
                 </h2>
-<!--                 
-                <p class="hero-subtitle animate-slide-up">
-                    Ingénieur en Intelligence Artificielle spécialisé en Deep Learning
-                </p> -->
-                <div class="hero-buttons animate-slide-up">
-                    <a href="#projects" class="btn-primary">
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn-primary" aria-describedby="projects-desc">
                         Découvrir mes projets
-                        <i class="ph-arrow-right ml-2"></i>
+                        <i class="ph-arrow-right ml-2" aria-hidden="true"></i>
                     </a>
-                    <a href="#contact" class="btn-secondary">
+                    <a href="#contact" class="btn-secondary" aria-describedby="contact-desc">
                         Me contacter
                     </a>
                 </div>
+                <!-- Descriptions cachées pour l'accessibilité -->
+                <div id="projects-desc" class="sr-only">Voir tous mes projets en Intelligence Artificielle</div>
+                <div id="contact-desc" class="sr-only">Accéder à mes informations de contact</div>
             </div>
             <div class="hero-image animate-fade-in">
-                <img src="photo.jpg" alt="Haroun Hassan BRAHIM" class="profile-image">
-                <div class="image-glow"></div>
+                <img src="photo.jpg" alt="Photo de profil de Haroun Hassan BRAHIM" class="profile-image" loading="eager">
+                <div class="image-glow" aria-hidden="true"></div>
             </div>
         </div>
-        <div class="scroll-indicator">
+        <div class="scroll-indicator" aria-hidden="true">
             <div class="scroll-arrow animate-bounce-slow">
                 <i class="ph-arrow-down"></i>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- Section À propos -->
     <section id="about" class="section-modern">
         <div class="container">
             <h3 class="section-title">À propos de moi</h3>
@@ -126,17 +149,17 @@
                 </div>
                 <div class="skills-grid">
                     <div class="skill-card">
-                        <i class="ph-brain text-3xl text-blue-600 mb-3"></i>
+                        <i class="ph-brain text-3xl text-blue-600 mb-3" aria-hidden="true"></i>
                         <h4 class="font-semibold mb-2">Deep Learning</h4>
                         <p class="text-sm text-gray-600">Transformers, CNN, RNN</p>
                     </div>
                     <div class="skill-card">
-                        <i class="ph-pulse text-3xl text-green-600 mb-3"></i>
+                        <i class="ph-pulse text-3xl text-green-600 mb-3" aria-hidden="true"></i>
                         <h4 class="font-semibold mb-2">Neurosciences</h4>
                         <p class="text-sm text-gray-600">EEG, fNIRS, Neuroimagerie</p>
                     </div>
                     <div class="skill-card">
-                        <i class="ph-code text-3xl text-purple-600 mb-3"></i>
+                        <i class="ph-code text-3xl text-purple-600 mb-3" aria-hidden="true"></i>
                         <h4 class="font-semibold mb-2">Programmation</h4>
                         <p class="text-sm text-gray-600">Python, TensorFlow, PyTorch</p>
                     </div>
@@ -145,16 +168,16 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Section Projets -->
     <section id="projects" class="section-modern bg-white">
         <div class="container">
             <h3 class="section-title">Mes Projets</h3>
             <div class="projects-grid">
-                <!-- Project 1 -->
-                <div class="project-card">
+                <!-- Projet 1 -->
+                <article class="project-card">
                     <div class="project-header">
                         <div class="project-icon">
-                            <i class="ph-waveform text-2xl"></i>
+                            <i class="ph-waveform text-2xl" aria-hidden="true"></i>
                         </div>
                         <h4 class="project-title">Traitement de la parole</h4>
                     </div>
@@ -167,17 +190,18 @@
                         <span class="tech-tag">Neurosciences</span>
                         <span class="tech-tag">EEG</span>
                     </div>
-                    <a href="https://github.com/brahimharounhassan/phonems-classification" class="project-link">
+                    <a href="https://github.com/brahimharounhassan/phonems-classification" class="project-link" 
+                       aria-label="Voir le projet Traitement de la parole sur GitHub">
                         Voir sur GitHub
-                        <i class="ph-arrow-up-right ml-1"></i>
+                        <i class="ph-arrow-up-right ml-1" aria-hidden="true"></i>
                     </a>
-                </div>
+                </article>
 
-                <!-- Project 2 -->
-                <div class="project-card">
+                <!-- Projet 2 -->
+                <article class="project-card">
                     <div class="project-header">
                         <div class="project-icon">
-                            <i class="ph-network text-2xl"></i>
+                            <i class="ph-network text-2xl" aria-hidden="true"></i>
                         </div>
                         <h4 class="project-title">Tunneling réseau IPv6</h4>
                     </div>
@@ -190,17 +214,18 @@
                         <span class="tech-tag">Tunneling</span>
                         <span class="tech-tag">Réseaux</span>
                     </div>
-                    <a href="https://github.com/brahimharounhassan/ipv6over4_tun" class="project-link">
+                    <a href="https://github.com/brahimharounhassan/ipv6over4_tun" class="project-link"
+                       aria-label="Voir le projet Tunneling réseau IPv6 sur GitHub">
                         Voir sur GitHub
-                        <i class="ph-arrow-up-right ml-1"></i>
+                        <i class="ph-arrow-up-right ml-1" aria-hidden="true"></i>
                     </a>
-                </div>
+                </article>
 
-                <!-- Project 3 -->
-                <div class="project-card">
+                <!-- Projet 3 -->
+                <article class="project-card">
                     <div class="project-header">
                         <div class="project-icon">
-                            <i class="ph-brain text-2xl"></i>
+                            <i class="ph-brain text-2xl" aria-hidden="true"></i>
                         </div>
                         <h4 class="project-title">Prédiction MCI</h4>
                     </div>
@@ -213,17 +238,18 @@
                         <span class="tech-tag">Deep Learning</span>
                         <span class="tech-tag">MCI</span>
                     </div>
-                    <a href="https://github.com/brahimharounhassan/mci-classification" class="project-link">
+                    <a href="https://github.com/brahimharounhassan/mci-classification" class="project-link"
+                       aria-label="Voir le projet Prédiction MCI sur GitHub">
                         Voir sur GitHub
-                        <i class="ph-arrow-up-right ml-1"></i>
+                        <i class="ph-arrow-up-right ml-1" aria-hidden="true"></i>
                     </a>
-                </div>
+                </article>
 
-                <!-- Project 4 -->
-                <div class="project-card">
+                <!-- Projet 4 -->
+                <article class="project-card">
                     <div class="project-header">
                         <div class="project-icon">
-                            <i class="ph-scan text-2xl"></i>
+                            <i class="ph-scan text-2xl" aria-hidden="true"></i>
                         </div>
                         <h4 class="project-title">OCR pour Scratch</h4>
                     </div>
@@ -236,22 +262,23 @@
                         <span class="tech-tag">Computer Vision</span>
                         <span class="tech-tag">Tesseract</span>
                     </div>
-                    <a href="https://github.com/brahimharounhassan/scratch-ocr-engine" class="project-link">
+                    <a href="https://github.com/brahimharounhassan/scratch-ocr-engine" class="project-link"
+                       aria-label="Voir le projet OCR pour Scratch sur GitHub">
                         Voir sur GitHub
-                        <i class="ph-arrow-up-right ml-1"></i>
+                        <i class="ph-arrow-up-right ml-1" aria-hidden="true"></i>
                     </a>
-                </div>
+                </article>
             </div>
         </div>
     </section>
 
-    <!-- Publications Section -->
+    <!-- Section Publications -->
     <section id="publications" class="section-modern">
         <div class="container">
             <h3 class="section-title">Publications</h3>
-            <div class="publication-card">
+            <article class="publication-card">
                 <div class="publication-header">
-                    <i class="ph-file-text text-3xl text-blue-600 mb-4"></i>
+                    <i class="ph-file-text text-3xl text-blue-600 mb-4" aria-hidden="true"></i>
                     <h4 class="text-xl font-semibold mb-2">New MCI Detection Method Based on Transformer and EEG Data</h4>
                     <p class="text-gray-600 mb-4">EUSIPCO 2023 Conference</p>
                 </div>
@@ -259,15 +286,16 @@
                     Article publié dans la prestigieuse conférence EUSIPCO 2023, présentant une nouvelle méthode 
                     de détection du trouble cognitif léger basée sur les Transformers et les données EEG.
                 </p>
-                <a href="https://ieeexplore.ieee.org/document/10290024" class="btn-primary">
+                <a href="https://ieeexplore.ieee.org/document/10290024" class="btn-primary"
+                   aria-label="Lire l'article sur IEEE Xplore (nouvelle fenêtre)" target="_blank" rel="noopener">
                     Lire l'article sur IEEE Xplore
-                    <i class="ph-arrow-up-right ml-2"></i>
+                    <i class="ph-arrow-up-right ml-2" aria-hidden="true"></i>
                 </a>
-            </div>
+            </article>
         </div>
     </section>
 
-    <!-- CV Section -->
+    <!-- Section CV -->
     <section id="cv" class="section-modern bg-white">
         <div class="container text-center">
             <h3 class="section-title">Mon CV</h3>
@@ -275,51 +303,56 @@
                 Découvrez mon parcours complet, mes compétences et mes expériences 
                 dans le domaine de l'Intelligence Artificielle et des neurosciences.
             </p>
-            <a href="cv.pdf" target="_blank" class="btn-primary inline-flex items-center">
-                <i class="ph-download mr-2"></i>
+            <a href="cv.pdf" target="_blank" rel="noopener" class="btn-primary inline-flex items-center"
+               aria-label="Télécharger le CV en PDF (nouvelle fenêtre)">
+                <i class="ph-download mr-2" aria-hidden="true"></i>
                 Télécharger le CV (PDF)
             </a>
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Section Contact -->
     <section id="contact" class="section-modern">
         <div class="container">
             <h3 class="section-title">Contact</h3>
             <div class="contact-content">
                 <div class="contact-info">
                     <div class="contact-item">
-                        <i class="ph-envelope text-2xl text-blue-600"></i>
+                        <i class="ph-envelope text-2xl text-blue-600" aria-hidden="true"></i>
                         <div>
                             <h4 class="font-semibold">Email</h4>
-                            <a href="mailto:brahimharoun57@yahoo.fr" class="contact-link">
+                            <a href="mailto:brahimharoun57@yahoo.fr" class="contact-link"
+                               aria-label="Envoyer un email à brahimharoun57@yahoo.fr">
                                 brahimharoun57@yahoo.fr
                             </a>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <i class="ph-linkedin-logo text-2xl text-blue-600"></i>
+                        <i class="ph-linkedin-logo text-2xl text-blue-600" aria-hidden="true"></i>
                         <div>
                             <h4 class="font-semibold">LinkedIn</h4>
-                            <a href="https://linkedin.com/in/brahimharounhassan" class="contact-link">
+                            <a href="https://linkedin.com/in/brahimharounhassan" class="contact-link"
+                               target="_blank" rel="noopener" aria-label="Visiter mon profil LinkedIn (nouvelle fenêtre)">
                                 @brahimharounhassan
                             </a>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <i class="ph-github-logo text-2xl text-blue-600"></i>
+                        <i class="ph-github-logo text-2xl text-blue-600" aria-hidden="true"></i>
                         <div>
                             <h4 class="font-semibold">GitHub</h4>
-                            <a href="https://github.com/brahimharounhassan" class="contact-link">
+                            <a href="https://github.com/brahimharounhassan" class="contact-link"
+                               target="_blank" rel="noopener" aria-label="Visiter mon profil GitHub (nouvelle fenêtre)">
                                 @brahimharounhassan
                             </a>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <i class="ph-twitter-logo text-2xl text-blue-600"></i>
+                        <i class="ph-twitter-logo text-2xl text-blue-600" aria-hidden="true"></i>
                         <div>
                             <h4 class="font-semibold">Twitter</h4>
-                            <a href="https://twitter.com/elbramosJr" class="contact-link">
+                            <a href="https://twitter.com/elbramosJr" class="contact-link"
+                               target="_blank" rel="noopener" aria-label="Visiter mon profil Twitter (nouvelle fenêtre)">
                                 @elbramosJr
                             </a>
                         </div>
@@ -329,19 +362,54 @@
         </div>
     </section>
 
-    <!-- Scroll to Top Button -->
-    <button class="scroll-to-top" onclick="scrollToTop()">
-        <i class="ph-arrow-up"></i>
+    <!-- Bouton Scroll to Top -->
+    <button class="scroll-to-top" onclick="scrollToTop()" aria-label="Retourner en haut de la page">
+        <i class="ph-arrow-up" aria-hidden="true"></i>
     </button>
 
     <!-- Footer -->
-    <footer class="footer-modern">
+    <footer class="footer-modern" role="contentinfo">
         <div class="container text-center">
             <p class="text-gray-600">
                 © 2025 Haroun Hassan BRAHIM - Tous droits réservés
             </p>
         </div>
     </footer>
+
+    <!-- Classe pour la navigation au clavier -->
+    <style>
+        .keyboard-navigation *:focus {
+            outline: 2px solid var(--primary-color) !important;
+            outline-offset: 2px !important;
+        }
+        
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        
+        /* Animations réduites pour l'accessibilité */
+        .reduced-motion * {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+        }
+        
+        /* Optimisations pour connexions lentes */
+        .slow-connection .animate-fade-in,
+        .slow-connection .animate-slide-up {
+            animation: none !important;
+            opacity: 1 !important;
+            transform: none !important;
+        }
+    </style>
 
     <script src="script.js"></script>
 </body>
