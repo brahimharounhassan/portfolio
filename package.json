@@ -16,7 +16,7 @@
     "check-gitignore": "node scripts/check-gitignore.js",
     "security-check-full": "npm run check-gitignore && npm audit",
     "deploy": "npm run build",
-    "deploy-main": "npm run build && echo 'Déployé sur brahimharounhassan.github.io'",
+    "deploy-main": "npm run build && echo 'Déployé sur elbramos.github.io'",
     "migrate-domain": "node scripts/migrate-to-main-domain.js"
   },
   "dependencies": {
