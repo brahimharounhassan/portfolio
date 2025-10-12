@@ -25,16 +25,16 @@ export const metadata: Metadata = {
   authors: [
     {
       name: "Brahim Haroun Hassan",
-      url: "https://brahimharounhassan.github.io/portfolio",
+      url: "https://brahimharounhassan.github.io",
     },
   ],
   creator: "Brahim Haroun Hassan",
-  metadataBase: new URL("https://brahimharounhassan.github.io/portfolio"),
+  metadataBase: new URL("https://brahimharounhassan.github.io"),
   alternates: {
-    canonical: "/",
+    canonical: "/portfolio",
     languages: {
-      "fr-FR": "/",
-      "en-US": "/",
+      "fr-FR": "/portfolio",
+      "en-US": "/portfolio",
     },
   },
   openGraph: {

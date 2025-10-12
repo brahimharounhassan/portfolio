@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const isProd = process.env.NODE_ENV === 'production'
+const repoName = 'portfolio'
 
 const nextConfig = {
   output: 'export',
@@ -12,9 +13,9 @@ const nextConfig = {
   compress: true,
   poweredByHeader: false,
   
-  // Configuration pour GitHub Pages RACINE (sans sous-dossier)
-  assetPrefix: isProd ? '' : '',
-  basePath: isProd ? '' : '',
+  // Configuration sécurisée pour GitHub Pages
+  assetPrefix: isProd ? `/${repoName}` : '',
+  basePath: isProd ? `/${repoName}` : '',
   
   // Webpack configuration SIMPLIFIÉE
   webpack: (config) => {
@@ -48,6 +49,5 @@ const nextConfig = {
   swcMinify: true,
 }
 
-module.exports = nextConfig
 module.exports = nextConfig
  

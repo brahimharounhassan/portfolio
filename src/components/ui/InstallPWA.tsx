@@ -1,40 +1,41 @@
-'use client'
+"use client";
 
-import React from 'react'
+import React from "react";
 
-const { useState, useEffect } = React
-import { Download, X, Smartphone } from 'lucide-react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { usePWA } from '@/hooks/usePWA'
-import Button from './Button'
+const { useState, useEffect } = React;
+import { Download, X, Smartphone } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { usePWA } from "@/hooks/usePWA";
+import Button from "./Button";
 
 export default function InstallPWA() {
-  const { canInstall, installPWA } = usePWA()
-  const [dismissed, setDismissed] = useState(false)
-  const [mounted, setMounted] = useState(false)
+  const { canInstall, installPWA } = usePWA();
+  const [dismissed, setDismissed] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   // Gérer l'hydratation et localStorage côté client uniquement
   useEffect(() => {
-    setMounted(true)
-    const isDismissed = localStorage.getItem('pwa-install-dismissed') === 'true'
-    setDismissed(isDismissed)
-  }, [])
+    setMounted(true);
+    const isDismissed =
+      localStorage.getItem("pwa-install-dismissed") === "true";
+    setDismissed(isDismissed);
+  }, []);
 
   const handleInstall = async () => {
-    await installPWA()
-    setDismissed(true)
-  }
+    await installPWA();
+    setDismissed(true);
+  };
 
   const handleDismiss = () => {
-    setDismissed(true)
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('pwa-install-dismissed', 'true')
+    setDismissed(true);
+    if (typeof window !== "undefined") {
+      localStorage.setItem("pwa-install-dismissed", "true");
     }
-  }
+  };
 
   // Ne rien rendre côté serveur ou si pas encore monté
   if (!mounted || dismissed || !canInstall) {
-    return null
+    return null;
   }
 
   return (
@@ -60,11 +61,12 @@ export default function InstallPWA() {
               <X className="w-4 h-4" />
             </button>
           </div>
-          
+
           <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
-            Installez ce portfolio sur votre appareil pour un accès rapide et une expérience optimisée.
+            Installez ce portfolio sur votre appareil pour un accès rapide et
+            une expérience optimisée.
           </p>
-          
+
           <div className="flex space-x-2">
             <Button variant="primary" size="sm" onClick={handleInstall}>
               <Download className="w-4 h-4 mr-2" />
@@ -77,5 +79,5 @@ export default function InstallPWA() {
         </div>
       </motion.div>
     </AnimatePresence>
-  )
+  );
 }

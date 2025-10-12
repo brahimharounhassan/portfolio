@@ -39,7 +39,7 @@ export default function DownloadButton() {
       // Créer un lien de téléchargement
       const link = document.createElement("a");
       link.href = url;
-      link.download = "CV-VotreNom.pdf";
+      link.download = "CV_fr-Brahim-Haroun-Hassan.pdf";
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
