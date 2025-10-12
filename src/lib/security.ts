@@ -133,7 +133,7 @@ export function validateAllowedDomain(url: string): boolean {
       'github.com',
       'linkedin.com', 
       'researchgate.net',
-      'elbramos.github.io'
+      'brahimharounhassan.github.io'
     ]
     
     return allowedDomains.some(domain => 

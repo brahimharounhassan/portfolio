@@ -25,11 +25,11 @@ export const metadata: Metadata = {
   authors: [
     {
       name: "Brahim Haroun Hassan",
-      url: "https://elbramos.github.io",
+      url: "https://brahimharounhassan.github.io/portfolio",
     },
   ],
   creator: "Brahim Haroun Hassan",
-  metadataBase: new URL("https://elbramos.github.io"),
+  metadataBase: new URL("https://brahimharounhassan.github.io/portfolio"),
   alternates: {
     canonical: "/",
     languages: {
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "fr_FR",
-    url: "https://elbramos.github.io/",
+    url: "https://brahimharounhassan.github.io/portfolio/",
     title: "Portfolio - Brahim Haroun Hassan | Ingénieur IA",
     description:
       "Portfolio de Brahim Haroun Hassan, Ingénieur en Intelligence Artificielle spécialisé en Machine Learning et Deep Learning.",

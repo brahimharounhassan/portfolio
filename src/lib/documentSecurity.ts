@@ -8,7 +8,7 @@ const SECURE_DOCUMENTS = {
     filename: 'CV_fr-Brahim-Haroun-Hassan.pdf',
     maxDownloads: 100, // Limite par jour
     allowedReferers: [
-      'elbramos.github.io',
+      'brahimharounhassan.github.io',
       'localhost'
     ]
   },
@@ -18,7 +18,7 @@ const SECURE_DOCUMENTS = {
     filename: 'CV_en-Brahim-Haroun-Hassan.pdf',
     maxDownloads: 100,
     allowedReferers: [
-      'elbramos.github.io',
+      'brahimharounhassan.github.io',
       'localhost'
     ]
   }

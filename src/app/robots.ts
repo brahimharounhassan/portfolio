@@ -7,7 +7,7 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/private/', '/admin/'],
     },
-    sitemap: 'https://elbramos.github.io/portfolio/sitemap.xml',
+    sitemap: 'https://brahimharounhassan.github.io/portfolio/sitemap.xml',
   }
 }
  
