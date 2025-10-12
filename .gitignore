@@ -1,0 +1,373 @@
+# ============================================
+# .GITIGNORE STRICT - PORTFOLIO PRODUCTION
+# ============================================
+
+# Dependencies
+node_modules/
+/.pnp
+.pnp.js
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
+# Production builds
+/out/
+/.next/
+/build/
+/dist/
+/.vercel/
+/.netlify/
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+lib-cov
+
+# nyc test coverage
+.nyc_output
+
+# Grunt intermediate storage (https://gruntjs.com/creating-plugins#storing-task-files)
+.grunt
+
+# Bower dependency directory (https://bower.io/)
+bower_components
+
+# node-waf configuration
+.lock-wscript
+
+# Compiled binary addons (https://nodejs.org/api/addons.html)
+build/Release
+
+# Dependency directories
+jspm_packages/
+
+# Snowpack dependency directory (https://snowpack.dev/)
+web_modules/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional stylelint cache
+.stylelintcache
+
+# Microbundle cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# dotenv environment variable files
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+.env.*.local
+
+# parcel-bundler cache (https://parceljs.org/)
+.cache
+.parcel-cache
+
+# Next.js build output
+.next
+out
+
+# Nuxt.js build / generate output
+.nuxt
+dist
+
+# Gatsby files
+.cache/
+# Comment in the public line in if your project uses Gatsby and not Next.js
+# https://nextjs.org/blog/next-9-1#public-directory-support
+# public
+
+# Storybook build outputs
+.out
+.storybook-out
+storybook-static
+
+# Rollup.js default build output
+dist/
+
+# Uncomment the public line in if your project uses Gatsby and not Next.js
+# https://nextjs.org/blog/next-9-1#public-directory-support
+# public
+
+# Storybook build outputs
+.out
+.storybook-out
+
+# vuepress build output
+.vuepress/dist
+
+# vuepress v2.x temp and cache directory
+.temp
+.cache
+
+# Docusaurus cache and generated files
+.docusaurus
+
+# Serverless directories
+.serverless/
+
+# FuseBox cache
+.fusebox/
+
+# DynamoDB Local files
+.dynamodb/
+
+# TernJS port file
+.tern-port
+
+# Stores VSCode versions used for testing VSCode extensions
+.vscode-test
+
+# yarn v2
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
+# ============================================
+# SECURITY - FICHIERS SENSIBLES
+# ============================================
+
+# Clés API et secrets
+*.key
+*.pem
+*.p12
+.env*
+!.env.example
+config/secrets.json
+secrets/
+private/
+
+# Certificats SSL
+*.crt
+*.cer
+*.p7b
+*.p7c
+*.pfx
+
+# Fichiers de backup potentiellement sensibles
+*.backup
+*.bak
+*.sql
+*.dump
+
+# Logs avec potentielles données sensibles
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ============================================
+# OUTILS DE DÉVELOPPEMENT
+# ============================================
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+.tmp/
+.temp/
+
+# ============================================
+# CI/CD ET DÉPLOIEMENT
+# ============================================
+
+# Coverage reports
+coverage/
+*.lcov
+.coverage/
+
+# Test results
+test-results/
+junit.xml
+
+# Lighthouse reports
+lighthouse/
+*.lighthouse.json
+
+# Performance monitoring
+performance/
+*.perf
+
+# ============================================
+# ASSETS ET MÉDIAS VOLUMINEUX
+# ============================================
+
+# Fichiers vidéo lourds
+*.mp4
+*.avi
+*.mov
+*.wmv
+*.flv
+
+# Fichiers audio lourds
+*.mp3
+*.wav
+*.flac
+
+# Images sources non optimisées (garder seulement les optimisées)
+/assets/source/
+/images/raw/
+*.psd
+*.ai
+*.sketch
+
+# ============================================
+# CACHE ET TEMPORAIRE
+# ============================================
+
+# Cache du bundler
+.cache/
+.webpack/
+.rollup.cache/
+.vite/
+
+# Cache ESLint
+.eslintcache
+
+# Cache Prettier
+.prettiercache
+
+# Cache TypeScript
+.tscache/
+
+# Turbo
+.turbo/
+
+# ============================================
+# DOCUMENTATION GÉNÉRÉE
+# ============================================
+
+# Documentation auto-générée
+/docs/api/
+/docs/generated/
+
+# ============================================
+# TESTS ET QUALITÉ DE CODE
+# ============================================
+
+# Test snapshots (selon le cas)
+# __snapshots__/
+
+# Rapports de test
+test-report.html
+test-report.xml
+
+# ============================================
+# FICHIERS SPÉCIFIQUES AU PORTFOLIO
+# ============================================
+
+# Documents CV réels (sécurité)
+/documents/cv/
+/private-docs/
+
+# Analytics et métriques privées
+analytics-data.json
+metrics/
+
+# Backups de base de données
+*.db
+*.sqlite
+*.sqlite3
+
+# Fichiers de configuration locale
+local.config.js
+dev.config.js
+
+# ============================================
+# PACKAGES ET BUILDS ALTERNATIFS
+# ============================================
+
+# Package alternatives
+package-lock.json.backup
+yarn.lock.backup
+
+# Builds de test
+build-test/
+dist-test/
+
+# ============================================
+# MONITORING ET DEBUGGING
+# ============================================
+
+# Debug files
+debug/
+*.debug
+
+# Profiling files
+*.prof
+*.heapsnapshot
+
+# ============================================
+# NOTES IMPORTANTES
+# ============================================
+
+# Ce fichier .gitignore est configuré pour :
+# 1. Sécurité maximale (aucun secret committed)
+# 2. Performance (pas de gros fichiers)
+# 3. Propreté (cache et fichiers temporaires exclus)
+# 4. Collaboration (configurations IDE exclues)
+# 5. Production (builds et assets optimisés seulement)
+
+# ============================================
+# EXCEPTIONS IMPORTANTES (À GARDER)
+# ============================================
+
+# Garder ces fichiers essentiels :
+!.env.example
+!.gitignore
+!.github/
+!.eslintrc.json
+!.prettierrc
+!public/favicon.ico
+!public/manifest.json
+!public/robots.txt
+
+# ============================================
+# FIN DE CONFIGURATION
+# ============================================

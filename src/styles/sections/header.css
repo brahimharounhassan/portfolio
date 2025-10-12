@@ -1,0 +1,40 @@
+  /* Navigation responsive améliorée */
+  .nav-desktop {
+    @apply hidden md:flex items-center;
+    gap: 0.5rem; /* md: 8px */
+  }
+  
+  @media (min-width: 1024px) {
+    .nav-desktop {
+      gap: 1rem; /* lg: 16px */
+    }
+  }
+  
+  @media (min-width: 1280px) {
+    .nav-desktop {
+      gap: 1.5rem; /* xl: 24px */
+    }
+  }
+  
+  @media (min-width: 1536px) {
+    .nav-desktop {
+      gap: 2rem; /* 2xl: 32px */
+    }
+  }
+
+  /* Boutons de navigation responsive */
+  .nav-button {
+    @apply px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200;
+  }
+  
+  @media (min-width: 1024px) {
+    .nav-button {
+      @apply px-4 py-2 text-base;
+    }
+  }
+  
+  @media (min-width: 1280px) {
+    .nav-button {
+      @apply px-5 py-2;
+    }
+  }

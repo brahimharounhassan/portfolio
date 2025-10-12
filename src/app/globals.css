@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import des styles modulaires après les directives Tailwind */
+@import '../styles/base.css';
+@import '../styles/components.css';
+@import '../styles/utilities.css';
+@import '../styles/responsive.css';
+
+/* Import des styles de sections */
+@import '../styles/sections/header.css';
+@import '../styles/sections/hero.css';
+
+/* Styles spécifiques dans les bonnes layers */
+@layer base {
+  .section-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+}
+
+/* Additional responsive utilities */
+@layer utilities {
+  /* Prevent text overflow */
+  .text-overflow-ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* Responsive text wrapping */
+  .break-words-responsive {
+    word-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+  }
+
+  /* Container with max-width constraints */
+  .container-constrained {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  /* Mobile-first button sizing */
+  .btn-responsive {
+    @apply px-3 py-2 text-sm;
+  }
+
+  @media (min-width: 640px) {
+    .btn-responsive {
+      @apply px-4 py-2 text-base;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .btn-responsive {
+      @apply px-6 py-3 text-base;
+    }
+  }
+
+  /* Responsive grid gaps */
+  .gap-responsive {
+    @apply gap-4;
+  }
+
+  @media (min-width: 640px) {
+    .gap-responsive {
+      @apply gap-6;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .gap-responsive {
+      @apply gap-8;
+    }
+  }
+
+  /* Prevent horizontal scroll */
+  .no-scrollbar-x {
+    overflow-x: hidden;
+  }
+
+  /* Responsive flex wrap */
+  .flex-wrap-responsive {
+    @apply flex-col;
+  }
+
+  @media (min-width: 640px) {
+    .flex-wrap-responsive {
+      @apply flex-row flex-wrap;
+    }
+  }
+}

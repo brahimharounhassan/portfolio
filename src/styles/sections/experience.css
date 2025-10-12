@@ -1,0 +1,61 @@
+@layer components {
+  .experience-section {
+    @apply py-20 bg-gray-50 dark:bg-gray-800;
+  }
+
+  .experience-timeline {
+    @apply max-w-4xl mx-auto;
+  }
+
+  .experience-item {
+    @apply relative mb-12 last:mb-0;
+  }
+
+  .timeline-line {
+    @apply absolute left-8 top-16 bottom-0 w-0.5 bg-primary-200 dark:bg-primary-800 hidden md:block;
+  }
+
+  .timeline-dot {
+    @apply absolute left-6 top-8 w-4 h-4 bg-primary-600 rounded-full border-4 border-white dark:border-gray-800 hidden md:block;
+  }
+
+  .experience-card {
+    @apply md:ml-20 bg-white dark:bg-gray-900 rounded-xl p-6 shadow-md border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow duration-300;
+  }
+
+  .experience-header {
+    @apply flex flex-col md:flex-row md:items-center justify-between mb-4;
+  }
+
+  .experience-title {
+    @apply text-xl font-bold text-gray-900 dark:text-white mb-1;
+  }
+
+  .experience-company {
+    @apply flex items-center text-primary-600 dark:text-primary-400 font-semibold mb-2;
+  }
+
+  .experience-date {
+    @apply flex items-center mb-1 whitespace-nowrap;
+  }
+
+  .experience-location {
+    @apply flex items-center whitespace-nowrap;
+  }
+
+  .experience-description {
+    @apply text-gray-600 dark:text-gray-400 mb-4 leading-relaxed;
+  }
+
+  .tech-tag {
+    @apply px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-xs font-medium;
+  }
+
+  .achievement-list {
+    @apply space-y-1;
+  }
+
+  .achievement-item {
+    @apply flex items-start text-sm text-gray-600 dark:text-gray-400;
+  }
+}

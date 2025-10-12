@@ -1,0 +1,45 @@
+@layer components {
+  .projects-section {
+    @apply py-20 bg-white dark:bg-gray-900;
+  }
+
+  .project-card {
+    @apply bg-white dark:bg-gray-800 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border border-gray-200 dark:border-gray-700;
+  }
+
+  .project-image-container {
+    @apply relative h-48 bg-gradient-to-br from-primary-50 to-purple-50 dark:from-gray-700 dark:to-gray-800 rounded-t-xl overflow-hidden;
+  }
+
+  .project-content {
+    @apply p-6;
+  }
+
+  .project-title {
+    @apply text-xl font-semibold text-gray-900 dark:text-white mb-2;
+  }
+
+  .project-description {
+    @apply text-gray-600 dark:text-gray-400 mb-4 line-clamp-2;
+  }
+
+  .project-tech-stack {
+    @apply flex flex-wrap gap-2 mb-4;
+  }
+
+  .project-tech-tag {
+    @apply px-2 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded text-xs;
+  }
+
+  .project-actions {
+    @apply flex space-x-2;
+  }
+
+  .project-filter-tabs {
+    @apply flex flex-wrap justify-center mb-12 gap-2;
+  }
+
+  .project-filter-button {
+    @apply px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200;
+  }
+}

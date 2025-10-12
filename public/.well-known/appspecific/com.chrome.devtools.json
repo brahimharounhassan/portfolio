@@ -1,0 +1,16 @@
+{
+  "version": "1.0",
+  "name": "Portfolio Brahim Haroun Hassan",
+  "description": "Chrome DevTools configuration for portfolio development",
+  "manifest_version": 1,
+  "type": "web_app",
+  "icons": [
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    }
+  ],
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb"
+}

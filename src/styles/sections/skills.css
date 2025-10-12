@@ -1,0 +1,45 @@
+@layer components {
+  .skills-section {
+    @apply py-20 bg-gray-50 dark:bg-gray-800;
+  }
+
+  .skills-category-tabs {
+    @apply flex flex-wrap justify-center mb-12 gap-4;
+  }
+
+  .skills-category-button {
+    @apply px-6 py-3 rounded-lg font-medium transition-all duration-200;
+  }
+
+  .skills-category-button-active {
+    @apply bg-primary-600 text-white;
+  }
+
+  .skills-category-button-inactive {
+    @apply bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-primary-100 dark:hover:bg-gray-600;
+  }
+
+  .skill-item {
+    @apply space-y-2;
+  }
+
+  .skill-bar-container {
+    @apply w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2;
+  }
+
+  .skill-bar {
+    @apply bg-gradient-to-r from-primary-500 to-primary-600 h-2 rounded-full;
+  }
+
+  .skill-label {
+    @apply flex justify-between items-center mb-2;
+  }
+
+  .skill-name {
+    @apply text-gray-700 dark:text-gray-300 font-medium;
+  }
+
+  .skill-percentage {
+    @apply text-primary-600 dark:text-primary-400 font-semibold;
+  }
+}

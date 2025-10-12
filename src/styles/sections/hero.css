@@ -1,0 +1,42 @@
+/* Hero Section Styles */
+.hero-content {
+  position: relative;
+  z-index: 10;
+}
+
+.hero-greeting {
+  font-size: 1.125rem;
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.hero-name {
+  font-weight: 900;
+  line-height: 0.9;
+  margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+  margin-bottom: 2rem;
+}
+
+.hero-background {
+  @apply bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-purple-900;
+}
+
+.hero-stats {
+  @apply grid grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-2xl mx-auto;
+}
+
+.hero-stat-item {
+  @apply text-center;
+}
+
+.hero-stat-number {
+  @apply text-2xl sm:text-3xl font-bold text-blue-600 dark:text-blue-400 mb-1 sm:mb-2;
+}
+
+.hero-stat-label {
+  @apply text-gray-600 dark:text-gray-400 text-xs sm:text-sm;
+}

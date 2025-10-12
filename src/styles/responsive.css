@@ -1,0 +1,45 @@
+/* Responsive containers améliorés */
+.container {
+  @apply mx-auto px-4 sm:px-6 lg:px-8;
+  max-width: 100%;
+}
+
+@media (min-width: 640px) {
+  .container { max-width: 640px; }
+}
+
+@media (min-width: 768px) {
+  .container { max-width: 768px; }
+}
+
+@media (min-width: 1024px) {
+  .container { max-width: 1024px; }
+}
+
+@media (min-width: 1280px) {
+  .container { max-width: 1280px; }
+}
+
+@media (min-width: 1536px) {
+  .container { max-width: 1536px; }
+}
+
+/* Responsive text sizes */
+.text-responsive-xs { @apply text-xs sm:text-sm; }
+.text-responsive-sm { @apply text-sm sm:text-base; }
+.text-responsive-base { @apply text-base sm:text-lg; }
+.text-responsive-lg { @apply text-lg sm:text-xl lg:text-2xl; }
+.text-responsive-xl { @apply text-xl sm:text-2xl lg:text-3xl; }
+.text-responsive-2xl { @apply text-2xl sm:text-3xl lg:text-4xl xl:text-5xl; }
+.text-responsive-3xl { @apply text-3xl sm:text-4xl lg:text-5xl xl:text-6xl; }
+
+/* Responsive spacing */
+.section-padding { @apply py-12 sm:py-16 lg:py-20 xl:py-24; }
+.card-padding { @apply p-4 sm:p-6 lg:p-8; }
+
+/* Grid responsive amélioré */
+.grid-responsive-1 { @apply grid grid-cols-1; }
+.grid-responsive-2 { @apply grid grid-cols-1 sm:grid-cols-2; }
+.grid-responsive-3 { @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3; }
+.grid-responsive-4 { @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4; }
+  .grid-responsive-4 { @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4; }
