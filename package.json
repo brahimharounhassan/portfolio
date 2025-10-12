@@ -11,13 +11,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "type-check": "tsc --noEmit --skipLibCheck",
-    "clean": "rm -rf .next out node_modules package-lock.json",
-    "check-gitignore": "node scripts/check-gitignore.js",
-    "security-check-full": "npm run check-gitignore && npm audit",
-    "deploy": "npm run build",
-    "deploy-main": "npm run build && echo 'Déployé sur elbramos.github.io'",
-    "migrate-domain": "node scripts/migrate-to-main-domain.js"
+    "type-check": "tsc --noEmit --skipLibCheck"
   },
   "dependencies": {
     "clsx": "2.0.0",
