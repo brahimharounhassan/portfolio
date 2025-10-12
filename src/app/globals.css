@@ -2,6 +2,63 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Styles de base pour l'application */
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-rgb: 255, 255, 255;
+}
+
+/* Mode sombre */
+.dark {
+  --foreground-rgb: 255, 255, 255;
+  --background-rgb: 15, 23, 42;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+}
+
+/* Styles globaux fixes pour s'assurer que le CSS fonctionne en production */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Forcer les classes Tailwind importantes à être incluses */
+.bg-primary-600 {
+  background-color: rgb(37, 99, 235) !important;
+}
+
+.text-primary-600 {
+  color: rgb(37, 99, 235) !important;
+}
+
+.dark .bg-primary-900 {
+  background-color: rgb(30, 58, 138) !important;
+}
+
+.dark .text-primary-300 {
+  color: rgb(147, 197, 253) !important;
+}
+
+/* Patch pour s'assurer que les styles fonctionnent sur GitHub Pages */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-rgb: 15, 23, 42;
+  }
+}
+
+/* Styles inline critiques pour éviter FOUC */
+.preload-transitions * {
+  transition: none !important;
+}
+
+/* Assurez-vous que le corps occupe toute la hauteur */
+html, body {
+  height: 100%;
+}
+
 /* Variables CSS définies immédiatement */
 @layer base {
   :root {

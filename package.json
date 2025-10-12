@@ -11,7 +11,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "type-check": "tsc --noEmit --skipLibCheck"
+    "type-check": "tsc --noEmit --skipLibCheck",
+    "export": "next build && next export",
+    "build:prod": "cross-env NODE_ENV=production next build",
+    "deploy": "npm run build:prod && touch out/.nojekyll",
+    "fix-hydration": "node scripts/fix-hydration.js"
   },
   "dependencies": {
     "clsx": "2.0.0",
@@ -29,8 +33,8 @@
     "@types/react": "18.2.45",
     "@types/react-dom": "18.2.18",
     "autoprefixer": "10.4.16",
+    "cross-env": "7.0.3",
     "cssnano": "7.1.1",
-    "critters": "^0.0.20",
     "eslint": "8.56.0",
     "eslint-config-next": "14.0.4",
     "postcss": "8.4.32",

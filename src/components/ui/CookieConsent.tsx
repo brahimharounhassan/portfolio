@@ -11,26 +11,18 @@ import { useTranslation } from "@/hooks/useTranslation";
 
 export default function CookieConsent() {
   const { t } = useTranslation();
-  const [showBanner, setShowBanner] = useState(false);
-  const [showDetails, setShowDetails] = useState(false);
+  const [showConsent, setShowConsent] = useState(false);
+  const [showDetails, setShowDetails] = useState(false); // AJOUT de l'état manquant
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    // Vérifier si l'utilisateur a déjà donné son consentement
-    const consent = localStorage.getItem("cookie-consent");
+    setMounted(true);
+    
+    if (typeof window === 'undefined') return;
 
+    const consent = localStorage.getItem('cookie-consent');
     if (!consent) {
-      // Afficher le banner après un délai
-      const timer = setTimeout(() => {
-        setShowBanner(true);
-      }, 2000);
-
-      return () => clearTimeout(timer);
-    } else if (consent === "accepted") {
-      // Initialiser Google Analytics si le consentement est accordé
-      const gaId = process.env.NEXT_PUBLIC_GA_ID;
-      if (gaId) {
-        analytics.initGA(gaId);
-      }
+      setShowConsent(true);
     }
   }, []);
 
@@ -44,14 +36,14 @@ export default function CookieConsent() {
       analytics.initGA(gaId);
     }
 
-    setShowBanner(false);
+    setShowConsent(false);
     console.log("✅ Cookies acceptés");
   };
 
   const handleDecline = () => {
     localStorage.setItem("cookie-consent", "declined");
     analytics.setGAConsent(false);
-    setShowBanner(false);
+    setShowConsent(false);
     console.log("❌ Cookies refusés");
   };
 
@@ -59,7 +51,10 @@ export default function CookieConsent() {
     setShowDetails(!showDetails);
   };
 
-  if (!showBanner) return null;
+  // Ne rien rendre pendant le SSR
+  if (!mounted || !showConsent) {
+    return null;
+  }
 
   return (
     <AnimatePresence>

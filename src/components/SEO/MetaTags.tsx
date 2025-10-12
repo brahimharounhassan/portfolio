@@ -25,7 +25,7 @@ export default function MetaTags({
     "Data Analysis",
     "Data Visualization",
   ],
-  image = "/logo.jpg",
+  image = "/portfolio/logo.jpg",
   url = "https://brahimharounhassan.github.io/portfolio",
   type = "website",
   publishedDate,

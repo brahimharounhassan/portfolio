@@ -9,8 +9,11 @@ const { useState, useEffect } = React;
 
 export default function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
+
     const toggleVisibility = () => {
       // Afficher le bouton après 300px de scroll
       if (window.scrollY > 300) {
@@ -36,6 +39,11 @@ export default function ScrollToTop() {
       behavior: "smooth",
     });
   };
+
+  // Ne rien rendre pendant le SSR
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <AnimatePresence>

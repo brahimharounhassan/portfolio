@@ -69,7 +69,7 @@ export const metadata: Metadata = {
       follow: true,
     },
   },
-  manifest: "/manifest.json",
+  manifest: "/portfolio/manifest.json",
   verification: {
     google: "your-google-site-verification-code",
   },
@@ -89,28 +89,53 @@ export default function RootLayout({
           content="width=device-width, initial-scale=1, viewport-fit=cover"
         />
 
+        {/* Styles critiques inline pour éviter FOUC */}
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+          body {
+            background-color: white;
+            color: black;
+          }
+          .dark body {
+            background-color: #0f172a;
+            color: white;
+          }
+          .preload-transitions * {
+            transition: none !important;
+          }
+          @media (prefers-color-scheme: dark) {
+            body {
+              background-color: #0f172a;
+              color: white;
+            }
+          }
+        `,
+          }}
+        />
+
         {/* Favicons */}
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/portfolio/favicon.ico" />
         <link
           rel="icon"
           type="image/png"
           sizes="16x16"
-          href="/favicon-16x16.png"
+          href="/portfolio/favicon-16x16.png"
         />
         <link
           rel="icon"
           type="image/png"
           sizes="32x32"
-          href="/favicon-32x32.png"
+          href="/portfolio/favicon-32x32.png"
         />
         <link
           rel="apple-touch-icon"
           sizes="180x180"
-          href="/apple-touch-icon.png"
+          href="/portfolio/apple-touch-icon.png"
         />
 
         {/* PWA */}
-        <link rel="manifest" href="/manifest.json" />
+        <link rel="manifest" href="/portfolio/manifest.json" />
         <meta name="theme-color" content="#2563eb" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
@@ -132,7 +157,25 @@ export default function RootLayout({
           crossOrigin=""
         />
       </head>
-      <body className={`${inter.className} antialiased`}>
+      <body className={`${inter.className} antialiased preload-transitions`}>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+          (function() {
+            try {
+              const savedTheme = localStorage.getItem('theme') || 
+                (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+              
+              document.documentElement.classList.toggle('dark', savedTheme === 'dark');
+              
+              setTimeout(() => {
+                document.body.classList.remove('preload-transitions');
+              }, 300);
+            } catch(e) {}
+          })();
+        `,
+          }}
+        />
         <ClientLayout>{children}</ClientLayout>
       </body>
     </html>

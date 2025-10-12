@@ -12,26 +12,21 @@ const nextConfig = {
   compress: true,
   poweredByHeader: false,
   
-  // Configuration pour GitHub Pages SANS assetPrefix pour éviter les problèmes CSS
-  // Le assetPrefix peut casser les imports CSS en production
+  // Configuration CORRECTE pour GitHub Pages
+  // IMPORTANT: assetPrefix ET basePath sont nécessaires ensemble pour les assets CSS
   ...(isProd && {
-    // Seulement basePath, pas assetPrefix pour éviter les problèmes CSS
+    assetPrefix: '/portfolio',
     basePath: '/portfolio',
   }),
   
-  // DÉSACTIVER les optimisations CSS qui causent l'erreur Critters
-  experimental: {
-    // optimizeCss: false, // Désactivé pour éviter l'erreur Critters
-  },
-  
-  // Webpack configuration simplifiée SANS optimisation CSS
-  webpack: (config, { dev, isServer }) => {
+  // Webpack configuration SIMPLIFIÉE sans optimisations CSS
+  webpack: (config) => {
     // Désactiver les source maps en production
     if (isProd) {
       config.devtool = false
     }
     
-    // Configuration minimale sans optimisation CSS
+    // Configuration minimale
     config.resolve.fallback = {
       ...config.resolve.fallback,
       fs: false,
@@ -48,8 +43,7 @@ const nextConfig = {
   },
   
   eslint: {
-    ignoreDuringBuilds: false,
-    dirs: ['src']
+    ignoreDuringBuilds: false ,
   },
   
   // Configuration du compilateur SWC

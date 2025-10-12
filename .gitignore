@@ -364,9 +364,9 @@ debug/
 !.github/
 !.eslintrc.json
 !.prettierrc
-!public/favicon.ico
-!public/manifest.json
-!public/robots.txt
+!public/portfolio/favicon.ico
+!public/portfolio/manifest.json
+!public/portfolio/robots.txt
 
 # ============================================
 # FIN DE CONFIGURATION
