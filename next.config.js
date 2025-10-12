@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const isProd = process.env.NODE_ENV === 'production'
-const repoName = 'portfolio'
 
 const nextConfig = {
   output: 'export',
@@ -13,18 +12,26 @@ const nextConfig = {
   compress: true,
   poweredByHeader: false,
   
-  // Configuration sécurisée pour GitHub Pages
-  assetPrefix: isProd ? `/${repoName}` : '',
-  basePath: isProd ? `/${repoName}` : '',
+  // Configuration pour GitHub Pages SANS assetPrefix pour éviter les problèmes CSS
+  // Le assetPrefix peut casser les imports CSS en production
+  ...(isProd && {
+    // Seulement basePath, pas assetPrefix pour éviter les problèmes CSS
+    basePath: '/portfolio',
+  }),
   
-  // Webpack configuration SIMPLIFIÉE
-  webpack: (config) => {
+  // DÉSACTIVER les optimisations CSS qui causent l'erreur Critters
+  experimental: {
+    // optimizeCss: false, // Désactivé pour éviter l'erreur Critters
+  },
+  
+  // Webpack configuration simplifiée SANS optimisation CSS
+  webpack: (config, { dev, isServer }) => {
     // Désactiver les source maps en production
     if (isProd) {
       config.devtool = false
     }
     
-    // Configuration minimale
+    // Configuration minimale sans optimisation CSS
     config.resolve.fallback = {
       ...config.resolve.fallback,
       fs: false,
@@ -50,4 +57,3 @@ const nextConfig = {
 }
 
 module.exports = nextConfig
- 
