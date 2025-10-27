@@ -12,9 +12,12 @@ export default function Header() {
   const { locale, changeLocale, t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
-  const [theme, setTheme] = useState("light");
+  // Utiliser 'light' par défaut pour éviter null et avoir un rendu cohérent SSR/Client
+  const [theme, setTheme] = useState<string>("light");
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const savedTheme = localStorage.getItem("theme") || "light";
     setTheme(savedTheme);
     document.documentElement.classList.toggle("dark", savedTheme === "dark");
@@ -118,7 +121,7 @@ export default function Header() {
     },
   ];
 
-  // Header rendu UNIQUEMENT côté client (pas de SSR)
+  // Header rendu de manière cohérente côté serveur et client
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700">
       <div className="container mx-auto px-3 sm:px-4 lg:px-6">
@@ -192,11 +195,7 @@ export default function Header() {
               className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
               aria-label="Toggle theme"
             >
-              {theme === "dark" ? (
-                <Sun className="w-5 h-5" />
-              ) : (
-                <Moon className="w-5 h-5" />
-              )}
+              {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
             </button>
           </div>
 
@@ -230,11 +229,7 @@ export default function Header() {
               className="p-2 rounded-md bg-gray-200 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
               aria-label="Toggle theme"
             >
-              {theme === "dark" ? (
-                <Sun className="w-4 h-4" />
-              ) : (
-                <Moon className="w-4 h-4" />
-              )}
+              {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
             </button>
 
             <button
@@ -242,11 +237,7 @@ export default function Header() {
               className="p-2 rounded-md bg-primary-600 hover:bg-primary-700 text-white border-2 border-primary-700 transition-colors shadow-md"
               aria-label="Toggle menu"
             >
-              {isMenuOpen ? (
-                <X className="w-5 h-5" />
-              ) : (
-                <Menu className="w-5 h-5" />
-              )}
+              {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
           </div>
         </div>

@@ -122,7 +122,7 @@ export default function LanguageSwitch() {
                           animate={{ scale: 1 }}
                           className="text-primary-600 dark:text-primary-400"
                         >
-                          <Check className="w-4 h-4" />
+                          <Check size={16} />
                         </motion.div>
                       )}
                     </button>

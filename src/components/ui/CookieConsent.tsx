@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react'
+import React from "react";
 
 const { useState, useEffect } = React;
 import { motion, AnimatePresence } from "framer-motion";
@@ -17,10 +17,10 @@ export default function CookieConsent() {
 
   useEffect(() => {
     setMounted(true);
-    
-    if (typeof window === 'undefined') return;
 
-    const consent = localStorage.getItem('cookie-consent');
+    if (typeof window === "undefined") return;
+
+    const consent = localStorage.getItem("cookie-consent");
     if (!consent) {
       setShowConsent(true);
     }
@@ -68,7 +68,9 @@ export default function CookieConsent() {
         <div className="bg-white dark:bg-gray-800 rounded-xl shadow-2xl border border-gray-200 dark:border-gray-700 p-6">
           <div className="flex items-start justify-between mb-4">
             <div className="flex items-center space-x-2">
-              <Cookie className="w-5 h-5 text-primary-600 dark:text-primary-400" />
+              <span className="text-primary-600 dark:text-primary-400">
+                <Cookie size={20} />
+              </span>
               <h3 className="font-semibold text-gray-900 dark:text-white">
                 Cookies & Confidentialité
               </h3>
@@ -77,7 +79,7 @@ export default function CookieConsent() {
               onClick={handleDecline}
               className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
             >
-              <X className="w-4 h-4" />
+              <X size={16} />
             </button>
           </div>
 
@@ -134,7 +136,9 @@ export default function CookieConsent() {
               onClick={handleAccept}
               className="flex-1"
             >
-              <Shield className="w-4 h-4 mr-2" />
+              <span className="mr-2">
+                <Shield size={16} />
+              </span>
               Tout accepter
             </Button>
 
@@ -144,7 +148,9 @@ export default function CookieConsent() {
               onClick={handleCustomize}
               className="flex-shrink-0"
             >
-              <Settings className="w-4 h-4 mr-2" />
+              <span className="mr-2">
+                <Settings size={16} />
+              </span>
               {showDetails ? "Masquer" : "Détails"}
             </Button>
 

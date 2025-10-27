@@ -58,7 +58,7 @@ export default function InstallPWA() {
               onClick={handleDismiss}
               className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
             >
-              <X className="w-4 h-4" />
+              <X size={16} />
             </button>
           </div>
 

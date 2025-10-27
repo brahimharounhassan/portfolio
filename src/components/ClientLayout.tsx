@@ -8,11 +8,11 @@ import CookieConsent from "@/components/ui/CookieConsent";
 
 const { useEffect, useState } = React;
 
-export default function ClientLayout({
-  children,
-}: {
+interface ClientLayoutProps {
   children: React.ReactNode;
-}) {
+}
+
+export default function ClientLayout({ children }: ClientLayoutProps) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -29,26 +29,24 @@ export default function ClientLayout({
     };
   }, []);
 
-  // Rendu unifié pour éviter l'erreur d'hydratation
-  // Structure TOUJOURS identique côté serveur et client
+  // Structure DOM identique côté serveur ET client pour éviter l'erreur d'hydratation
   return (
-    <div className="flex flex-col min-h-screen">
-      {/* Header placeholder pendant SSR, vrai Header après hydratation */}
-      {!mounted ? (
-        <div className="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700 h-16" />
-      ) : (
+    <>
+      <div className="flex flex-col min-h-screen">
+        {/* Header - toujours présent avec la même structure */}
         <Header />
-      )}
 
-      <main className="flex-1 mt-16">{children}</main>
-      <Footer />
+        <main className="flex-1 mt-16">{children}</main>
+        <Footer />
+      </div>
 
+      {/* Composants conditionnels en dehors de la structure principale */}
       {mounted && (
         <>
           <ScrollToTop />
           <CookieConsent />
         </>
       )}
-    </div>
+    </>
   );
 }

@@ -53,8 +53,7 @@ export function useTranslation() {
   }, [mounted])
 
   const t = useCallback((key: string): string => {
-    if (!mounted) return key
-    
+    // Utiliser la locale courante même pendant le SSR pour éviter les erreurs d'hydratation
     const keys = key.split('.')
     let value: any = translations[locale]
     
@@ -63,7 +62,7 @@ export function useTranslation() {
     }
     
     return value || key
-  }, [locale, mounted])
+  }, [locale])
 
   return { 
     locale: mounted ? locale : defaultLocale, 

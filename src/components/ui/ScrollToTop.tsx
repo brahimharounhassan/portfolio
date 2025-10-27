@@ -58,7 +58,7 @@ export default function ScrollToTop() {
           className="fixed bottom-6 right-6 z-50 hidden lg:flex items-center justify-center w-12 h-12 bg-primary-600 hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-200"
           aria-label="Retour en haut"
         >
-          <ArrowUp className="w-6 h-6" />
+          <ArrowUp size={24} />
         </motion.button>
       )}
     </AnimatePresence>

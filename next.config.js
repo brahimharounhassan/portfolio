@@ -12,12 +12,17 @@ const nextConfig = {
   compress: true,
   poweredByHeader: false,
   
-  // Configuration CORRECTE pour GitHub Pages
-  // IMPORTANT: assetPrefix ET basePath sont nécessaires ensemble pour les assets CSS
+  // Configuration CORRIGÉE pour GitHub Pages avec CSS
+  // assetPrefix doit inclure le protocole pour les assets CSS
   ...(isProd && {
     assetPrefix: '/portfolio',
     basePath: '/portfolio',
   }),
+  
+  // Configuration expérimentale pour forcer le CSS inline et externe
+  experimental: {
+    optimizeCss: false, // Désactiver l'optimisation CSS qui peut causer des problèmes
+  },
   
   // Webpack configuration SIMPLIFIÉE sans optimisations CSS
   webpack: (config) => {
