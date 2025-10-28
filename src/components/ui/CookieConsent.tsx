@@ -70,7 +70,7 @@ export default function CookieConsent() {
                 <Cookie size={20} />
               </span>
               <h3 className="font-semibold text-gray-900 dark:text-white">
-                Cookies & Confidentialité
+                {t("cookies.title")}
               </h3>
             </div>
             <button
@@ -82,9 +82,7 @@ export default function CookieConsent() {
           </div>
 
           <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
-            Ce site utilise des cookies pour améliorer votre expérience de
-            navigation et analyser le trafic. Vos données restent anonymes et
-            sécurisées.
+            {t("cookies.description")}
           </p>
 
           {/* Détails des cookies */}
@@ -99,27 +97,26 @@ export default function CookieConsent() {
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
                     <span className="font-medium text-gray-700 dark:text-gray-300">
-                      🔧 Cookies techniques
+                      {t("cookies.technicalTitle")}
                     </span>
                     <span className="text-green-600 dark:text-green-400 font-medium">
-                      Requis
+                      {t("cookies.technicalRequired")}
                     </span>
                   </div>
                   <p className="text-gray-600 dark:text-gray-400">
-                    Nécessaires au fonctionnement du site (thème, langue,
-                    préférences).
+                    {t("cookies.technicalDescription")}
                   </p>
 
                   <div className="flex items-center justify-between mt-3">
                     <span className="font-medium text-gray-700 dark:text-gray-300">
-                      📊 Google Analytics
+                      {t("cookies.analyticsTitle")}
                     </span>
                     <span className="text-blue-600 dark:text-blue-400 font-medium">
-                      Optionnel
+                      {t("cookies.analyticsOptional")}
                     </span>
                   </div>
                   <p className="text-gray-600 dark:text-gray-400">
-                    Analyse anonyme du trafic pour améliorer le site.
+                    {t("cookies.analyticsDescription")}
                   </p>
                 </div>
               </motion.div>
@@ -137,7 +134,7 @@ export default function CookieConsent() {
               <span className="mr-2">
                 <Shield size={16} />
               </span>
-              Tout accepter
+              {t("cookies.acceptAll")}
             </Button>
 
             <Button
@@ -149,7 +146,7 @@ export default function CookieConsent() {
               <span className="mr-2">
                 <Settings size={16} />
               </span>
-              {showDetails ? "Masquer" : "Détails"}
+              {showDetails ? t("cookies.hideDetails") : t("cookies.showDetails")}
             </Button>
 
             <Button
@@ -158,13 +155,12 @@ export default function CookieConsent() {
               onClick={handleDecline}
               className="flex-shrink-0"
             >
-              Refuser
+              {t("cookies.decline")}
             </Button>
           </div>
 
           <p className="text-xs text-gray-500 dark:text-gray-400 mt-3 text-center">
-            En continuant, vous acceptez notre utilisation des cookies
-            essentiels.
+            {t("cookies.notice")}
           </p>
         </div>
       </motion.div>

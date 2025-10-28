@@ -45,21 +45,12 @@ export const metadata: Metadata = {
     description:
       "Portfolio de Brahim Haroun Hassan, Ingénieur en Intelligence Artificielle spécialisé en Machine Learning et Deep Learning.",
     siteName: "Portfolio Brahim Haroun Hassan",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Portfolio Brahim Haroun Hassan",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Portfolio - Brahim Haroun Hassan | Ingénieur IA",
     description:
       "Portfolio de Brahim Haroun Hassan, Ingénieur en Intelligence Artificielle spécialisé en Machine Learning et Deep Learning.",
-    images: ["/og-image.jpg"],
   },
   robots: {
     index: true,

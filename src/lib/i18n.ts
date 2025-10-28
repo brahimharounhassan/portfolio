@@ -16,13 +16,16 @@ export const translations = {
       contact: "Contact"
     },
     hero: {
-      greeting: "Salut, je suis",
+      greeting: "👋 Bienvenue dans mon Portfolio, je suis",
       name: "Brahim Haroun Hassan",
       title: "Ingénieur en Intelligence Artificielle",
       subtitle: "Spécialisé en Machine Learning, Deep Learning et traitement du langage naturel. Je transforme les données en solutions intelligentes.",
       cta: {
         contact: "Me Contacter",
+        contactShort: "Contact",
         projects: "Voir mes Projets",
+        projectsFull: "Découvrir mes projets",
+        projectsShort: "Mes projets",
         cv: "Télécharger CV"
       },
       stats: {
@@ -32,6 +35,9 @@ export const translations = {
         precision: "Précision",
         citations: "Citations",
         published: "Publié",
+        publication: "Publication",
+        experiences: "Expériences",
+        yearsAI: "Années IA",
         views: "Vues"
       }
     },
@@ -46,6 +52,9 @@ export const translations = {
         collaboration: "Collaboration et leadership"
       },
       contact: {
+        emailPrimary: "Email Principal",
+        emailSecondary: "Email Secondaire",
+        locationLabel: "Localisation",
         email1: "brahimharoun57@yahoo.fr",
         email2: "haroun-hassan.brahim@etu-univ.amu.fr",
         location: "Marseille, France",
@@ -65,7 +74,11 @@ export const translations = {
         },
         download: {
           french: "Télécharger CV (Français)",
-          english: "Télécharger CV (Anglais)"
+          frenchShort: "CV FR",
+          frenchFull: "Télécharger CV",
+          english: "Télécharger CV (Anglais)",
+          englishShort: "CV EN",
+          englishFull: "Download CV"
         },
         downloading: "Téléchargement...",
         retry: "Réessayer",
@@ -145,6 +158,24 @@ export const translations = {
       connect: "Me Suivre", 
       rights: "Tous droits réservés",
       madeWith: "Créé avec"
+    },
+    ui: {
+      backToTop: "Retour en haut"
+    },
+    cookies: {
+      title: "Cookies & Confidentialité",
+      description: "Ce site utilise des cookies pour améliorer votre expérience de navigation et analyser le trafic. Vos données restent anonymes et sécurisées.",
+      technicalTitle: "🔧 Cookies techniques",
+      technicalRequired: "Requis",
+      technicalDescription: "Nécessaires au fonctionnement du site (thème, langue, préférences).",
+      analyticsTitle: "📊 Google Analytics",
+      analyticsOptional: "Optionnel",
+      analyticsDescription: "Analyse anonyme du trafic pour améliorer le site.",
+      acceptAll: "Tout accepter",
+      showDetails: "Détails",
+      hideDetails: "Masquer",
+      decline: "Refuser",
+      notice: "En continuant, vous acceptez notre utilisation des cookies essentiels."
     }
   },
   en: {
@@ -158,22 +189,28 @@ export const translations = {
       contact: "Contact"
     },
     hero: {
-      greeting: "Hi, I'm",
+      greeting: "👋 Welcome to my Portfolio, I'm",
       name: "Brahim Haroun Hassan",
       title: "AI Engineer",
       subtitle: "Specialized in Machine Learning, Deep Learning and Natural Language Processing. I transform data into intelligent solutions.",
       cta: {
         contact: "Get In Touch",
+        contactShort: "Contact",
         projects: "View Projects",
+        projectsFull: "Discover my projects",
+        projectsShort: "My projects",
         cv: "Download CV"
       },
       stats: {
         experience: "Years of experience",
-        projects: "Projects completed",
+        projects: "Completed projects", 
         certifications: "Certifications",
-        precision: "Precision",
-        citations: "Citations", 
+        precision: "Accuracy",
+        citations: "Citations",
         published: "Published",
+        publication: "Publication",
+        experiences: "Experiences",
+        yearsAI: "AI Years",
         views: "Views"
       }
     },
@@ -188,6 +225,9 @@ export const translations = {
         collaboration: "Collaboration and leadership"
       },
       contact: {
+        emailPrimary: "Primary Email",
+        emailSecondary: "Secondary Email",
+        locationLabel: "Location",
         email1: "brahimharoun57@yahoo.fr",
         email2: "haroun-hassan.brahim@etu.univ-amu.fr",
         location: "Marseille, France",
@@ -207,7 +247,11 @@ export const translations = {
         },
         download: {
           french: "Download CV (French)",
-          english: "Download CV (English)"
+          frenchShort: "CV FR",
+          frenchFull: "Télécharger CV",
+          english: "Download CV (English)",
+          englishShort: "CV EN",
+          englishFull: "Download CV"
         },
         downloading: "Downloading...",
         retry: "Retry",
@@ -287,6 +331,24 @@ export const translations = {
       connect: "Follow Me",
       rights: "All rights reserved",
       madeWith: "Made with"
+    },
+    ui: {
+      backToTop: "Back to top"
+    },
+    cookies: {
+      title: "Cookies & Privacy",
+      description: "This site uses cookies to improve your browsing experience and analyze traffic. Your data remains anonymous and secure.",
+      technicalTitle: "🔧 Technical cookies",
+      technicalRequired: "Required",
+      technicalDescription: "Necessary for the site to function (theme, language, preferences).",
+      analyticsTitle: "📊 Google Analytics",
+      analyticsOptional: "Optional",
+      analyticsDescription: "Anonymous traffic analysis to improve the site.",
+      acceptAll: "Accept all",
+      showDetails: "Details",
+      hideDetails: "Hide",
+      decline: "Decline",
+      notice: "By continuing, you accept our use of essential cookies."
     }
-  }
-} as const
+  },
+} as const;

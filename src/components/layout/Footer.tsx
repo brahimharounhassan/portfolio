@@ -153,7 +153,7 @@ export default function Footer() {
         <div className="border-t border-gray-800 mt-8 pt-8 text-center">
           <div className="flex flex-col sm:flex-row items-center justify-between space-y-2 sm:space-y-0">
             <p className="text-gray-500 text-sm">
-              © 2025 Brahim Haroun Hassan. {t("footer.rights")}.
+              © 2025 - Brahim Haroun Hassan. {t("footer.rights")}.
             </p>
             <div className="flex items-center space-x-1 text-gray-500 text-sm">
               <span>{t("footer.madeWith")}</span>

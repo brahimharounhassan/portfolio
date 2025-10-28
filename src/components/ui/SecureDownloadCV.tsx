@@ -141,22 +141,22 @@ export default function SecureDownloadCV({
   // Texte du bouton selon l'état - SSR safe
   const getButtonText = () => {
     if (success) return t("secureDownload.success");
-    if (isDownloading) return t("cv.downloading");
-    if (error) return t("cv.retry");
+    if (isDownloading) return t("about.cv.downloading");
+    if (error) return t("about.cv.retry");
 
     // Texte selon la langue et la taille d'écran (SSR safe)
     if (language === "fr") {
-      return mounted && isMobile ? "CV FR" : "Télécharger CV";
+      return mounted && isMobile ? t("about.cv.download.frenchShort") : t("about.cv.download.frenchFull");
     }
     if (language === "en") {
-      return mounted && isMobile ? "CV EN" : "Download CV";
+      return mounted && isMobile ? t("about.cv.download.englishShort") : t("about.cv.download.englishFull");
     }
 
     // Mode auto
     if (locale === "fr") {
-      return mounted && isMobile ? "CV FR" : "Télécharger CV";
+      return mounted && isMobile ? t("about.cv.download.frenchShort") : t("about.cv.download.frenchFull");
     } else {
-      return mounted && isMobile ? "CV EN" : "Download CV";
+      return mounted && isMobile ? t("about.cv.download.englishShort") : t("about.cv.download.englishFull");
     }
   };
 
@@ -194,12 +194,12 @@ export default function SecureDownloadCV({
         <Download className="w-4 h-4 sm:w-5 sm:h-5 mr-2 flex-shrink-0" />
         <span className="truncate">
           {language === "fr"
-            ? "Télécharger CV"
+            ? t("about.cv.download.frenchFull")
             : language === "en"
-            ? "Download CV"
+            ? t("about.cv.download.englishFull")
             : locale === "fr"
-            ? "Télécharger CV"
-            : "Download CV"}
+            ? t("about.cv.download.frenchFull")
+            : t("about.cv.download.englishFull")}
         </span>
       </Button>
     );

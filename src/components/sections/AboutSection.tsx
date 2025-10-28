@@ -165,7 +165,7 @@ export default function AboutSection() {
                   </div>
                   <div className="min-w-0 flex-1">
                     <p className="text-sm font-medium text-gray-900 dark:text-white">
-                      Email Principal
+                      {t("about.contact.emailPrimary")}
                     </p>
                     <a
                       href="mailto:brahimharoun57@yahoo.fr"
@@ -182,7 +182,7 @@ export default function AboutSection() {
                   </div>
                   <div className="min-w-0 flex-1">
                     <p className="text-sm font-medium text-gray-900 dark:text-white">
-                      Email Secondaire
+                      {t("about.contact.emailSecondary")}
                     </p>
                     <a
                       href="mailto:haroun-hassan.brahim@etu.univ-amu.fr"
@@ -199,7 +199,7 @@ export default function AboutSection() {
                   </div>
                   <div className="min-w-0 flex-1">
                     <p className="text-sm font-medium text-gray-900 dark:text-white">
-                      Localisation
+                      {t("about.contact.locationLabel")}
                     </p>
                     <p className="text-sm text-gray-500 dark:text-gray-400">
                       {t("about.contact.location")}

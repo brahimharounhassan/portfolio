@@ -133,7 +133,7 @@ export default function Header() {
             <div className="flex items-center space-x-1 sm:space-x-2 lg:space-x-3 min-w-0">
               <div className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 rounded-lg overflow-hidden flex-shrink-0 bg-gray-200 dark:bg-gray-700">
                 <img
-                  src="/portfolio/logo.jpg"
+                  src="/portfolio/logo.png"
                   alt="Brahim Haroun Hassan Logo"
                   className="w-full h-full object-cover rounded-lg"
                   loading="eager"

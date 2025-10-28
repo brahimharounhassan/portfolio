@@ -56,6 +56,30 @@ export const projectsI18n: Record<string, Record<Locale, ProjectTranslations>> =
       ]
     }
   },
+  speech: {
+    fr: {
+      title: 'Classification de Phonèmes EEG',
+      description: 'Système de classification avancé pour identifier les phonèmes /da/ et /ba/ à partir de signaux EEG chez les nourrissons. Utilisation d\'algorithmes de Machine Learning optimisés.',
+      category: 'Machine Learning • Neurosciences',
+      highlights: [
+        'Classification binaire /da/ vs /ba/',
+        'Prétraitement avancé des signaux EEG',
+        'Validation croisée robuste',
+        'Pipeline ML optimisé'
+      ]
+    },
+    en: {
+      title: 'EEG Phoneme Classification',
+      description: 'Advanced classification system to identify /da/ and /ba/ phonemes from infant EEG signals. Using optimized Machine Learning algorithms.',
+      category: 'Machine Learning • Neuroscience',
+      highlights: [
+        'Binary classification /da/ vs /ba/',
+        'Advanced EEG signal preprocessing',
+        'Robust cross-validation',
+        'Optimized ML pipeline'
+      ]
+    }
+  },
   ipv6: {
     fr: {
       title: 'Tunnel IPv6 over IPv4',

@@ -46,7 +46,7 @@ export default function HeroSection() {
             className="mb-6"
           >
             <span className="inline-block px-3 py-2 sm:px-4 sm:py-2 bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 rounded-full text-xs sm:text-sm font-medium mb-4">
-              👋 Bienvenue dans mon Portfolio, je suis
+              {t("hero.greeting")}
             </span>
           </motion.div>
 
@@ -58,7 +58,7 @@ export default function HeroSection() {
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 leading-tight"
           >
             <span className="bg-gradient-to-r from-primary-600 to-purple-600 bg-clip-text text-transparent">
-              Brahim Haroun Hassan
+              {t("hero.name")}
             </span>
           </motion.h1>
 
@@ -69,7 +69,7 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold text-gray-700 dark:text-gray-300 mb-6 sm:mb-8"
           >
-            Ingénieur en Intelligence Artificielle
+            {t("hero.title")}
           </motion.h2>
 
           {/* Subtitle */}
@@ -79,11 +79,7 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.8 }}
             className="text-base sm:text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-4 sm:px-0"
           >
-            Spécialisé en{" "}
-            <span className="text-primary-600 dark:text-primary-400 font-semibold">
-              Machine Learning et Deep Learning
-            </span>{" "}
-            🧠✨
+            {t("hero.subtitle")}
           </motion.p>
 
           {/* CTA Buttons */}
@@ -103,8 +99,8 @@ export default function HeroSection() {
               }
               className="w-full sm:w-auto min-w-0 sm:min-w-[200px]"
             >
-              <span className="hidden sm:inline">Découvrir mes projets</span>
-              <span className="sm:hidden">Mes projets</span>
+              <span className="hidden sm:inline">{t("hero.cta.projectsFull")}</span>
+              <span className="sm:hidden">{t("hero.cta.projectsShort")}</span>
               <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
             </Button>
 
@@ -119,8 +115,8 @@ export default function HeroSection() {
               className="w-full sm:w-auto min-w-0 sm:min-w-[200px]"
             >
               <Mail className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />
-              <span className="hidden sm:inline">Me contacter</span>
-              <span className="sm:hidden">Contact</span>
+              <span className="hidden sm:inline">{t("hero.cta.contact")}</span>
+              <span className="sm:hidden">{t("hero.cta.contactShort")}</span>
             </Button>
           </motion.div>
 
@@ -136,7 +132,7 @@ export default function HeroSection() {
                 1
               </div>
               <div className="text-gray-600 dark:text-gray-400 text-xs sm:text-sm">
-                Publication
+                {t("hero.stats.publication")}
               </div>
             </div>
             <div className="text-center">
@@ -144,7 +140,7 @@ export default function HeroSection() {
                 4
               </div>
               <div className="text-gray-600 dark:text-gray-400 text-xs sm:text-sm">
-                Expériences
+                {t("hero.stats.experiences")}
               </div>
             </div>
             <div className="text-center">
@@ -152,7 +148,7 @@ export default function HeroSection() {
                 3+
               </div>
               <div className="text-gray-600 dark:text-gray-400 text-xs sm:text-sm">
-                Années IA
+                {t("hero.stats.yearsAI")}
               </div>
             </div>
           </motion.div>
