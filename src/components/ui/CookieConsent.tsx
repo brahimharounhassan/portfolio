@@ -37,14 +37,12 @@ export default function CookieConsent() {
     }
 
     setShowConsent(false);
-    console.log("✅ Cookies acceptés");
   };
 
   const handleDecline = () => {
     localStorage.setItem("cookie-consent", "declined");
     analytics.setGAConsent(false);
     setShowConsent(false);
-    console.log("❌ Cookies refusés");
   };
 
   const handleCustomize = () => {

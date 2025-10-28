@@ -70,9 +70,11 @@ export const metadata: Metadata = {
     },
   },
   manifest: "/portfolio/manifest.json",
-  verification: {
-    google: "your-google-site-verification-code",
-  },
+  ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION && {
+    verification: {
+      google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+    },
+  }),
 };
 
 export default function RootLayout({

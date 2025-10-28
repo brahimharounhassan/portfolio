@@ -57,7 +57,6 @@ export default function SecureDownloadCV({
       const documentId = downloadLang === "fr" ? "cv-fr" : "cv-en";
 
       // Phase 1: Validation sécurisée
-      console.log(t("secureDownload.validating"));
 
       const userAgent = navigator.userAgent;
       const referer = window.location.href;
@@ -83,18 +82,15 @@ export default function SecureDownloadCV({
       }
 
       // Phase 2: Génération du token
-      console.log(t("secureDownload.generating"));
       const token = generateSecureDownloadToken(documentId);
 
       // Phase 3: Analytics et logging
       analytics.trackDownload(documentId as "cv-fr" | "cv-en", {
         language: downloadLang,
         secure: true,
-        token: token.substring(0, 8) + "...", // Partial token pour debug
       });
 
       // Phase 4: Téléchargement sécurisé
-      console.log(t("secureDownload.downloading"));
 
       const filename =
         downloadLang === "fr"
@@ -118,7 +114,6 @@ export default function SecureDownloadCV({
 
       // Marquer comme succès
       setSuccess(true);
-      console.log(t("secureDownload.success"));
 
       // Reset après 3 secondes
       setTimeout(() => {
@@ -126,7 +121,6 @@ export default function SecureDownloadCV({
         setSuccess(false);
       }, 3000);
     } catch (err) {
-      console.error("Erreur de téléchargement:", err);
       setError(err instanceof Error ? err.message : t("cv.downloadError"));
       setIsDownloading(false);
 
