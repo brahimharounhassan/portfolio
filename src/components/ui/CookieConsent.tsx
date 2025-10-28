@@ -146,7 +146,9 @@ export default function CookieConsent() {
               <span className="mr-2">
                 <Settings size={16} />
               </span>
-              {showDetails ? t("cookies.hideDetails") : t("cookies.showDetails")}
+              {showDetails
+                ? t("cookies.hideDetails")
+                : t("cookies.showDetails")}
             </Button>
 
             <Button

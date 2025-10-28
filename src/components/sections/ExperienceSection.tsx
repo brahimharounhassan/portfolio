@@ -3,7 +3,11 @@
 import { motion } from "framer-motion";
 import { Briefcase, Calendar, MapPin } from "lucide-react";
 import { useTranslation } from "@/hooks/useTranslation";
-import { experiencesI18n, experienceIds, experienceTechnologies } from "@/data/experiences.i18n";
+import {
+  experiencesI18n,
+  experienceIds,
+  experienceTechnologies,
+} from "@/data/experiences.i18n";
 
 export default function ExperienceSection() {
   const { t, locale } = useTranslation();
@@ -41,7 +45,7 @@ export default function ExperienceSection() {
             {experienceIds.map((expId, index) => {
               const exp = experiencesI18n[expId]?.[locale];
               const technologies = experienceTechnologies[expId];
-              
+
               if (!exp) return null;
 
               return (
@@ -52,13 +56,16 @@ export default function ExperienceSection() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className={`relative md:w-1/2 ${
-                    index % 2 === 0 ? "md:pr-8 md:text-right" : "md:ml-auto md:pl-8"
+                    index % 2 === 0
+                      ? "md:pr-8 md:text-right"
+                      : "md:ml-auto md:pl-8"
                   }`}
                 >
                   {/* Timeline Dot */}
-                  <div className="hidden md:block absolute top-6 w-4 h-4 bg-primary-600 rounded-full border-4 border-white dark:border-gray-800 transform -translate-y-1/2 z-10"
+                  <div
+                    className="hidden md:block absolute top-6 w-4 h-4 bg-primary-600 rounded-full border-4 border-white dark:border-gray-800 transform -translate-y-1/2 z-10"
                     style={{
-                      [index % 2 === 0 ? 'right' : 'left']: '-2.125rem'
+                      [index % 2 === 0 ? "right" : "left"]: "-2.125rem",
                     }}
                   />
 
@@ -68,7 +75,10 @@ export default function ExperienceSection() {
                     <div className="flex items-center text-sm text-primary-600 dark:text-primary-400 mb-3">
                       <Calendar size={16} className="mr-2" />
                       <span>
-                        {exp.startDate} - {exp.endDate === "Present" || exp.endDate === "Présent" ? t("experience.present") : exp.endDate}
+                        {exp.startDate} -{" "}
+                        {exp.endDate === "Present" || exp.endDate === "Présent"
+                          ? t("experience.present")
+                          : exp.endDate}
                       </span>
                     </div>
 
@@ -77,7 +87,10 @@ export default function ExperienceSection() {
                       {exp.position}
                     </h3>
                     <div className="flex items-start mb-3 text-gray-700 dark:text-gray-300">
-                      <Briefcase size={16} className="mr-2 mt-1 flex-shrink-0" />
+                      <Briefcase
+                        size={16}
+                        className="mr-2 mt-1 flex-shrink-0"
+                      />
                       <span className="font-medium">{exp.company}</span>
                     </div>
                     <div className="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-4">

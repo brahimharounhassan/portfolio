@@ -151,14 +151,17 @@ export default function CertificationsSection() {
 
                   {/* Description */}
                   <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">
-                    {certificationsI18n[cert.id]?.[locale]?.description || cert.description}
+                    {certificationsI18n[cert.id]?.[locale]?.description ||
+                      cert.description}
                   </p>
 
                   {/* Dates */}
                   <div className="space-y-2 mb-4">
                     <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
                       <Calendar className="w-4 h-4 mr-2" />
-                      <span>{t("certifications.date")}: {formatDate(cert.issueDate)}</span>
+                      <span>
+                        {t("certifications.date")}: {formatDate(cert.issueDate)}
+                      </span>
                     </div>
                     {cert.expiryDate ? (
                       <div

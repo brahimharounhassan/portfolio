@@ -146,17 +146,25 @@ export default function SecureDownloadCV({
 
     // Texte selon la langue et la taille d'écran (SSR safe)
     if (language === "fr") {
-      return mounted && isMobile ? t("about.cv.download.frenchShort") : t("about.cv.download.frenchFull");
+      return mounted && isMobile
+        ? t("about.cv.download.frenchShort")
+        : t("about.cv.download.frenchFull");
     }
     if (language === "en") {
-      return mounted && isMobile ? t("about.cv.download.englishShort") : t("about.cv.download.englishFull");
+      return mounted && isMobile
+        ? t("about.cv.download.englishShort")
+        : t("about.cv.download.englishFull");
     }
 
     // Mode auto
     if (locale === "fr") {
-      return mounted && isMobile ? t("about.cv.download.frenchShort") : t("about.cv.download.frenchFull");
+      return mounted && isMobile
+        ? t("about.cv.download.frenchShort")
+        : t("about.cv.download.frenchFull");
     } else {
-      return mounted && isMobile ? t("about.cv.download.englishShort") : t("about.cv.download.englishFull");
+      return mounted && isMobile
+        ? t("about.cv.download.englishShort")
+        : t("about.cv.download.englishFull");
     }
   };
 

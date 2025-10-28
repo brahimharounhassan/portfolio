@@ -99,7 +99,9 @@ export default function HeroSection() {
               }
               className="w-full sm:w-auto min-w-0 sm:min-w-[200px]"
             >
-              <span className="hidden sm:inline">{t("hero.cta.projectsFull")}</span>
+              <span className="hidden sm:inline">
+                {t("hero.cta.projectsFull")}
+              </span>
               <span className="sm:hidden">{t("hero.cta.projectsShort")}</span>
               <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
             </Button>

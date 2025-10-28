@@ -105,15 +105,18 @@ export default function ProjectsSection() {
                   <div className="space-y-4">
                     <div>
                       <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors leading-tight">
-                        {projectsI18n[project.id]?.[locale]?.title || project.title}
+                        {projectsI18n[project.id]?.[locale]?.title ||
+                          project.title}
                       </h3>
                       <p className="text-sm text-primary-600 dark:text-primary-400 font-medium mt-1">
-                        {projectsI18n[project.id]?.[locale]?.category || project.category}
+                        {projectsI18n[project.id]?.[locale]?.category ||
+                          project.category}
                       </p>
                     </div>
 
                     <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed">
-                      {projectsI18n[project.id]?.[locale]?.description || project.description}
+                      {projectsI18n[project.id]?.[locale]?.description ||
+                        project.description}
                     </p>
 
                     {/* Stats (if featured) - Responsive Grid */}
@@ -142,7 +145,10 @@ export default function ProjectsSection() {
 
                     {/* Highlights - Responsive */}
                     <div className="space-y-2">
-                      {(projectsI18n[project.id]?.[locale]?.highlights || project.highlights).map((highlight, idx) => (
+                      {(
+                        projectsI18n[project.id]?.[locale]?.highlights ||
+                        project.highlights
+                      ).map((highlight, idx) => (
                         <div
                           key={idx}
                           className="flex items-start space-x-2 text-sm"

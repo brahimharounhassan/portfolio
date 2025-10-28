@@ -131,12 +131,16 @@ export default function Header() {
             className="cursor-pointer flex-shrink-0 min-w-0"
           >
             <div className="flex items-center space-x-1 sm:space-x-2 lg:space-x-3 min-w-0">
-              <div className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 rounded-lg overflow-hidden flex-shrink-0 bg-gray-200 dark:bg-gray-700">
+              <div className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 rounded-lg overflow-hidden flex-shrink-0 bg-primary-600 dark:bg-primary-500">
                 <img
                   src="/portfolio/logo.png"
                   alt="Brahim Haroun Hassan Logo"
-                  className="w-full h-full object-cover rounded-lg"
+                  className="w-full h-full object-contain"
                   loading="eager"
+                  onError={(e) => {
+                    // Fallback si l'image ne charge pas
+                    (e.target as HTMLImageElement).style.display = 'none';
+                  }}
                 />
               </div>
               <span className="text-base sm:text-lg lg:text-xl font-bold bg-gradient-to-r from-primary-600 to-purple-600 bg-clip-text text-transparent truncate">
