@@ -13,6 +13,7 @@ import {
 import Card from "@/components/ui/Card";
 import { useTranslation } from "@/hooks/useTranslation";
 import { certifications } from "@/data/certifications";
+import { certificationsI18n } from "@/data/certifications.i18n";
 
 const getIconByType = (iconType: string) => {
   switch (iconType) {
@@ -71,7 +72,7 @@ const formatDate = (dateString: string) => {
 };
 
 export default function CertificationsSection() {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
 
   return (
     <section id="certifications" className="py-20 bg-gray-50 dark:bg-gray-800">
@@ -150,14 +151,14 @@ export default function CertificationsSection() {
 
                   {/* Description */}
                   <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">
-                    {cert.description}
+                    {certificationsI18n[cert.id]?.[locale]?.description || cert.description}
                   </p>
 
                   {/* Dates */}
                   <div className="space-y-2 mb-4">
                     <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
                       <Calendar className="w-4 h-4 mr-2" />
-                      <span>Obtenu en {formatDate(cert.issueDate)}</span>
+                      <span>{t("certifications.date")}: {formatDate(cert.issueDate)}</span>
                     </div>
                     {cert.expiryDate ? (
                       <div

@@ -8,10 +8,11 @@ import { ExternalLink, Github, Filter, Award, Eye } from "lucide-react";
 import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
 import { projects } from "@/data/projects";
+import { projectsI18n } from "@/data/projects.i18n";
 import { useTranslation } from "@/hooks/useTranslation";
 
 export default function ProjectsSection() {
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
   const [activeFilter, setActiveFilter] = useState("all");
 
   const categories = [
@@ -104,15 +105,15 @@ export default function ProjectsSection() {
                   <div className="space-y-4">
                     <div>
                       <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors leading-tight">
-                        {project.title}
+                        {projectsI18n[project.id]?.[locale]?.title || project.title}
                       </h3>
                       <p className="text-sm text-primary-600 dark:text-primary-400 font-medium mt-1">
-                        {project.category}
+                        {projectsI18n[project.id]?.[locale]?.category || project.category}
                       </p>
                     </div>
 
                     <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed">
-                      {project.description}
+                      {projectsI18n[project.id]?.[locale]?.description || project.description}
                     </p>
 
                     {/* Stats (if featured) - Responsive Grid */}
@@ -141,7 +142,7 @@ export default function ProjectsSection() {
 
                     {/* Highlights - Responsive */}
                     <div className="space-y-2">
-                      {project.highlights.map((highlight, idx) => (
+                      {(projectsI18n[project.id]?.[locale]?.highlights || project.highlights).map((highlight, idx) => (
                         <div
                           key={idx}
                           className="flex items-start space-x-2 text-sm"

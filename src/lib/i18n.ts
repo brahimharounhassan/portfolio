@@ -249,6 +249,7 @@ export const translations = {
       }
     },
     experience: {
+      badge: "Journey",
       title: "Professional Experience",
       subtitle: "My journey in artificial intelligence",
       present: "Present",
